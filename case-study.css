@@ -429,6 +429,9 @@ p {
   width: 700px;
   margin: 0 auto;
 }
+.cs-section-inner--overflow {
+  overflow: visible;
+}
 .cs-sec-label {
   display: block;
   font-family: var(--font-body);
@@ -1158,8 +1161,9 @@ p {
   display: flex;
   gap: 16px;
   overflow-x: auto;
-  padding: 0 40px 24px;
-  scroll-snap-type: x mandatory;
+  /* Side padding aligns the first/last image with the 700px content column
+     while letting the track bleed across the full width of the card. */
+  padding: 0 calc((100% - 700px) / 2) 24px;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
 }
@@ -1169,7 +1173,6 @@ p {
   width: 680px;
   flex-shrink: 0;
   border-radius: 15px;
-  scroll-snap-align: start;
   display: block;
 }
 
