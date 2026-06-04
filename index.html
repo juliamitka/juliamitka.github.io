@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Julia Mitka — UX/UI Designer</title>
+  <meta name="description" content="Julia Mitka — UX/UI Designerka z Krakowa. Portfolio product designerki.">
+
+  <!-- Satoshi (body) + Clash Display (name) via Fontshare -->
+  <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=satoshi@900,700,500,400,300&f[]=clash-display@400,500,600,700&display=swap">
+  <!-- Syne (headings) via Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursor-follower"></div>
+
+  <main>
+
+    <!-- ═══════════════════════════════════════════════
+         SPLIT LAYOUT — sticky left + scrollable right
+         ═══════════════════════════════════════════════ -->
+    <div class="split">
+
+      <!-- ── LEFT COLUMN (sticky) ───────────────────── -->
+      <aside class="left-col">
+        <div class="left-in">
+
+          <!-- Top -->
+          <div class="left-top">
+            <div class="proj-progress"><span class="proj-cur" id="proj-cur">1</span><span class="proj-sep">/</span><span class="proj-total">3</span></div>
+          </div>
+
+          <!-- Center -->
+          <div class="left-center">
+            <div class="avatar-wrap" id="avatar-wrap">
+              <img
+                src="assets/julia.jpg"
+                alt="Julia Mitka"
+                onerror="this.style.display='none';this.parentElement.classList.add('no-photo')"
+              >
+            </div>
+
+            <div class="left-ident">
+              <h1 class="name">Julia<br>Mitka.</h1>
+              <p class="role">UX/UI DESIGNER</p>
+              <p class="tagline">I create digital experiences that<br>combine aesthetics with functionality and<br>connect user goals with business objectives.</p>
+            </div>
+
+          </div>
+
+          <div class="cta-row">
+            <a href="mailto:julia.mitka@example.com" class="btn-primary">Let's work together</a>
+            <a href="#" class="btn-ghost" download>My resume</a>
+            <a href="https://linkedin.com/in/julia-mitka" class="btn-icon" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true">
+                <path d="M216,26H40A14,14,0,0,0,26,40V216a14,14,0,0,0,14,14H216a14,14,0,0,0,14-14V40A14,14,0,0,0,216,26Zm2,190a2,2,0,0,1-2,2H40a2,2,0,0,1-2-2V40a2,2,0,0,1,2-2H216a2,2,0,0,1,2,2ZM94,112v64a6,6,0,0,1-12,0V112a6,6,0,0,1,12,0Zm88,28v36a6,6,0,0,1-12,0V140a22,22,0,0,0-44,0v36a6,6,0,0,1-12,0V112a6,6,0,0,1,12,0v2.11A34,34,0,0,1,182,140ZM98,84A10,10,0,1,1,88,74,10,10,0,0,1,98,84Z"/>
+              </svg>
+            </a>
+          </div>
+
+        </div><!-- .left-in -->
+      </aside>
+
+      <!-- ── RIGHT COLUMN (wszystkie sekcje scrollują się tutaj) ─── -->
+      <div class="right-col">
+
+        <!-- Project 1 -->
+        <article class="proj" data-num="1">
+          <a href="case-study-kaczmarski.html" class="proj-link" aria-label="Kaczmarski Group — case study">
+            <div class="proj-visual proj-visual--blue">
+              <div class="mdash">
+                <div class="mdash-bar"><em></em><em></em><em></em></div>
+                <div class="mdash-body">
+                  <div class="mdash-side">
+                    <div class="mdash-nav mdash-nav--active"></div>
+                    <div class="mdash-nav"></div>
+                    <div class="mdash-nav"></div>
+                    <div class="mdash-nav"></div>
+                  </div>
+                  <div class="mdash-main">
+                    <div class="mdash-stats">
+                      <div class="mdash-stat"></div>
+                      <div class="mdash-stat"></div>
+                      <div class="mdash-stat"></div>
+                    </div>
+                    <div class="mdash-chart"></div>
+                    <div class="mdash-rows">
+                      <div></div><div></div><div></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="proj-overlay">
+              <div class="proj-info">
+                <span class="proj-cat" style="margin: 0px 0px 12px; font-size: 12px">UX Research · Product Design · B2B</span>
+                <h2 class="proj-name" style="font-family: &quot;Clash Display&quot;; font-weight: 600; margin: 0px 0px 24px">Kaczmarski Group</h2>
+                <span class="proj-cta-lnk" style="font-size: 15px; gap: 8px; border-width: 0px">View case study →</span>
+              </div>
+            </div>
+          </a>
+        </article>
+
+        <!-- Project 2 -->
+        <article class="proj" data-num="2">
+          <a href="#" class="proj-link" aria-label="Mobile Banking — case study">
+            <div class="proj-visual proj-visual--warm">
+              <div class="mmob">
+                <div class="mmob-notch"></div>
+                <div class="mmob-header">
+                  <div class="mmob-greeting"></div>
+                  <div class="mmob-balance"></div>
+                  <div class="mmob-bal-sm"></div>
+                </div>
+                <div class="mmob-card"></div>
+                <div class="mmob-actions">
+                  <div></div><div></div><div></div>
+                </div>
+                <div class="mmob-list">
+                  <div></div><div></div><div></div><div></div>
+                </div>
+              </div>
+            </div>
+            <div class="proj-overlay">
+              <div class="proj-info">
+                <span class="proj-cat" style="margin: 0px 0px 12px; font-size: 12px">Mobile Design · UX Strategy</span>
+                <h2 class="proj-name" style="font-family: &quot;Clash Display&quot;; margin: 0px 0px 24px; font-weight: 600">Mobile Banking</h2>
+                <span class="proj-cta-lnk" style="border-width: 0px; font-size: 15px; gap: 8px">View case study →</span>
+              </div>
+            </div>
+          </a>
+        </article>
+
+        <!-- Project 3 -->
+        <article class="proj proj--dark" data-num="3">
+          <a href="#" class="proj-link" aria-label="E-commerce Design System — case study">
+            <div class="proj-visual proj-visual--dark">
+              <div class="mds">
+                <div class="mds-left">
+                  <div class="mds-label">Colours</div>
+                  <div class="mds-swatches">
+                    <div></div><div></div><div></div><div></div><div></div>
+                  </div>
+                  <div class="mds-label">Typography</div>
+                  <div class="mds-types">
+                    <div class="mds-t mds-t--xl"></div>
+                    <div class="mds-t mds-t--lg"></div>
+                    <div class="mds-t mds-t--md"></div>
+                    <div class="mds-t mds-t--sm"></div>
+                  </div>
+                </div>
+                <div class="mds-right">
+                  <div class="mds-label">Components</div>
+                  <div class="mds-btns">
+                    <div class="mds-btn mds-btn--fill"></div>
+                    <div class="mds-btn mds-btn--out"></div>
+                  </div>
+                  <div class="mds-input"></div>
+                  <div class="mds-cards">
+                    <div class="mds-card"><div></div><div></div><div></div></div>
+                    <div class="mds-card mds-card--alt"><div></div><div></div><div></div></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="proj-overlay">
+              <div class="proj-info">
+                <span class="proj-cat" style="margin: 0px 0px 12px; font-size: 12px">Design System · UI Design · E-commerce</span>
+                <h2 class="proj-name" style="font-family: &quot;Clash Display&quot;; font-weight: 600">E-commerce Design System</h2>
+                <span class="proj-cta-lnk" style="border-width: 0px; gap: 8px; font-size: 15px">View case study →</span>
+              </div>
+            </div>
+          </a>
+        </article>
+
+        <!-- ═══════════════════════════════════════════════
+             ABOUT SECTION
+             ═══════════════════════════════════════════════ -->
+        <section class="about" id="about">
+          <span class="sec-label">About me</span>
+          <div class="about-body">
+            <p>As a UX/UI Designer, I work on complex B2B products that require a balance between an aesthetic interface, a clear structure, and well-thought-out logic. In my design work, I focus on making even complicated processes simpler and easier for users to understand.</p>
+            <p>What I value most in design is bringing order to chaos: analyzing problems, structuring information, exploring different scenarios, and looking for solutions that are simple, useful, and well-grounded in the business context. I care about creating designs that are not only visually appealing, but above all clear and comfortable to use.</p>
+            <p>I hold a degree in Finance and Accounting from the Krakow University of Economics. I started my career in IT as a System Analyst at Comarch, and later continued developing it at Kaczmarski Group. It was there that I moved into UX/UI and helped shape a new design role within the organization.</p>
+            <p>Outside of work, I'm usually somewhere between planning my next trip, meeting friends, and enjoying a quiet evening at home. I like cooking, baking sourdough bread, and creating things in my own way - most recently, I've been developing a small project with personalized tote bags that I design and make myself.</p>
+          </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════
+             SKILLS SECTION
+             ═══════════════════════════════════════════════ -->
+        <section class="skills-section">
+
+          <div class="skills-block">
+            <span class="sec-label">Design Skills</span>
+            <div class="skills-tags">
+              <span class="pill">UX Research</span>
+              <span class="pill">UI Design</span>
+              <span class="pill">Prototyping</span>
+              <span class="pill">Usability Testing</span>
+              <span class="pill">Wireframing</span>
+              <span class="pill">Information Architecture</span>
+              <span class="pill">User Flows</span>
+              <span class="pill">Design Systems</span>
+              <span class="pill">Visual Design</span>
+            </div>
+          </div>
+
+          <div class="skills-block">
+            <span class="sec-label">Tools</span>
+            <div class="skills-tags">
+              <span class="pill">Figma</span>
+              <span class="pill">Miro</span>
+              <span class="pill">Notion</span>
+              <span class="pill">Jira</span>
+            </div>
+          </div>
+
+          <div class="skills-block">
+            <span class="sec-label">Languages</span>
+            <div class="skills-tags">
+              <span class="pill">Polish · Native</span>
+              <span class="pill">English · B2</span>
+            </div>
+          </div>
+
+        </section>
+
+
+      </div><!-- .right-col -->
+
+    </div><!-- .split -->
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
