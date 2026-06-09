@@ -58,6 +58,20 @@
   --c-brown:                #443F3B;
   --c-icon-light:           #C9B8A8;
 
+  /* ── Kolory Mobile case study — colour tokens ── */
+  --mobile-blue-50:              #F2F9FD;
+  --mobile-blue-100:             #E5F2F9;
+  --mobile-blue-200:             #C5E4F2;
+  --mobile-blue-500:             #35A1CC;
+  --mobile-blue-700:             #1D6487;
+  --mobile-blue-950:             #0A171F;
+  --mobile-blue-500-border:      rgba(53, 161, 204, 0.20);
+  --mobile-blue-500-label:       rgba(53, 161, 204, 0.80);
+  --mobile-purple-950-label:     rgba(10, 23, 31, 0.60);
+  --mobile-purple-950-subtle:    rgba(10, 23, 31, 0.80);
+  --mobile-gray-100:             #F2F2F2;
+  --mobile-gray-stroke:          #F5F5F5;
+
   /* ── Semantic aliases ── */
   --bg:      var(--c-bg);
   --fg:      var(--c-text);
