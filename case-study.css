@@ -395,7 +395,7 @@ p {
 }
 .cs-chip:hover {
   transform: translateY(-3px);
-  box-shadow: 0 8px 24px rgba(21, 0, 41, 0.06);
+  box-shadow: 0 4px 8px rgba(68, 51, 84, 0.15), 0 2px 4px rgba(68, 51, 84, 0.10);
 }
 .cs-chip--wide {
   min-width: 210px;
@@ -586,10 +586,24 @@ p {
 .cs-callout--ad-r2 { transform: translateX(16px); }
 
 .cs-annotated--visible .cs-callout { opacity: 1; transform: translateX(0); }
+
+/* Main page callouts */
 .cs-annotated--visible .cs-callout--tl { transition-delay: 0.15s; }
-.cs-annotated--visible .cs-callout--tr { transition-delay: 0.3s; }
+.cs-annotated--visible .cs-callout--tr { transition-delay: 0.30s; }
 .cs-annotated--visible .cs-callout--bl { transition-delay: 0.45s; }
-.cs-annotated--visible .cs-callout--br { transition-delay: 0.6s; }
+.cs-annotated--visible .cs-callout--br { transition-delay: 0.60s; }
+
+/* Step 1 callouts */
+.cs-annotated--visible .cs-callout--s1-r1 { transition-delay: 0.15s; }
+.cs-annotated--visible .cs-callout--s1-l1 { transition-delay: 0.30s; }
+.cs-annotated--visible .cs-callout--s1-r2 { transition-delay: 0.45s; }
+.cs-annotated--visible .cs-callout--s1-l2 { transition-delay: 0.60s; }
+.cs-annotated--visible .cs-callout--s1-r3 { transition-delay: 0.75s; }
+
+/* Adding debt details callouts */
+.cs-annotated--visible .cs-callout--ad-r1 { transition-delay: 0.15s; }
+.cs-annotated--visible .cs-callout--ad-l1 { transition-delay: 0.30s; }
+.cs-annotated--visible .cs-callout--ad-r2 { transition-delay: 0.45s; }
 
 /* ============================================================
    GOALS
@@ -748,11 +762,12 @@ p {
   color: var(--app-purple-950);
   transform: rotate(calc(var(--r,0)*1deg));
   transition: transform .2s var(--ease-out);
+  box-shadow: 0 4px 8px rgba(68, 51, 84, 0.15), 0 2px 4px rgba(68, 51, 84, 0.10);
 }
 .cs-sticky:nth-child(2) { --r: -0.5; }
 .cs-sticky:nth-child(3) { --r: 0.8; }
 .cs-sticky:nth-child(4) { --r: -0.3; }
-.cs-sticky:hover { transform: rotate(0) translateY(-2px) scale(1.02); }
+.cs-sticky:hover { transform: rotate(0) translateY(-2px) scale(1.02); box-shadow: 0 4px 8px rgba(68, 51, 84, 0.15), 0 2px 4px rgba(68, 51, 84, 0.10); }
 .cs-sticky--yellow { background: #FFF3C0; border: 1px solid #F5E07A; }
 .cs-sticky--red    { background: #FFE4E0; border: 1px solid #F5B8B0; }
 .cs-sticky--blue   { background: #D8EEFF; border: 1px solid #A0CAFE; }
