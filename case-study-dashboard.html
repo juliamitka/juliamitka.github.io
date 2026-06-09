@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dashboard Redesign — Case Study · Julia Mitka</title>
-  <meta name="description" content="Transforming a product catalog homepage into an actionable business dashboard — UX/UI case study by Julia Mitka.">
+  <title>Dashboard Redesign - Case Study · Julia Mitka</title>
+  <meta name="description" content="Transforming a product catalog homepage into an actionable business dashboard - UX/UI case study by Julia Mitka.">
 
   <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=satoshi@900,700,500,400,300&f[]=clash-display@400,500,600,700&display=swap">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -44,7 +44,7 @@
     .ph--before-after { width: 100%; aspect-ratio: 21/9; }
 
     /* ─────────────────────────────────────────────
-       HERO — wider title, meta bar above
+       HERO - wider title, meta bar above
     ───────────────────────────────────────────── */
     .db-hero-meta {
       display: flex;
@@ -62,7 +62,7 @@
     }
 
     /* ─────────────────────────────────────────────
-       SECTION WRAPPER — label + content side by side
+       SECTION WRAPPER - label + content side by side
     ───────────────────────────────────────────── */
     .db-sec {
       padding: 0;
@@ -103,7 +103,7 @@
     }
 
     /* ─────────────────────────────────────────────
-       OVERVIEW — 2×2 bordered grid
+       OVERVIEW - 2×2 bordered grid
     ───────────────────────────────────────────── */
     .db-ov-grid {
       display: grid;
@@ -136,7 +136,7 @@
     }
 
     /* ─────────────────────────────────────────────
-       CHALLENGE — big intro text + annotated ph
+       CHALLENGE - big intro text + annotated ph
     ───────────────────────────────────────────── */
     .db-challenge-intro {
       font-family: var(--font-hdg);
@@ -173,7 +173,7 @@
       font-weight: var(--type-label-s-weight);
       letter-spacing: 0.06em;
       text-transform: uppercase;
-      color: var(--c-label-text);
+      color: var(--app-purple-950-label);
       margin-bottom: 16px;
       padding: 0 40px;
     }
@@ -224,6 +224,37 @@
     .cs-annotated--visible .cs-callout--db-r1 { transition-delay: 0.3s; }
     .cs-annotated--visible .cs-callout--db-l2 { transition-delay: 0.45s; }
 
+    /* iteration callout overrides */
+    .db-iter-section .cs-callout { width: 232px; }
+    .db-iter-section .cs-annotated { margin-bottom: 48px; }
+
+    /* callout positions for iterations */
+    .cs-callout--iter-v1-l1 { top: 116px; left: -104px; }
+    .cs-callout--iter-v1-l2 { top: 678px; left: -104px; }
+    .cs-callout--iter-v1-r1 { top: 160px; left: 575.2px; }
+
+    .cs-callout--iter-v1-l1,
+    .cs-callout--iter-v1-l2 { transform: translateX(-16px); }
+    .cs-callout--iter-v1-r1 { transform: translateX(16px); }
+
+    .cs-annotated--visible .cs-callout--iter-v1-l1 { transition-delay: 0.15s; }
+    .cs-annotated--visible .cs-callout--iter-v1-l2 { transition-delay: 0.3s; }
+    .cs-annotated--visible .cs-callout--iter-v1-r1 { transition-delay: 0.45s; }
+
+    .cs-callout--iter-v2-l1 { top: 40px; left: -104px; }
+    .cs-callout--iter-v2-l1 { transform: translateX(-16px); }
+    .cs-annotated--visible .cs-callout--iter-v2-l1 { transition-delay: 0.15s; }
+
+    .cs-callout--iter-final-l1 { top: 280px; left: -104px; }
+    .cs-callout--iter-final-l2 { top: 608px; left: -104px; }
+    .cs-callout--iter-final-r1 { top: 504px; left: 575.2px; }
+    .cs-callout--iter-final-l1,
+    .cs-callout--iter-final-l2 { transform: translateX(-16px); }
+    .cs-callout--iter-final-r1 { transform: translateX(16px); }
+    .cs-annotated--visible .cs-callout--iter-final-l1 { transition-delay: 0.15s; }
+    .cs-annotated--visible .cs-callout--iter-final-r1 { transition-delay: 0.3s; }
+    .cs-annotated--visible .cs-callout--iter-final-l2 { transition-delay: 0.45s; }
+
     /* Design challenge chip */
     .db-challenge-chip {
       display: flex;
@@ -252,45 +283,53 @@
     }
 
     /* ─────────────────────────────────────────────
-       GOALS TABLE — 3 col
+       GOALS TABLE - 3 col
     ───────────────────────────────────────────── */
     .db-goals-table {
       display: flex;
       flex-direction: column;
-      border: 1px solid var(--app-purple-100);
+      border: 1px solid var(--app-gray-stroke);
       border-radius: 14px;
-      overflow: hidden;
+      padding: 8px;
+      gap: 0;
     }
     .db-goals-head {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
-      background: var(--app-purple-100);
     }
     .db-goals-head-cell {
-      padding: 11px 18px;
+      padding: 16px 24px 16px 24px;
       font-size: var(--type-label-s-size);
       font-weight: var(--type-label-s-weight);
-      letter-spacing: 0.06em;
+      line-height: var(--type-label-s-lh);
+      letter-spacing: var(--type-label-s-ls);
       text-transform: uppercase;
       color: var(--app-purple-950-label);
     }
-    .db-goals-head-cell + .db-goals-head-cell { border-left: 1px solid var(--app-purple-200); }
+    .db-goals-body {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 16px;
+    }
     .db-goals-row {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
-      border-top: 1px solid var(--app-purple-100);
+      border-radius: 10px;
     }
-    .db-goals-row:nth-child(even) { background: var(--app-purple-50); }
+    .db-goals-row:nth-child(odd)  { background: var(--app-purple-50); }
+    .db-goals-row:nth-child(even) { background: var(--app-purple-100); }
     .db-goals-cell {
-      padding: 16px 18px;
+      padding: 16px 24px;
       font-size: var(--type-text-s-size);
-      line-height: 1.55;
+      font-weight: var(--type-text-s-weight);
+      line-height: var(--type-text-s-lh);
+      letter-spacing: var(--type-text-s-ls);
       color: var(--app-purple-950);
     }
-    .db-goals-cell + .db-goals-cell { border-left: 1px solid var(--app-purple-100); }
 
     /* ─────────────────────────────────────────────
-       DISCOVERY — stats row + sticky board
+       DISCOVERY - stats row + sticky board
     ───────────────────────────────────────────── */
     .db-discovery-text {
       font-size: var(--type-text-m-size);
@@ -299,516 +338,609 @@
       margin-bottom: 48px;
     }
 
-    /* Support quote cards — 5-card horizontal scroll or wrap */
+    /* Support quote cards - 5-card horizontal scroll or wrap */
     .db-quotes {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 10px;
-      margin-bottom: 48px;
+      gap: 8px;
+      margin-bottom: 80px;
     }
     .db-quote {
-      padding: 20px;
-      background: var(--app-purple-50);
-      border: 1px solid var(--app-purple-100);
-      border-radius: 14px;
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-    .db-quote-mark {
-      font-family: var(--font-hdg);
-      font-size: 2rem;
-      line-height: 1;
-      color: var(--app-purple-200);
-    }
-    .db-quote-text {
-      font-size: var(--type-text-s-size);
-      line-height: 1.55;
-      color: var(--app-purple-950);
-      font-style: italic;
-      flex: 1;
-    }
-    .db-quote-tag {
-      font-family: var(--font-body);
-      font-size: 10px;
-      font-weight: 600;
-      letter-spacing: 0.07em;
-      text-transform: uppercase;
-      color: var(--app-purple-950-label);
-    }
-
-    /* Insight row — number + heading + body */
-    .db-insights {
-      display: flex;
-      flex-direction: column;
-    }
-    .db-insight {
-      display: grid;
-      grid-template-columns: 52px 1fr;
-      gap: 12px;
-      padding: 28px 0;
-      border-bottom: 1px solid var(--app-purple-700-border);
-      align-items: start;
-    }
-    .db-insight:first-child { padding-top: 0; }
-    .db-insight:last-child  { border-bottom: none; padding-bottom: 0; }
-    .db-insight-num {
-      font-family: var(--font-hdg);
-      font-size: var(--type-h3-size);
-      font-weight: 600;
-      letter-spacing: -0.015em;
-      color: var(--app-purple-200);
-      line-height: 1;
-    }
-    .db-insight-body h3 {
-      font-family: var(--font-body);
-      font-size: var(--type-label-m-size);
-      font-weight: 500;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      color: var(--app-purple-700-label);
-      margin-bottom: 8px;
-    }
-    .db-insight-body p {
-      font-size: var(--type-text-m-size);
-      line-height: 1.6;
-      color: var(--app-purple-950);
-    }
-    .db-insight-imp {
-      display: inline-block;
-      margin-top: 10px;
-      padding: 5px 12px;
-      background: var(--app-purple-100);
-      border-radius: 100px;
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      color: var(--app-purple-700-label);
-    }
-
-    /* ─────────────────────────────────────────────
-       ARCHETYPES — horizontal comparison table
-    ───────────────────────────────────────────── */
-    .db-arch-table {
-      display: flex;
-      flex-direction: column;
-      border: 1px solid var(--app-purple-100);
-      border-radius: 14px;
-      overflow: hidden;
-    }
-    .db-arch-head {
-      display: grid;
-      grid-template-columns: 120px 1fr 1fr;
-      background: var(--app-purple-100);
-    }
-    .db-arch-head-cell {
-      padding: 12px 20px;
-      font-size: var(--type-label-s-size);
-      font-weight: var(--type-label-s-weight);
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: var(--app-purple-950-label);
-    }
-    .db-arch-head-cell + .db-arch-head-cell { border-left: 1px solid var(--app-purple-200); }
-    .db-arch-row {
-      display: grid;
-      grid-template-columns: 120px 1fr 1fr;
-      border-top: 1px solid var(--app-purple-100);
-    }
-    .db-arch-row:nth-child(even) { background: var(--app-purple-50); }
-    .db-arch-row-label {
-      padding: 16px 20px;
-      font-size: var(--type-label-s-size);
-      font-weight: var(--type-label-s-weight);
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      color: var(--app-purple-950-label);
-      display: flex;
-      align-items: flex-start;
-    }
-    .db-arch-cell {
-      padding: 16px 20px;
-      font-size: var(--type-text-s-size);
-      line-height: 1.55;
-      color: var(--app-purple-950);
-      border-left: 1px solid var(--app-purple-100);
-    }
-
-    /* ─────────────────────────────────────────────
-       STRATEGY — dark-bg quote + answer cards
-    ───────────────────────────────────────────── */
-    .db-strategy-dark {
-      background: var(--app-purple-950);
-      padding: 56px;
-      border-radius: 14px;
-      margin-bottom: 40px;
-    }
-    .db-strategy-dark-label {
-      font-family: var(--font-body);
-      font-size: var(--type-label-s-size);
-      font-weight: var(--type-label-s-weight);
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: rgba(250,244,255,0.45);
-      margin-bottom: 20px;
-      display: block;
-    }
-    .db-strategy-dark-quote {
-      font-family: var(--font-hdg);
-      font-size: 2rem;
-      font-weight: 600;
-      line-height: 1.15;
-      letter-spacing: -0.015em;
-      color: #FAF4FF;
-    }
-
-    .db-strategy-body {
-      font-size: var(--type-text-m-size);
-      line-height: 1.65;
-      color: var(--app-purple-950);
-      margin-bottom: 40px;
-    }
-
-    .db-answers {
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-      border: 1px solid var(--app-purple-100);
-      border-radius: 14px;
-      overflow: hidden;
-    }
-    .db-answer {
-      display: grid;
-      grid-template-columns: 1fr 32px 1fr;
-      align-items: center;
-      padding: 18px 24px;
-      border-top: 1px solid var(--app-purple-100);
-      background: var(--app-purple-50);
-      gap: 0;
-    }
-    .db-answer:first-child { border-top: none; }
-    .db-answer-q {
-      font-size: var(--type-text-s-size);
-      line-height: 1.5;
-      color: var(--app-purple-950-label);
-      font-style: italic;
-      padding-right: 16px;
-    }
-    .db-answer-arr {
-      justify-self: center;
-      color: var(--app-purple-700);
-    }
-    .db-answer-a {
-      padding-left: 16px;
-      border-left: 1px solid var(--app-purple-100);
-    }
-    .db-answer-a strong {
-      display: block;
-      font-size: 10px;
-      font-weight: 600;
-      letter-spacing: 0.07em;
-      text-transform: uppercase;
-      color: var(--app-purple-700-label);
-      margin-bottom: 3px;
-    }
-    .db-answer-a span {
-      font-size: var(--type-text-s-size);
-      line-height: 1.5;
-      color: var(--app-purple-950);
-    }
-
-    /* ─────────────────────────────────────────────
-       IA — visual node map
-    ───────────────────────────────────────────── */
-    .db-ia-map {
-      display: grid;
-      grid-template-columns: 1fr 40px 1fr;
-      gap: 0;
-      align-items: stretch;
-    }
-    .db-ia-col {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-    .db-ia-col-label {
-      font-family: var(--font-body);
-      font-size: var(--type-label-s-size);
-      font-weight: var(--type-label-s-weight);
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: var(--app-purple-950-label);
-      margin-bottom: 8px;
-    }
-    .db-ia-node {
-      padding: 14px 18px;
-      border-radius: 10px;
-      font-size: var(--type-text-s-size);
-      line-height: 1.45;
-      flex: 1;
-      display: flex;
-      align-items: center;
-    }
-    .db-ia-node--goal {
-      background: white;
-      border: 1px solid var(--app-purple-100);
-      color: var(--app-purple-950-label);
-      font-style: italic;
-    }
-    .db-ia-node--cat {
-      background: var(--app-purple-700);
-      border: none;
-      color: white;
-      font-weight: 500;
-      justify-content: center;
-      text-align: center;
-    }
-    .db-ia-arrows {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-around;
-      align-items: center;
-      padding-top: 36px;
-      gap: 10px;
-    }
-    .db-ia-arrows svg {
-      color: var(--app-purple-700);
-      flex-shrink: 0;
-    }
-
-    /* ─────────────────────────────────────────────
-       ITERATIONS — 3-column horizontal
-    ───────────────────────────────────────────── */
-    .db-iter-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 12px;
-    }
-    .db-iter-card {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      padding: 20px;
-      border: 1px solid var(--app-purple-100);
-      border-radius: 14px;
-      background: var(--app-purple-50);
-    }
-    .db-iter-card--final {
-      border-color: var(--app-purple-700);
-      background: var(--app-purple-50);
-      box-shadow: 0 0 0 1px var(--app-purple-700);
-    }
-    .db-iter-version {
-      font-family: var(--font-body);
-      font-size: 10px;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--app-purple-950-label);
-    }
-    .db-iter-title {
-      font-family: var(--font-body);
-      font-size: var(--type-label-s-size);
-      font-weight: 600;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      color: var(--app-purple-700-label);
-    }
-    .db-iter-ph {
-      width: 100%;
-      aspect-ratio: 4/3;
-      border-radius: 8px;
-      border: 1.5px dashed var(--app-purple-200);
-      background: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 10px;
-      font-weight: 600;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: var(--app-purple-950-label);
-      opacity: 0.7;
-    }
-    .db-iter-card p {
-      font-size: var(--type-text-s-size);
-      line-height: 1.55;
-      color: var(--app-purple-950);
-    }
-    .db-iter-tag-row {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-    .db-iter-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 10px;
-      font-weight: 500;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      color: var(--app-purple-950-label);
-    }
-    .db-iter-tag::before {
-      content: '';
-      display: block;
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--app-purple-200);
-      flex-shrink: 0;
-    }
-    .db-iter-tag--worked::before { background: #5A8C5E; }
-    .db-iter-tag--didnt::before  { background: #C07070; }
-
-    /* ─────────────────────────────────────────────
-       REDUCTIONS — big numbered cards
-    ───────────────────────────────────────────── */
-    .db-red-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-    }
-    .db-red-card {
-      padding: 28px 24px;
-      background: var(--app-purple-50);
-      border: 1px solid var(--app-purple-100);
-      border-radius: 14px;
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-    .db-red-num {
-      font-family: var(--font-hdg);
-      font-size: 3rem;
-      font-weight: 700;
-      line-height: 1;
-      letter-spacing: -0.04em;
-      color: var(--app-purple-200);
-    }
-    .db-red-title {
-      font-family: var(--font-body);
-      font-size: var(--type-label-m-size);
-      font-weight: 500;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      color: var(--app-purple-700-label);
-    }
-    .db-red-divider {
-      height: 1px;
-      background: var(--app-purple-100);
-    }
-    .db-red-what {
-      font-size: var(--type-text-s-size);
-      line-height: 1.55;
-      color: var(--app-purple-950-label);
-      font-style: italic;
-    }
-    .db-red-why-label {
-      font-size: 10px;
-      font-weight: 600;
-      letter-spacing: 0.07em;
-      text-transform: uppercase;
-      color: var(--app-purple-700-label);
-      margin-bottom: 4px;
-      display: block;
-    }
-    .db-red-card p {
-      font-size: var(--type-text-s-size);
-      line-height: 1.55;
-      color: var(--app-purple-950);
-    }
-
-    /* ─────────────────────────────────────────────
-       FINAL SOLUTION — big sections with placeholders
-    ───────────────────────────────────────────── */
-    .db-solution-intro {
-      font-size: var(--type-text-m-size);
-      line-height: 1.65;
-      color: var(--app-purple-950);
-      margin-bottom: 48px;
-    }
-    .db-solution-item {
-      display: grid;
-      grid-template-columns: 48px 1fr;
-      gap: 24px;
-      margin-top: 56px;
-      align-items: start;
-    }
-    .db-solution-item:first-of-type { margin-top: 0; }
-    .db-solution-num {
-      width: 48px;
-      height: 48px;
-      border-radius: 14px;
-      background: var(--app-purple-100);
-      border: 1px solid var(--app-purple-200);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: var(--font-hdg);
-      font-size: var(--type-h5-size);
-      font-weight: 600;
-      letter-spacing: -0.015em;
-      color: var(--app-purple-700-label);
-      flex-shrink: 0;
-    }
-    .db-solution-content {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-    .db-solution-title {
-      font-family: var(--font-body);
-      font-size: var(--type-label-m-size);
-      font-weight: 500;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      color: var(--app-purple-700-label);
-    }
-    .db-solution-desc {
-      font-size: var(--type-text-m-size);
-      line-height: 1.6;
-      color: var(--app-purple-950);
-    }
-    .db-solution-why {
-      padding: 14px 18px;
-      background: var(--app-purple-50);
-      border-left: 2px solid var(--app-purple-700);
-      border-radius: 0 10px 10px 0;
-    }
-    .db-solution-why-label {
-      font-size: 10px;
-      font-weight: 600;
-      letter-spacing: 0.07em;
-      text-transform: uppercase;
-      color: var(--app-purple-700-label);
-      margin-bottom: 5px;
-      display: block;
-    }
-    .db-solution-why p {
-      font-size: var(--type-text-s-size);
-      line-height: 1.55;
-      color: var(--app-purple-950);
-    }
-
-    /* ─────────────────────────────────────────────
-       UI DIRECTION — 2-col list
-    ───────────────────────────────────────────── */
-    .db-uid-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-    }
-    .db-uid-item {
       padding: 24px;
       background: var(--app-purple-50);
       border: 1px solid var(--app-purple-100);
       border-radius: 14px;
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 0;
+    }
+    .db-quote-num {
+      font-size: var(--type-label-m-size);
+      font-weight: var(--type-label-m-weight);
+      line-height: var(--type-label-m-lh);
+      letter-spacing: var(--type-label-m-ls);
+      color: var(--app-purple-700-label);
+      margin-bottom: 20px;
+    }
+    .db-quote-text {
+      font-size: var(--type-text-m-size);
+      font-weight: var(--type-text-m-weight);
+      line-height: var(--type-text-m-lh);
+      color: var(--app-purple-950);
+      font-style: italic;
+      flex: 1;
+      margin-bottom: 16px;
+    }
+    .db-quote-text .db-quote-mark {
+      color: var(--app-purple-700);
+    }
+    .db-quote-tag {
+      font-size: var(--type-label-s-size);
+      font-weight: var(--type-label-s-weight);
+      line-height: var(--type-label-s-lh);
+      letter-spacing: var(--type-label-s-ls);
+      text-transform: uppercase;
+      color: var(--app-purple-950-label);
+    }
+
+    /* Insight row - number + heading + body */
+    .db-insights {
+      display: flex;
+      flex-direction: column;
+    }
+    .db-insight {
+      display: grid;
+      grid-template-columns: 46px 1fr;
+      gap: 16px;
+      align-items: start;
+    }
+    .db-insight + .db-insight {
+      margin-top: 32px;
+      padding-top: 32px;
+      border-top: 1px solid var(--app-purple-700-border);
+    }
+    .db-insight-num {
+      font-family: var(--font-hdg);
+      font-size: var(--type-h3-size);
+      font-weight: 600;
+      letter-spacing: -0.015em;
+      color: var(--app-purple-700-label);
+      line-height: 1;
+    }
+    .db-insight-body h3 {
+      font-size: var(--type-label-m-size);
+      font-weight: var(--type-label-m-weight);
+      line-height: var(--type-label-m-lh);
+      letter-spacing: var(--type-label-m-ls);
+      text-transform: uppercase;
+      color: var(--app-purple-950-label);
+      margin-bottom: 20px;
+    }
+    .db-insight-body p {
+      font-size: var(--type-text-m-size);
+      font-weight: var(--type-text-m-weight);
+      line-height: var(--type-text-m-lh);
+      color: var(--app-purple-950);
+      margin-bottom: 20px;
+    }
+    .db-insight-imp {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      height: 32px;
+      padding: 0 12px;
+      background: var(--app-purple-50);
+      border: 1px solid var(--app-purple-100);
+      border-radius: 12px;
+      font-size: var(--type-label-s-size);
+      font-weight: var(--type-label-s-weight);
+      line-height: var(--type-label-s-lh);
+      letter-spacing: var(--type-label-s-ls);
+      text-transform: uppercase;
+      color: var(--app-purple-700-label);
+    }
+    .db-insight-imp img {
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+      filter: invert(21%) sepia(93%) saturate(5000%) hue-rotate(272deg) brightness(90%) contrast(110%);
+    }
+    .db-key-insight-label {
+      font-size: var(--type-label-m-size);
+      font-weight: var(--type-label-m-weight);
+      line-height: var(--type-label-m-lh);
+      letter-spacing: var(--type-label-m-ls);
+      text-transform: uppercase;
+      color: var(--app-purple-700-label);
+      margin-bottom: 20px;
+    }
+    .db-key-insight-text {
+      font-size: var(--type-text-m-size);
+      font-weight: var(--type-text-m-weight);
+      line-height: var(--type-text-m-lh);
+      color: var(--app-purple-950);
+    }
+
+    /* ─────────────────────────────────────────────
+       ARCHETYPES - horizontal comparison table
+    ───────────────────────────────────────────── */
+    .db-arch-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .db-arch-col-label {
+      font-size: var(--type-label-m-size);
+      font-weight: var(--type-label-m-weight);
+      line-height: var(--type-label-m-lh);
+      letter-spacing: var(--type-label-m-ls);
+      text-transform: uppercase;
+      color: var(--app-purple-950-label);
+      margin-bottom: 20px;
+    }
+    .db-arch-card {
+      background: var(--app-purple-50);
+      border: 1px solid var(--app-purple-100);
+      border-radius: 14px;
+      padding: 24px;
+    }
+    .db-arch-card-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .db-arch-avatar-wrap {
+      width: 80px;
+      height: 80px;
+      border-radius: 10px;
+      border: 1px solid var(--app-purple-100);
+      background: #ffffff;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+    .db-arch-avatar {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .db-arch-name {
+      font-size: var(--type-text-l-size);
+      font-weight: var(--type-text-l-weight);
+      line-height: var(--type-text-l-lh);
+      color: var(--app-purple-950);
+      margin-bottom: 0;
+    }
+    .db-arch-role {
+      font-size: var(--type-text-s-size);
+      font-weight: var(--type-text-s-weight);
+      line-height: var(--type-text-s-lh);
+      color: var(--app-purple-950-subtle);
+      margin-bottom: 11px;
+    }
+    .db-arch-meta {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: var(--type-text-s-size);
+      line-height: var(--type-text-s-lh);
+      margin-bottom: 24px;
+    }
+    .db-arch-meta-label { color: var(--app-purple-950-label); }
+    .db-arch-meta-val   { color: var(--app-purple-950-subtle); }
+    .db-arch-meta-dot   { color: var(--app-purple-950-label); }
+    .db-arch-bio {
+      font-size: var(--type-text-m-size);
+      font-weight: var(--type-text-m-weight);
+      line-height: var(--type-text-m-lh);
+      color: var(--app-purple-950);
+      font-style: italic;
+      margin-bottom: 48px;
+    }
+    .db-arch-section-label {
+      font-size: var(--type-label-s-size);
+      font-weight: var(--type-label-s-weight);
+      line-height: var(--type-label-s-lh);
+      letter-spacing: var(--type-label-s-ls);
+      text-transform: uppercase;
+      color: var(--app-purple-950-label);
+      margin-bottom: 8px;
+    }
+    .db-arch-needs {
+      list-style: disc;
+      padding-left: 20px;
+      margin-bottom: 48px;
+    }
+    .db-arch-needs li {
+      font-size: var(--type-text-m-size);
+      font-weight: var(--type-text-m-weight);
+      line-height: var(--type-text-m-lh);
+      color: var(--app-purple-950);
+    }
+    .db-arch-implication {
+      font-size: var(--type-text-m-size);
+      font-weight: var(--type-text-m-weight);
+      line-height: var(--type-text-m-lh);
+      color: var(--app-purple-950);
+    }
+
+    /* ─────────────────────────────────────────────
+       STRATEGY - dark-bg quote + answer cards
+    ───────────────────────────────────────────── */
+    .db-strategy-body {
+      font-size: var(--type-text-m-size);
+      font-weight: var(--type-text-m-weight);
+      line-height: var(--type-text-m-lh);
+      color: var(--app-purple-950);
+      margin-bottom: 80px;
+    }
+    .db-answers {
+      display: flex;
+      flex-direction: column;
+    }
+    .db-answer {
+      display: grid;
+      grid-template-columns: 1fr 40px 1fr;
+      column-gap: 32px;
+      align-items: center;
+      padding: 32px 0;
+      border-top: 1px solid var(--app-purple-100);
+    }
+    .db-answer:first-child { border-top: none; padding-top: 0; }
+    .db-answer:last-child { border-bottom: none; padding-bottom: 0; }
+    .db-answer-q {
+      font-size: var(--type-text-m-size);
+      font-weight: var(--type-text-m-weight);
+      line-height: var(--type-text-m-lh);
+      color: var(--app-purple-950-subtle);
+      font-style: italic;
+    }
+    .db-answer-q .db-quote-mark { color: var(--app-purple-700); }
+    .db-answer-arr {
+      justify-self: center;
+      display: block;
+      width: 40px;
+      height: 24px;
+    }
+    .db-answer-a strong {
+      display: block;
+      font-size: var(--type-label-s-size);
+      font-weight: var(--type-label-s-weight);
+      line-height: var(--type-label-s-lh);
+      letter-spacing: var(--type-label-s-ls);
+      text-transform: uppercase;
+      color: var(--app-purple-700-label);
+      margin-bottom: 8px;
+    }
+    .db-answer-a span {
+      font-size: var(--type-text-m-size);
+      font-weight: var(--type-text-m-weight);
+      line-height: var(--type-text-m-lh);
+      color: var(--app-purple-950);
+    }
+    .db-design-decision {
+      margin-top: 80px;
+    }
+    .db-design-decision-label {
+      font-size: var(--type-label-m-size);
+      font-weight: var(--type-label-m-weight);
+      line-height: var(--type-label-m-lh);
+      letter-spacing: var(--type-label-m-ls);
+      text-transform: uppercase;
+      color: var(--app-purple-700-label);
+      margin-bottom: 20px;
+    }
+    .db-design-decision-text {
+      font-size: var(--type-text-m-size);
+      font-weight: var(--type-text-m-weight);
+      line-height: var(--type-text-m-lh);
+      color: var(--app-purple-950);
+    }
+
+    /* ─────────────────────────────────────────────
+       IA - visual node map
+    ───────────────────────────────────────────── */
+    .db-ia-map { display: flex; flex-direction: column; }
+    .db-ia-labels {
+      display: grid;
+      grid-template-columns: 1fr 40px 1fr;
+      column-gap: 16px;
+      margin-bottom: 20px;
+    }
+    .db-ia-col-label {
+      font-size: var(--type-label-m-size);
+      font-weight: var(--type-label-m-weight);
+      line-height: var(--type-label-m-lh);
+      letter-spacing: var(--type-label-m-ls);
+      text-transform: uppercase;
+      color: var(--app-purple-950-label);
+    }
+    .db-ia-rows { display: flex; flex-direction: column; gap: 8px; }
+    .db-ia-row {
+      display: grid;
+      grid-template-columns: 1fr 40px 1fr;
+      column-gap: 16px;
+      align-items: center;
+    }
+    .db-ia-row img { width: 40px; height: 24px; justify-self: center; }
+    .db-ia-node {
+      padding: 16px;
+      border-radius: 14px;
+      background: var(--app-purple-50);
+      border: 1px solid var(--app-purple-100);
+      font-size: var(--type-text-m-size);
+      font-weight: var(--type-text-m-weight);
+      line-height: var(--type-text-m-lh);
+      display: flex;
+      align-items: center;
+    }
+    .db-ia-node--goal {
+      color: var(--app-purple-950-subtle);
+      font-style: italic;
+    }
+    .db-ia-node--cat {
+      background: var(--app-purple-100);
+      border-color: var(--app-purple-200);
+      color: var(--app-purple-950);
+      justify-content: center;
+      text-align: center;
+    }
+
+    /* ─────────────────────────────────────────────
+       ITERATIONS - 3-column horizontal
+    ───────────────────────────────────────────── */
+    .db-iter-section + .db-iter-section { margin-top: 80px; }
+    .db-iter-version {
+      font-size: var(--type-label-m-size);
+      font-weight: var(--type-label-m-weight);
+      line-height: var(--type-label-m-lh);
+      letter-spacing: var(--type-label-m-ls);
+      text-transform: uppercase;
+      color: var(--app-purple-700-label);
+      display: block;
+      margin-bottom: 8px;
+    }
+    .db-iter-title {
+      font-size: var(--type-label-s-size);
+      font-weight: var(--type-label-s-weight);
+      line-height: var(--type-label-s-lh);
+      letter-spacing: var(--type-label-s-ls);
+      text-transform: uppercase;
+      color: var(--app-purple-950-label);
+      display: block;
+      margin-bottom: 48px;
+    }
+    .db-iter-body {
+      font-size: var(--type-text-m-size);
+      font-weight: var(--type-text-m-weight);
+      line-height: var(--type-text-m-lh);
+      color: var(--app-purple-950);
+      margin-bottom: 48px;
+    }
+    .db-iter-img {
+      width: 100%;
+      border-radius: 14px;
+      display: block;
+      margin-bottom: 48px;
+    }
+    .db-iter-img { width: 100%; border-radius: 14px; display: block; }
+    .db-iter-img-ph {
+      width: 100%;
+      aspect-ratio: 16/9;
+      border-radius: 14px;
+      border: 1.5px dashed var(--app-purple-200);
+      background: var(--app-purple-50);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: var(--type-label-s-size);
+      color: var(--app-purple-950-label);
+      margin-bottom: 48px;
+    }
+    .db-iter-verdict {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 20px;
+      color: var(--app-purple-700);
+    }
+    .db-iter-verdict svg { width: 24px; height: 24px; flex-shrink: 0; }
+    .db-iter-verdict-label {
+      font-size: var(--type-label-s-size);
+      font-weight: var(--type-label-s-weight);
+      line-height: var(--type-label-s-lh);
+      letter-spacing: var(--type-label-s-ls);
+      text-transform: uppercase;
+      color: var(--app-purple-700-label);
+    }
+    .db-iter-verdict-text {
+      font-size: var(--type-text-m-size);
+      font-weight: var(--type-text-m-weight);
+      line-height: var(--type-text-m-lh);
+      color: var(--app-purple-950);
+    }
+    .db-iter-verdict + .db-iter-verdict { margin-top: 32px; }
+
+    /* ─────────────────────────────────────────────
+       REDUCTIONS - alternating left/right items
+    ───────────────────────────────────────────── */
+    .rc-list {
+      display: flex;
+      flex-direction: column;
+    }
+    .rc-item {
+      width: 480px;
+      padding: 40px 40px 40px 40px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      background: #ffffff;
+    }
+    .rc-item + .rc-item {
+      margin-top: -32px;
+    }
+    .rc-item--left {
+      margin-right: auto;
+    }
+    .rc-item--right {
+      margin-left: auto;
+      text-align: right;
+    }
+    .rc-num {
+      font-family: var(--font-hdg);
+      font-size: var(--type-h1-size);
+      font-weight: var(--type-h1-weight);
+      line-height: var(--type-h1-lh);
+      letter-spacing: var(--type-h1-ls);
+      color: var(--app-purple-100);
+      position: absolute;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      user-select: none;
+    }
+    .rc-item--right .rc-num {
+      left: auto;
+      right: 0;
+    }
+    .rc-title {
+      font-size: var(--type-label-m-size);
+      font-weight: var(--type-label-m-weight);
+      letter-spacing: var(--type-label-m-ls);
+      line-height: var(--type-label-m-lh);
+      text-transform: uppercase;
+      color: var(--app-purple-950-label);
+      margin-bottom: 20px;
+      position: relative;
+    }
+    .rc-removed {
+      font-size: var(--type-text-m-size);
+      line-height: var(--type-text-m-lh);
+      color: var(--app-purple-950-subtle);
+      font-style: italic;
+      margin-bottom: 20px;
+      position: relative;
+    }
+    .rc-why-label {
+      font-size: var(--type-label-s-size);
+      font-weight: var(--type-label-s-weight);
+      letter-spacing: var(--type-label-s-ls);
+      text-transform: uppercase;
+      color: var(--app-purple-700);
+      margin-bottom: 8px;
+      display: block;
+      position: relative;
+    }
+    .rc-why-text {
+      font-size: var(--type-text-m-size);
+      line-height: var(--type-text-m-lh);
+      color: var(--app-purple-950);
+      position: relative;
+    }
+
+    /* ─────────────────────────────────────────────
+       FINAL UI - 4 subsections
+    ───────────────────────────────────────────── */
+    .fui-list {
+      display: flex;
+      flex-direction: column;
+      padding-top: 48px;
+    }
+    .fui-item {
+      display: flex;
+      flex-direction: column;
+    }
+    .fui-item + .fui-item {
+      margin-top: 80px;
+    }
+    .fui-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+    .fui-num {
+      width: 24px;
+      height: 24px;
+      flex-shrink: 0;
+      background: var(--app-purple-50);
+      border: 1px solid var(--app-purple-100);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: var(--type-label-s-size);
+      font-weight: var(--type-label-s-weight);
+      letter-spacing: var(--type-label-s-ls);
+      text-transform: uppercase;
+      color: var(--app-purple-700);
+      line-height: 1;
+    }
+    .fui-header-text {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .fui-title {
+      font-size: var(--type-label-m-size);
+      font-weight: var(--type-label-m-weight);
+      letter-spacing: var(--type-label-m-ls);
+      line-height: var(--type-label-m-lh);
+      text-transform: uppercase;
+      color: var(--app-purple-950-label);
+    }
+    .fui-desc {
+      font-size: var(--type-text-m-size);
+      line-height: var(--type-text-m-lh);
+      color: var(--app-purple-950);
+    }
+    .fui-img {
+      width: 100%;
+      height: auto;
+      border-radius: 14px;
+      border: 1px solid var(--app-gray-100);
+      display: block;
+    }
+    .fui-why {
+      margin-top: 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .fui-why-label {
+      font-size: var(--type-label-s-size);
+      font-weight: var(--type-label-s-weight);
+      letter-spacing: var(--type-label-s-ls);
+      text-transform: uppercase;
+      color: var(--app-purple-700);
+      display: block;
+    }
+    .fui-why p {
+      font-size: var(--type-text-m-size);
+      line-height: var(--type-text-m-lh);
+      color: var(--app-purple-950);
+    }
+
+    /* ─────────────────────────────────────────────
+       UI DIRECTION - 2-col list
+    ───────────────────────────────────────────── */
+    .db-uid-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 80px;
+    }
+    .db-uid-item {
+      padding: 16px;
+      background: var(--app-purple-50);
+      border: 1px solid var(--app-purple-100);
+      border-radius: 14px;
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 16px;
     }
     .db-uid-icon {
       width: 32px;
@@ -821,17 +953,27 @@
       justify-content: center;
       flex-shrink: 0;
     }
+    .db-uid-icon img {
+      width: 16px;
+      height: 16px;
+      filter: invert(18%) sepia(96%) saturate(4000%) hue-rotate(267deg) brightness(85%) contrast(110%);
+    }
+    .db-uid-body {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
     .db-uid-title {
-      font-family: var(--font-body);
-      font-size: var(--type-label-s-size);
-      font-weight: 600;
-      letter-spacing: 0.04em;
+      font-size: var(--type-label-m-size);
+      font-weight: var(--type-label-m-weight);
+      letter-spacing: var(--type-label-m-ls);
+      line-height: var(--type-label-m-lh);
       text-transform: uppercase;
-      color: var(--app-purple-700-label);
+      color: var(--app-purple-950-label);
     }
     .db-uid-item p {
-      font-size: var(--type-text-s-size);
-      line-height: 1.55;
+      font-size: var(--type-text-m-size);
+      line-height: var(--type-text-m-lh);
       color: var(--app-purple-950);
     }
     .db-uid-note {
@@ -840,11 +982,10 @@
       letter-spacing: 0.04em;
       text-transform: uppercase;
       color: var(--app-purple-950-label);
-      margin-top: auto;
     }
 
     /* ─────────────────────────────────────────────
-       BEFORE / AFTER — split visual + text table
+       BEFORE / AFTER - split visual + text table
     ───────────────────────────────────────────── */
     .db-ba-visuals {
       display: grid;
@@ -907,7 +1048,7 @@
     .db-ba-cell--a::before { content: '✓'; color: #5A8C5E; font-size: 10px; flex-shrink: 0; }
 
     /* ─────────────────────────────────────────────
-       IMPACT — metric cards
+       IMPACT - metric cards
     ───────────────────────────────────────────── */
     .db-impact-grid {
       display: grid;
@@ -1031,7 +1172,7 @@
   <div class="cs-layout">
 
     <!-- ══════════════════════════════════════════
-         LEFT COLUMN — sticky
+         LEFT COLUMN - sticky
     ══════════════════════════════════════════ -->
     <aside class="cs-left-col">
       <div class="cs-left-in">
@@ -1072,7 +1213,7 @@
     </aside>
 
     <!-- ══════════════════════════════════════════
-         RIGHT COLUMN — scrollable
+         RIGHT COLUMN - scrollable
     ══════════════════════════════════════════ -->
     <div class="cs-right-col">
 
@@ -1184,31 +1325,33 @@
           <h4 class="cs-section-hd reveal">Goals &amp; UX Requirements</h4>
           <p class="db-discovery-text reveal">The dashboard needed to address problems visible from both the users' and the business perspective: low homepage usability, recurring support questions, and underuse of services available in the panel.</p>
 
-          <div class="db-goals-table reveal">
+          <div class="db-goals-table reveal" style="margin-top: 80px;">
             <div class="db-goals-head">
               <span class="db-goals-head-cell">Business problem</span>
               <span class="db-goals-head-cell">Business goal</span>
               <span class="db-goals-head-cell">UX requirement</span>
             </div>
-            <div class="db-goals-row">
-              <div class="db-goals-cell">Users asked support about limits, invoices, and package scope</div>
-              <div class="db-goals-cell">Reduce repetitive support requests</div>
-              <div class="db-goals-cell">Show available services and key shortcuts directly on the dashboard</div>
-            </div>
-            <div class="db-goals-row">
-              <div class="db-goals-cell">Clients used only some of the platform's features</div>
-              <div class="db-goals-cell">Increase discoverability and service usage</div>
-              <div class="db-goals-cell">Group actions by user goals, not by product names</div>
-            </div>
-            <div class="db-goals-row">
-              <div class="db-goals-cell">The homepage did not provide operational value</div>
-              <div class="db-goals-cell">Increase usefulness of the first view after login</div>
-              <div class="db-goals-cell">Show company status, events, and recommended actions in a logical order</div>
-            </div>
-            <div class="db-goals-row">
-              <div class="db-goals-cell">Users didn't know what to do after seeing data or alerts</div>
-              <div class="db-goals-cell">Support the transition from information to action</div>
-              <div class="db-goals-cell">Add a guidance layer: "What can you do now?"</div>
+            <div class="db-goals-body">
+              <div class="db-goals-row">
+                <div class="db-goals-cell">Users asked support about limits, invoices, and package scope</div>
+                <div class="db-goals-cell">Reduce repetitive support requests</div>
+                <div class="db-goals-cell">Show available services and key shortcuts directly on the dashboard</div>
+              </div>
+              <div class="db-goals-row">
+                <div class="db-goals-cell">Clients used only some of the platform's features</div>
+                <div class="db-goals-cell">Increase discoverability and service usage</div>
+                <div class="db-goals-cell">Group actions by user goals, not by product names</div>
+              </div>
+              <div class="db-goals-row">
+                <div class="db-goals-cell">The homepage did not provide operational value</div>
+                <div class="db-goals-cell">Increase usefulness of the first view after login</div>
+                <div class="db-goals-cell">Show company status, events, and recommended actions in a logical order</div>
+              </div>
+              <div class="db-goals-row">
+                <div class="db-goals-cell">Users didn't know what to do after seeing data or alerts</div>
+                <div class="db-goals-cell">Support the transition from information to action</div>
+                <div class="db-goals-cell">Add a guidance layer: "What can you do now?"</div>
+              </div>
             </div>
           </div>
         </div>
@@ -1218,29 +1361,29 @@
       <section class="db-sec" id="sec-discovery">
         <div class="db-sec-inner">
           <h4 class="cs-section-hd reveal">Discovery</h4>
-          <p class="db-discovery-text reveal">Instead of building the redesign on assumptions, I gathered insights from customer support employees — people who heard users' recurring questions daily. This gave me direct evidence of real friction points before touching any design.</p>
+          <p class="db-discovery-text reveal">Without reliable homepage analytics available at this stage, customer support became the strongest source of user insight. Their recurring conversations with users revealed repeated friction around package limits, reports, service differences, alerts, and unclear next steps. These patterns directly shaped the dashboard structure.</p>
 
           <!-- Support quotes -->
-          <div class="db-quotes reveal">
+          <div class="db-quotes reveal" style="margin-top: 80px;">
             <div class="db-quote">
-              <div class="db-quote-mark">"</div>
-              <p class="db-quote-text">Where can I check how many services I have left?</p>
+              <div class="db-quote-num">01</div>
+              <p class="db-quote-text"><span class="db-quote-mark">" </span>Where can I check the status of my company?<span class="db-quote-mark"> "</span></p>
+              <span class="db-quote-tag">Company status visibility</span>
+            </div>
+            <div class="db-quote">
+              <div class="db-quote-num">02</div>
+              <p class="db-quote-text"><span class="db-quote-mark">" </span>How many checks do I still have in my package?<span class="db-quote-mark"> "</span></p>
               <span class="db-quote-tag">Package limit question</span>
             </div>
             <div class="db-quote">
-              <div class="db-quote-mark">"</div>
-              <p class="db-quote-text">What should I do now that I see this alert?</p>
-              <span class="db-quote-tag">Post-alert confusion</span>
-            </div>
-            <div class="db-quote">
-              <div class="db-quote-mark">"</div>
-              <p class="db-quote-text">Where can I find the full report on my company?</p>
-              <span class="db-quote-tag">Navigation failure</span>
-            </div>
-            <div class="db-quote">
-              <div class="db-quote-mark">"</div>
-              <p class="db-quote-text">How is this different from the monitoring service?</p>
+              <div class="db-quote-num">03</div>
+              <p class="db-quote-text"><span class="db-quote-mark">" </span>I'm not sure which service I should choose.<span class="db-quote-mark"> "</span></p>
               <span class="db-quote-tag">Service comprehension gap</span>
+            </div>
+            <div class="db-quote">
+              <div class="db-quote-num">04</div>
+              <p class="db-quote-text"><span class="db-quote-mark">" </span>What action should I take?<span class="db-quote-mark"> "</span></p>
+              <span class="db-quote-tag">Next step uncertainty</span>
             </div>
           </div>
 
@@ -1250,8 +1393,8 @@
               <div class="db-insight-num">01</div>
               <div class="db-insight-body">
                 <h3>Users didn't know where to check company status</h3>
-                <p>There was no summary view — users had to open a full report to understand their company's basic situation.</p>
-                <span class="db-insight-imp">→ Show key report data directly on the dashboard</span>
+                <p>There was no summary view - users had to open a full report to understand their company's basic situation.</p>
+                <span class="db-insight-imp"><img src="assets/dashboard/arrow-circle-right-thin.svg" alt="">Show key report data directly on the dashboard</span>
               </div>
             </div>
             <div class="db-insight reveal">
@@ -1259,33 +1402,30 @@
               <div class="db-insight-body">
                 <h3>Frequent questions about service limits and package scope</h3>
                 <p>Users regularly contacted support to check how many checks or monitoring services they still had available.</p>
-                <span class="db-insight-imp">→ Place package information high in the hierarchy</span>
+                <span class="db-insight-imp"><img src="assets/dashboard/arrow-circle-right-thin.svg" alt="">Place package information high in the hierarchy</span>
               </div>
             </div>
             <div class="db-insight reveal">
               <div class="db-insight-num">03</div>
               <div class="db-insight-body">
                 <h3>Users didn't understand differences between services</h3>
-                <p>Service names didn't communicate when to use them — users couldn't map product names to their actual goals.</p>
-                <span class="db-insight-imp">→ Group actions by goal, not by service name</span>
+                <p>Service names didn't communicate when to use them - users couldn't map product names to their actual goals.</p>
+                <span class="db-insight-imp"><img src="assets/dashboard/arrow-circle-right-thin.svg" alt="">Group actions by goal, not by service name</span>
               </div>
             </div>
             <div class="db-insight reveal">
               <div class="db-insight-num">04</div>
               <div class="db-insight-body">
-                <h3>No guidance after receiving an alert</h3>
-                <p>Users saw alerts and data changes, but the interface offered no next step — they didn't know what to do with the information.</p>
-                <span class="db-insight-imp">→ Add a recommended actions section</span>
-              </div>
-            </div>
-            <div class="db-insight reveal">
-              <div class="db-insight-num">05</div>
-              <div class="db-insight-body">
-                <h3>Too many equally weighted tiles — ignored</h3>
+                <h3>Too many equally weighted tiles - ignored</h3>
                 <p>When everything looks the same, nothing stands out. Users learned to ignore the homepage entirely.</p>
-                <span class="db-insight-imp">→ Reduce elements and strengthen hierarchy</span>
+                <span class="db-insight-imp"><img src="assets/dashboard/arrow-circle-right-thin.svg" alt="">Reduce elements and strengthen hierarchy</span>
               </div>
             </div>
+          </div>
+
+          <div class="db-key-insight reveal" style="margin-top: 80px;">
+            <p class="db-key-insight-label">Key insight</p>
+            <p class="db-key-insight-text">Users didn't need more features. They needed context and guidance.<br><br>The problem wasn't a lack of functionality - it was the lack of a clear structure explaining what users had available, what required attention, and what action made sense next.</p>
           </div>
 
         </div>
@@ -1295,99 +1435,111 @@
       <section class="db-sec" id="sec-archetypes">
         <div class="db-sec-inner">
           <h4 class="cs-section-hd reveal">User Archetypes</h4>
-          <p class="db-discovery-text reveal">Based on personas and support insights I identified two primary behavioral patterns — not full demographic profiles, but usage modes that defined what the dashboard must prioritize.</p>
+          <p class="db-discovery-text reveal">Based on personas and support insights I identified two primary behavioral patterns - not full demographic profiles, but usage modes that defined what the dashboard must prioritize.</p>
 
-          <div class="db-arch-table reveal">
-            <div class="db-arch-head">
-              <span class="db-arch-head-cell"></span>
-              <span class="db-arch-head-cell">Task-oriented business owner</span>
-              <span class="db-arch-head-cell">Operational finance user</span>
+          <div class="db-arch-grid reveal" style="margin-top: 80px;">
+
+            <!-- Card 1 -->
+            <div>
+              <p class="db-arch-col-label">Task-oriented business owner</p>
+              <div class="db-arch-card">
+                <div class="db-arch-card-header">
+                  <div class="db-arch-avatar-wrap"><img class="db-arch-avatar" src="assets/dashboard/user-avatar-1.png" alt="Marek Kowalski"></div>
+                  <div>
+                    <p class="db-arch-name">Marek Kowalski</p>
+                    <p class="db-arch-role">Entrepreneur</p>
+                    <div class="db-arch-meta">
+                      <span class="db-arch-meta-label">Age:</span>
+                      <span class="db-arch-meta-val">52</span>
+                      <span class="db-arch-meta-dot">·</span>
+                      <span class="db-arch-meta-label">Location:</span>
+                      <span class="db-arch-meta-val">Wieliczka</span>
+                    </div>
+                  </div>
+                </div>
+                <p class="db-arch-bio">Owner of a mid-sized construction company who wants to quickly check company or contractor status and move on to action.</p>
+                <p class="db-arch-section-label">Needs</p>
+                <ul class="db-arch-needs">
+                  <li>Access key actions quickly</li>
+                  <li>Understand services easily</li>
+                  <li>Know what to do next</li>
+                  <li>Stay in control without reading full reports</li>
+                </ul>
+                <p class="db-arch-section-label">Dashboard implication</p>
+                <p class="db-arch-implication">Easy to scan quickly, guides toward specific actions</p>
+              </div>
             </div>
-            <div class="db-arch-row">
-              <span class="db-arch-row-label">Primary need</span>
-              <div class="db-arch-cell">Quickly check a situation and move on to action</div>
-              <div class="db-arch-cell">Monitor changes, alerts, and company health regularly</div>
+
+            <!-- Card 2 -->
+            <div>
+              <p class="db-arch-col-label">Operational finance user</p>
+              <div class="db-arch-card">
+                <div class="db-arch-card-header">
+                  <div class="db-arch-avatar-wrap"><img class="db-arch-avatar" src="assets/dashboard/user-avatar-2.png" alt="Aleksandra Kaminska"></div>
+                  <div>
+                    <p class="db-arch-name">Aleksandra Kamińska</p>
+                    <p class="db-arch-role">Finance Operations Manager</p>
+                    <div class="db-arch-meta">
+                      <span class="db-arch-meta-label">Age:</span>
+                      <span class="db-arch-meta-val">29</span>
+                      <span class="db-arch-meta-dot">·</span>
+                      <span class="db-arch-meta-label">Location:</span>
+                      <span class="db-arch-meta-val">Warsaw</span>
+                    </div>
+                  </div>
+                </div>
+                <p class="db-arch-bio">Employee of a large technology company who regularly monitors company condition, alerts, reports, and data changes.</p>
+                <p class="db-arch-section-label">Needs</p>
+                <ul class="db-arch-needs">
+                  <li>See company status quickly</li>
+                  <li>Track alerts and changes</li>
+                  <li>Access reports easily</li>
+                  <li>Stay confident nothing important is missed</li>
+                </ul>
+                <p class="db-arch-section-label">Dashboard implication</p>
+                <p class="db-arch-implication">Operational overview of the situation - not a list of services</p>
+              </div>
             </div>
-            <div class="db-arch-row">
-              <span class="db-arch-row-label">Needs from dashboard</span>
-              <div class="db-arch-cell">Simple language, clear next steps, sense of control without deep analysis</div>
-              <div class="db-arch-cell">Status summary, visible alerts, reports without extra navigation</div>
-            </div>
-            <div class="db-arch-row">
-              <span class="db-arch-row-label">Dashboard implication</span>
-              <div class="db-arch-cell">Easy to scan, guides toward specific actions</div>
-              <div class="db-arch-cell">Operational overview — not a list of services</div>
-            </div>
+
           </div>
 
         </div>
       </section>
 
-      <!-- ── 06 STRATEGY ── -->
+      <!-- ── 06 DASHBOARD LOGIC ── -->
       <section class="db-sec" id="sec-strategy">
         <div class="db-sec-inner">
-          <h4 class="cs-section-hd reveal">Strategy</h4>
-
-          <div class="db-strategy-dark reveal">
-            <span class="db-strategy-dark-label">Key insight</span>
-            <p class="db-strategy-dark-quote">Users didn't need more features.<br>They needed context and guidance.</p>
-          </div>
+          <h4 class="cs-section-hd reveal">Dashboard Logic</h4>
 
           <p class="db-strategy-body reveal">The key shift was moving from "let's show users the available products" toward "let's answer the questions users have when they log in." Users had access to many services, but lacked context: when, why, and in what order to use them.</p>
 
           <div class="db-answers reveal">
             <div class="db-answer">
-              <p class="db-answer-q">How many services can I still use?</p>
-              <svg class="db-answer-arr" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256"><path d="M218.83,130.83l-72,72a4,4,0,0,1-5.66-5.66L206.34,132H40a4,4,0,0,1,0-8H206.34L141.17,58.83a4,4,0,0,1,5.66-5.66l72,72A4,4,0,0,1,218.83,130.83Z"/></svg>
+              <p class="db-answer-q"><span class="db-quote-mark">" </span>How many services can I still use?<span class="db-quote-mark"> "</span></p>
+              <img class="db-answer-arr" src="assets/arrow-long.svg" alt="">
               <div class="db-answer-a"><strong>Your package</strong><span>Available checks, monitoring services, quick access to invoices</span></div>
             </div>
             <div class="db-answer">
-              <p class="db-answer-q">Is my company in a good situation?</p>
-              <svg class="db-answer-arr" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256"><path d="M218.83,130.83l-72,72a4,4,0,0,1-5.66-5.66L206.34,132H40a4,4,0,0,1,0-8H206.34L141.17,58.83a4,4,0,0,1,5.66-5.66l72,72A4,4,0,0,1,218.83,130.83Z"/></svg>
-              <div class="db-answer-a"><strong>Your company status</strong><span>Most important report data — shown without downloading a full report</span></div>
+              <p class="db-answer-q"><span class="db-quote-mark">" </span>Is my company in a good situation?<span class="db-quote-mark"> "</span></p>
+              <img class="db-answer-arr" src="assets/arrow-long.svg" alt="">
+              <div class="db-answer-a"><strong>Your company status</strong><span>Most important report data - shown without downloading a full report</span></div>
             </div>
             <div class="db-answer">
-              <p class="db-answer-q">What is happening around my company?</p>
-              <svg class="db-answer-arr" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256"><path d="M218.83,130.83l-72,72a4,4,0,0,1-5.66-5.66L206.34,132H40a4,4,0,0,1,0-8H206.34L141.17,58.83a4,4,0,0,1,5.66-5.66l72,72A4,4,0,0,1,218.83,130.83Z"/></svg>
+              <p class="db-answer-q"><span class="db-quote-mark">" </span>What is happening around my company?<span class="db-quote-mark"> "</span></p>
+              <img class="db-answer-arr" src="assets/arrow-long.svg" alt="">
               <div class="db-answer-a"><strong>Your statistics</strong><span>Reports, entities monitoring the company, company-related events</span></div>
             </div>
             <div class="db-answer">
-              <p class="db-answer-q">What can I do now?</p>
-              <svg class="db-answer-arr" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256"><path d="M218.83,130.83l-72,72a4,4,0,0,1-5.66-5.66L206.34,132H40a4,4,0,0,1,0-8H206.34L141.17,58.83a4,4,0,0,1,5.66-5.66l72,72A4,4,0,0,1,218.83,130.83Z"/></svg>
+              <p class="db-answer-q"><span class="db-quote-mark">" </span>What can I do now?<span class="db-quote-mark"> "</span></p>
+              <img class="db-answer-arr" src="assets/arrow-long.svg" alt="">
               <div class="db-answer-a"><strong>What can you do now?</strong><span>Recommended actions grouped by user goals</span></div>
             </div>
           </div>
 
-        </div>
-      </section>
-
-      <!-- ── 07 INFORMATION ARCHITECTURE ── -->
-      <section class="db-sec" id="sec-ia">
-        <div class="db-sec-inner">
-          <h4 class="cs-section-hd reveal">Information Architecture</h4>
-          <p class="db-discovery-text reveal">The old panel's structure was based on service names. Users didn't know when to use which function or how services related to each other. I regrouped everything by user intent.</p>
-
-          <div class="db-ia-map reveal">
-            <div class="db-ia-col">
-              <p class="db-ia-col-label">User goal</p>
-              <div class="db-ia-node db-ia-node--goal">I want to take care of my company's image</div>
-              <div class="db-ia-node db-ia-node--goal">I want to check or monitor contractors</div>
-              <div class="db-ia-node db-ia-node--goal">I want to recover money</div>
-            </div>
-            <div class="db-ia-arrows">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256"><path d="M218.83,130.83l-72,72a4,4,0,0,1-5.66-5.66L206.34,132H40a4,4,0,0,1,0-8H206.34L141.17,58.83a4,4,0,0,1,5.66-5.66l72,72A4,4,0,0,1,218.83,130.83Z"/></svg>
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256"><path d="M218.83,130.83l-72,72a4,4,0,0,1-5.66-5.66L206.34,132H40a4,4,0,0,1,0-8H206.34L141.17,58.83a4,4,0,0,1,5.66-5.66l72,72A4,4,0,0,1,218.83,130.83Z"/></svg>
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256"><path d="M218.83,130.83l-72,72a4,4,0,0,1-5.66-5.66L206.34,132H40a4,4,0,0,1,0-8H206.34L141.17,58.83a4,4,0,0,1,5.66-5.66l72,72A4,4,0,0,1,218.83,130.83Z"/></svg>
-            </div>
-            <div class="db-ia-col">
-              <p class="db-ia-col-label">Dashboard category</p>
-              <div class="db-ia-node db-ia-node--cat">My company</div>
-              <div class="db-ia-node db-ia-node--cat">My clients</div>
-              <div class="db-ia-node db-ia-node--cat">My receivables</div>
-            </div>
+          <div class="db-design-decision reveal">
+            <p class="db-design-decision-label">Design decision</p>
+            <p class="db-design-decision-text">The dashboard was designed as a sequence of answers to user needs, not as an exposition of all available services.</p>
           </div>
-
-          <p class="db-discovery-text reveal mt-32">I did not change the names of the services themselves — I changed the context in which users see them. The dashboard explains functions through goals, not through system structure.</p>
 
         </div>
       </section>
@@ -1396,39 +1548,94 @@
       <section class="db-sec" id="sec-iterations">
         <div class="db-sec-inner">
           <h4 class="cs-section-hd reveal">Iterations</h4>
-          <p class="db-discovery-text reveal">The dashboard went through several versions. The biggest change was not about adding more elements — it was about removing data that didn't support user decisions.</p>
+          <p class="db-discovery-text reveal">The dashboard went through several versions, reviewed with the PM and customer support team at each stage. Their feedback helped validate which information was useful, which elements created confusion, and where the interface was still too heavy. The biggest change was not about adding more elements - it was about removing data that didn't support user decisions.</p>
 
-          <div class="db-iter-grid reveal">
-            <div class="db-iter-card">
-              <span class="db-iter-version">V1</span>
-              <span class="db-iter-title">Business-heavy dashboard</span>
-              <div class="db-iter-ph">V1 screen</div>
-              <p>Dominant "Security level" bar, extensive statistics, refreshed product passage. More structured than the original, but still largely preserved product-catalog logic.</p>
-              <div class="db-iter-tag-row">
-                <span class="db-iter-tag db-iter-tag--worked">More structured than before</span>
-                <span class="db-iter-tag db-iter-tag--didnt">Still too product-focused</span>
+          <!-- V1 -->
+          <div class="db-iter-section reveal" style="margin-top: 80px;">
+            <span class="db-iter-version">V1</span>
+            <span class="db-iter-title">Business-heavy dashboard</span>
+            <p class="db-iter-body">The first version was strongly based on business requirements. It included a dominant "Security level of your company" bar, an extensive statistics section, and a refreshed product catalog.</p>
+            <div class="cs-annotated reveal">
+              <div class="cs-annotated-stage">
+                <div class="cs-annotated-img-wrap">
+                  <img src="assets/dashboard/iterations-v1.png" alt="V1 screen">
+                </div>
+                <div class="cs-callout cs-callout--iter-v1-l1">
+                  <p class="cs-callout-body">Dominant "Security level" bar</p>
+                </div>
+                <div class="cs-callout cs-callout--iter-v1-l2">
+                  <p class="cs-callout-body">Refreshed product catalog</p>
+                </div>
+                <div class="cs-callout cs-callout--iter-v1-r1">
+                  <p class="cs-callout-body">Extensive statistics</p>
+                </div>
               </div>
             </div>
-            <div class="db-iter-card">
-              <span class="db-iter-version">V2</span>
-              <span class="db-iter-title">More actionable, still overloaded</span>
-              <div class="db-iter-ph">V2 screen</div>
-              <p>"What can you do now?" section appeared for the first time, replacing some of the product passage. Dashboard started guiding users toward action.</p>
-              <div class="db-iter-tag-row">
-                <span class="db-iter-tag db-iter-tag--worked">Better from info to action</span>
-                <span class="db-iter-tag db-iter-tag--didnt">Still information-heavy</span>
+            <div class="db-iter-verdict reveal">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M231,82.76A20,20,0,0,0,216,76H156V56a36,36,0,0,0-36-36,4,4,0,0,0-3.58,2.21L77.53,100H32a12,12,0,0,0-12,12v88a12,12,0,0,0,12,12H204a20,20,0,0,0,19.85-17.52l12-96A20,20,0,0,0,231,82.76ZM76,204H32a4,4,0,0,1-4-4V112a4,4,0,0,1,4-4H76ZM227.91,97.49l-12,96A12,12,0,0,1,204,204H84V104.94L122.42,28.1A28,28,0,0,1,148,56V80a4,4,0,0,0,4,4h64a12,12,0,0,1,11.91,13.49Z"></path></svg>
+              <span class="db-iter-verdict-label">What worked</span>
+            </div>
+            <p class="db-iter-verdict-text reveal">The UI was more structured than in the old version, and the dashboard started using more data available in the system.</p>
+            <div class="db-iter-verdict reveal" style="margin-top: 40px;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M235.85,157.52l-12-96A20,20,0,0,0,204,44H32A12,12,0,0,0,20,56v88a12,12,0,0,0,12,12H77.53l38.89,77.79A4,4,0,0,0,120,236a36,36,0,0,0,36-36V180h60a20,20,0,0,0,19.85-22.48ZM76,148H32a4,4,0,0,1-4-4V56a4,4,0,0,1,4-4H76Zm149,19.94a12,12,0,0,1-9,4.06H152a4,4,0,0,0-4,4v24a28,28,0,0,1-25.58,27.9L84,151.06V52H204a12,12,0,0,1,11.91,10.51l12,96A12,12,0,0,1,225,167.94Z"></path></svg>
+              <span class="db-iter-verdict-label">What didn't</span>
+            </div>
+            <p class="db-iter-verdict-text reveal">The view still tried to show too much at once and largely preserved the product exposure logic.</p>
+          </div>
+
+          <!-- V2 -->
+          <div class="db-iter-section reveal">
+            <span class="db-iter-version">V2</span>
+            <span class="db-iter-title">More actionable, still overloaded</span>
+            <p class="db-iter-body">In the second version, the "What can you do now?" section appeared, which started replacing the product catalog with recommended actions.</p>
+            <div class="cs-annotated reveal">
+              <div class="cs-annotated-stage">
+                <div class="cs-annotated-img-wrap">
+                  <img src="assets/dashboard/iterations-v2.png" alt="V2 screen">
+                </div>
+                <div class="cs-callout cs-callout--iter-v2-l1">
+                  <p class="cs-callout-body">Section "What can you do now?" instead of product catalog</p>
+                </div>
               </div>
             </div>
-            <div class="db-iter-card db-iter-card--final">
-              <span class="db-iter-version">Final</span>
-              <span class="db-iter-title">Focused dashboard</span>
-              <div class="db-iter-ph">Final screen</div>
-              <p>Fewer competing elements, simpler statistics, clearer focus on company status and next steps. Easier to scan, more focused on real decisions.</p>
-              <div class="db-iter-tag-row">
-                <span class="db-iter-tag db-iter-tag--worked">Easy to scan</span>
-                <span class="db-iter-tag db-iter-tag--worked">Focused on decisions</span>
+            <div class="db-iter-verdict reveal">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M231,82.76A20,20,0,0,0,216,76H156V56a36,36,0,0,0-36-36,4,4,0,0,0-3.58,2.21L77.53,100H32a12,12,0,0,0-12,12v88a12,12,0,0,0,12,12H204a20,20,0,0,0,19.85-17.52l12-96A20,20,0,0,0,231,82.76ZM76,204H32a4,4,0,0,1-4-4V112a4,4,0,0,1,4-4H76ZM227.91,97.49l-12,96A12,12,0,0,1,204,204H84V104.94L122.42,28.1A28,28,0,0,1,148,56V80a4,4,0,0,0,4,4h64a12,12,0,0,1,11.91,13.49Z"></path></svg>
+              <span class="db-iter-verdict-label">What worked</span>
+            </div>
+            <p class="db-iter-verdict-text reveal">The dashboard started guiding the user more effectively from information to action.</p>
+            <div class="db-iter-verdict reveal" style="margin-top: 40px;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M235.85,157.52l-12-96A20,20,0,0,0,204,44H32A12,12,0,0,0,20,56v88a12,12,0,0,0,12,12H77.53l38.89,77.79A4,4,0,0,0,120,236a36,36,0,0,0,36-36V180h60a20,20,0,0,0,19.85-22.48ZM76,148H32a4,4,0,0,1-4-4V56a4,4,0,0,1,4-4H76Zm149,19.94a12,12,0,0,1-9,4.06H152a4,4,0,0,0-4,4v24a28,28,0,0,1-25.58,27.9L84,151.06V52H204a12,12,0,0,1,11.91,10.51l12,96A12,12,0,0,1,225,167.94Z"></path></svg>
+              <span class="db-iter-verdict-label">What didn't</span>
+            </div>
+            <p class="db-iter-verdict-text reveal">The overall view was still too information-heavy, and business-oriented elements competed with data that was important to the user.</p>
+          </div>
+
+          <!-- Final -->
+          <div class="db-iter-section reveal">
+            <span class="db-iter-version">Final</span>
+            <span class="db-iter-title">Focused dashboard</span>
+            <p class="db-iter-body">The final version was based on stronger prioritization: fewer competing elements, a simpler statistics section, and a clearer focus on company status and the user's next step.</p>
+            <div class="cs-annotated reveal">
+              <div class="cs-annotated-stage">
+                <div class="cs-annotated-img-wrap">
+                  <img src="assets/dashboard/iterations-final.png" alt="Final screen">
+                </div>
+                <div class="cs-callout cs-callout--iter-final-l1">
+                  <p class="cs-callout-body">Clearer focus on company status</p>
+                </div>
+                <div class="cs-callout cs-callout--iter-final-l2">
+                  <p class="cs-callout-body">Only key next steps kept</p>
+                </div>
+                <div class="cs-callout cs-callout--iter-final-r1">
+                  <p class="cs-callout-body">Simpler statistics</p>
+                </div>
               </div>
             </div>
+            <div class="db-iter-verdict reveal">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M218.26,84.89a100.16,100.16,0,1,1-22.44-30.37l25.35-25.35a4,4,0,1,1,5.66,5.66l-96,96a4,4,0,0,1-5.66-5.66l31-31a44,44,0,1,0,15.78,31.3,4,4,0,0,1,8-.46,52,52,0,1,1-18.1-36.51l28.34-28.33A92,92,0,0,0,63,193.05,92,92,0,0,0,211,88.33a4,4,0,1,1,7.22-3.44Z"></path></svg>
+              <span class="db-iter-verdict-label">Outcome</span>
+            </div>
+            <p class="db-iter-verdict-text reveal">The dashboard became easier to scan and more focused on users' real decisions.</p>
           </div>
 
         </div>
@@ -1440,46 +1647,34 @@
           <h4 class="cs-section-hd reveal">Reducing Complexity</h4>
           <p class="db-discovery-text reveal">The most important change across iterations was not adding new components — it was consistently removing elements that increased cognitive load, duplicated information, or had no clear decision-making value.</p>
 
-          <div class="db-red-grid reveal">
-            <div class="db-red-card">
-              <div class="db-red-num">01</div>
-              <span class="db-red-title">Security score</span>
-              <div class="db-red-divider"></div>
-              <p class="db-red-what">Removed: "Security level of your company" bar</p>
-              <div>
-                <span class="db-red-why-label">Why</span>
-                <p>Score calculation wasn't transparent and was partly based on purchasing extra services. Could reduce trust, create unnecessary stress, and increase support questions.</p>
-              </div>
+          <div class="rc-list">
+            <div class="rc-item rc-item--left reveal">
+              <span class="rc-num">01</span>
+              <span class="rc-title">Security score</span>
+              <p class="rc-removed">Removed: "Security level of your company" bar</p>
+              <span class="rc-why-label">Why</span>
+              <p class="rc-why-text">Score calculation wasn't transparent and was partly based on purchasing extra services. Could reduce trust, create unnecessary stress, and increase support questions.</p>
             </div>
-            <div class="db-red-card">
-              <div class="db-red-num">02</div>
-              <span class="db-red-title">Redundant statistics</span>
-              <div class="db-red-divider"></div>
-              <p class="db-red-what">Removed: statistics that duplicated other sections or referred to unlimited services</p>
-              <div>
-                <span class="db-red-why-label">Why</span>
-                <p>They didn't help users decide what to do next. Kept only indicators with clear value: downloaded reports, entities monitoring the company, and company-related events.</p>
-              </div>
+            <div class="rc-item rc-item--right reveal">
+              <span class="rc-num">02</span>
+              <span class="rc-title">Redundant statistics</span>
+              <p class="rc-removed">Removed: statistics that duplicated content or covered unlimited services</p>
+              <span class="rc-why-label">Why</span>
+              <p class="rc-why-text">They didn't help users decide what to do next. Kept only indicators with clear value: downloaded reports, entities monitoring the company, and company-related events.</p>
             </div>
-            <div class="db-red-card">
-              <div class="db-red-num">03</div>
-              <span class="db-red-title">Product catalog logic</span>
-              <div class="db-red-divider"></div>
-              <p class="db-red-what">Removed: product passage as the main navigation method</p>
-              <div>
-                <span class="db-red-why-label">Why</span>
-                <p>It duplicated the side menu and didn't explain when a specific function was worth using. Users needed contextual action paths, not another list of products.</p>
-              </div>
+            <div class="rc-item rc-item--left reveal">
+              <span class="rc-num">03</span>
+              <span class="rc-title">Product catalog logic</span>
+              <p class="rc-removed">Removed: product catalog as the main navigation method</p>
+              <span class="rc-why-label">Why</span>
+              <p class="rc-why-text">It duplicated the side menu and didn't explain when a specific function was worth using. Users needed contextual action paths, not another list of products.</p>
             </div>
-            <div class="db-red-card">
-              <div class="db-red-num">04</div>
-              <span class="db-red-title">Too many action options</span>
-              <div class="db-red-divider"></div>
-              <p class="db-red-what">Removed: less critical and external services from the "What can you do now?" section</p>
-              <div>
-                <span class="db-red-why-label">Why</span>
-                <p>Too many options weakened hierarchy and could recreate the old problem — many possibilities, but no clear priority for the user.</p>
-              </div>
+            <div class="rc-item rc-item--right reveal">
+              <span class="rc-num">04</span>
+              <span class="rc-title">Too many action options</span>
+              <p class="rc-removed">Removed: less critical and external action options</p>
+              <span class="rc-why-label">Why</span>
+              <p class="rc-why-text">Too many options in "What can you do now?" section weakened hierarchy and could recreate the old problem - many possibilities, but no clear priority for the user.</p>
             </div>
           </div>
 
@@ -1489,121 +1684,76 @@
       <!-- ── 10 FINAL SOLUTION ── -->
       <section class="db-sec" id="sec-solution">
         <div class="db-sec-inner">
-          <h4 class="cs-section-hd reveal">Final Solution</h4>
-          <p class="db-solution-intro reveal">A dashboard built around clarity, control, and action — four sections structured to answer the questions users bring when they log in.</p>
-        </div>
-
-        <!-- Full-width scrollable gallery of dashboard screens -->
-        <div class="cs-final-scroll reveal">
-          <div class="ph" style="height:420px;width:680px;flex-shrink:0;border-radius:15px;">
-            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 256 256"><path d="M216,40H40A16,16,0,0,0,24,56V200a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A16,16,0,0,0,216,40Zm0,160H40V56H216V200Z"/></svg>
-            Dashboard — full view
-          </div>
-          <div class="ph" style="height:420px;width:680px;flex-shrink:0;border-radius:15px;">
-            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 256 256"><path d="M216,40H40A16,16,0,0,0,24,56V200a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A16,16,0,0,0,216,40Zm0,160H40V56H216V200Z"/></svg>
-            "What can you do now?" section
-          </div>
-          <div class="ph" style="height:420px;width:680px;flex-shrink:0;border-radius:15px;">
-            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 256 256"><path d="M216,40H40A16,16,0,0,0,24,56V200a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A16,16,0,0,0,216,40Zm0,160H40V56H216V200Z"/></svg>
-            Company status section
-          </div>
+          <h4 class="cs-section-hd reveal">Final UI</h4>
         </div>
 
         <div class="db-sec-inner">
-          <div class="db-solution-item reveal">
-            <div class="db-solution-num">1</div>
-            <div class="db-solution-content">
-              <span class="db-solution-title">Package visibility</span>
-              <p class="db-solution-desc">Number of remaining checks and monitoring services shown immediately after login.</p>
-              <div class="ph ph--panel">Package limit view placeholder</div>
-              <div class="db-solution-why">
-                <span class="db-solution-why-label">Why</span>
+          <div class="fui-list">
+
+            <div class="fui-item reveal">
+              <div class="fui-header">
+                <div class="fui-num">1</div>
+                <div class="fui-header-text">
+                  <span class="fui-title">Package visibility</span>
+                  <p class="fui-desc">Number of remaining checks and monitoring services shown immediately after login.</p>
+                </div>
+              </div>
+              <img src="assets/dashboard/final-ui-package.png" alt="Package visibility" class="fui-img">
+              <div class="fui-why">
+                <span class="fui-why-label">Why</span>
                 <p>Package limits were one of the most common reasons for contacting support. Showing them on the dashboard reduces uncertainty and enables faster action.</p>
               </div>
             </div>
-          </div>
 
-          <div class="db-solution-item reveal">
-            <div class="db-solution-num">2</div>
-            <div class="db-solution-content">
-              <span class="db-solution-title">Company status snapshot</span>
-              <p class="db-solution-desc">Key data from the company report — credibility, credit limit, situation in registers — without opening a full report.</p>
-              <div class="ph ph--panel">Company status section placeholder</div>
-              <div class="db-solution-why">
-                <span class="db-solution-why-label">Why</span>
-                <p>Complex data is presented through short messages, statuses, and colors — users get interpretation before detail.</p>
+            <div class="fui-item reveal">
+              <div class="fui-header">
+                <div class="fui-num">2</div>
+                <div class="fui-header-text">
+                  <span class="fui-title">Company status snapshot</span>
+                  <p class="fui-desc">Key data from the company report - credibility, credit limit, situation in registers - without opening a full report.</p>
+                </div>
+              </div>
+              <img src="assets/dashboard/final-ui-key-data.png" alt="Company status snapshot" class="fui-img">
+              <div class="fui-why">
+                <span class="fui-why-label">Why</span>
+                <p>Complex data is presented through short messages, statuses, and colors - users get interpretation before detail.</p>
               </div>
             </div>
-          </div>
 
-          <div class="db-solution-item reveal">
-            <div class="db-solution-num">3</div>
-            <div class="db-solution-content">
-              <span class="db-solution-title">Focused statistics</span>
-              <p class="db-solution-desc">Only three statistics with clear decision-making value: downloaded reports, entities monitoring the company, and company-related events.</p>
-              <div class="db-solution-why">
-                <span class="db-solution-why-label">Why</span>
+            <div class="fui-item reveal">
+              <div class="fui-header">
+                <div class="fui-num">3</div>
+                <div class="fui-header-text">
+                  <span class="fui-title">Focused statistics</span>
+                  <p class="fui-desc">Only three statistics with clear decision-making value: downloaded reports, entities monitoring the company, and company-related events.</p>
+                </div>
+              </div>
+              <img src="assets/dashboard/final-ui-statistics.png" alt="Focused statistics" class="fui-img">
+              <div class="fui-why">
+                <span class="fui-why-label">Why</span>
                 <p>Removing statistics that duplicated data or referred to unlimited services strengthened the overall hierarchy without reducing useful information.</p>
               </div>
             </div>
-          </div>
 
-          <div class="db-solution-item reveal">
-            <div class="db-solution-num">4</div>
-            <div class="db-solution-content">
-              <span class="db-solution-title">Guided actions</span>
-              <p class="db-solution-desc">The product passage replaced by "What can you do now?" — recommended actions grouped by goal: taking care of your company, checking a contractor, or recovering receivables.</p>
-              <div class="ph ph--panel">"What can you do now?" section placeholder</div>
-              <div class="db-solution-why">
-                <span class="db-solution-why-label">Why</span>
-                <p>Users didn't always know which service to use. Goal-based language — not service names — makes the path from intent to action clear.</p>
+            <div class="fui-item reveal">
+              <div class="fui-header">
+                <div class="fui-num">4</div>
+                <div class="fui-header-text">
+                  <span class="fui-title">Guided actions</span>
+                  <p class="fui-desc">The product passage replaced by "What can you do now?" - recommended actions grouped by goal: taking care of your company, checking a contractor, or recovering receivables.</p>
+                </div>
+              </div>
+              <img src="assets/dashboard/final-ui-guided-actions.png" alt="Guided actions" class="fui-img">
+              <div class="fui-why">
+                <span class="fui-why-label">Why</span>
+                <p>Users didn't always know which service to use. Goal-based language - not service names - makes the path from intent to action clear.</p>
               </div>
             </div>
+
           </div>
         </div>
       </section>
 
-      <!-- ── 11 BEFORE / AFTER ── -->
-      <section class="db-sec" id="sec-ba">
-        <div class="db-sec-inner">
-          <h4 class="cs-section-hd reveal">Before / After</h4>
-
-          <div class="db-ba-visuals reveal">
-            <div class="db-ba-visual-wrap">
-              <span class="db-ba-visual-label">Before</span>
-              <div class="ph ph--square">Product passage — before</div>
-            </div>
-            <div class="db-ba-visual-wrap">
-              <span class="db-ba-visual-label">After</span>
-              <div class="ph ph--square">Dashboard — after</div>
-            </div>
-          </div>
-
-          <div class="db-ba-table reveal">
-            <div class="db-ba-head">
-              <span class="db-ba-head-cell">Before</span>
-              <span class="db-ba-head-cell">After</span>
-            </div>
-            <div class="db-ba-row">
-              <div class="db-ba-cell db-ba-cell--b">Product passage — grid of service tiles</div>
-              <div class="db-ba-cell db-ba-cell--a">Decision-support dashboard</div>
-            </div>
-            <div class="db-ba-row">
-              <div class="db-ba-cell db-ba-cell--b">Side menu duplication, no added value</div>
-              <div class="db-ba-cell db-ba-cell--a">Data and actions in logical order</div>
-            </div>
-            <div class="db-ba-row">
-              <div class="db-ba-cell db-ba-cell--b">No clear next step for the user</div>
-              <div class="db-ba-cell db-ba-cell--a">Recommended actions grouped by goal</div>
-            </div>
-            <div class="db-ba-row">
-              <div class="db-ba-cell db-ba-cell--b">Many equally weighted tiles</div>
-              <div class="db-ba-cell db-ba-cell--a">Stronger information hierarchy</div>
-            </div>
-          </div>
-
-        </div>
-      </section>
 
       <!-- ── 12 UI DIRECTION ── -->
       <section class="db-sec" id="sec-ui">
@@ -1611,123 +1761,93 @@
           <h4 class="cs-section-hd reveal">UI Direction</h4>
           <p class="db-discovery-text reveal">The dashboard was also an opportunity to start organizing the UI layer of a legacy product. In a system built around complex financial data, consistent typography, spacing, and components reduce cognitive load and help users scan faster.</p>
 
-          <div class="db-uid-grid reveal">
-            <div class="db-uid-item">
+          <div class="db-uid-grid">
+            <div class="db-uid-item reveal">
               <div class="db-uid-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256" style="color:var(--app-purple-700)"><path d="M213.66,82.34l-56-56A8,8,0,0,0,152,24H56A16,16,0,0,0,40,40V216a16,16,0,0,0,16,16H200a16,16,0,0,0,16-16V88A8,8,0,0,0,213.66,82.34ZM160,51.31,188.69,80H160ZM200,216H56V40h88V88a8,8,0,0,0,8,8h48V216Z"/></svg>
+                <img src="assets/dashboard/text-aa-thin.svg" width="16" height="16" alt="">
               </div>
-              <span class="db-uid-title">Consistent typography</span>
-              <p>Unified text styles and usage rules for headings, body text, labels, and helper descriptions — replacing the mix of fonts used across the panel.</p>
+              <div class="db-uid-body">
+                <span class="db-uid-title">Consistent typography</span>
+                <p>Unified text styles and usage rules for headings, body text, labels, and helper descriptions - replacing the mix of fonts used across the panel.</p>
+              </div>
             </div>
-            <div class="db-uid-item">
+            <div class="db-uid-item reveal">
               <div class="db-uid-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256" style="color:var(--app-purple-700)"><path d="M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128ZM40,72H216a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16ZM216,184H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Z"/></svg>
+                <img src="assets/dashboard/arrows-in-line-vertical-thin.svg" width="16" height="16" alt="">
               </div>
-              <span class="db-uid-title">Spacing system</span>
-              <p>Defined rules between sections, cards, and elements inside components to make the dashboard easier to scan visually.</p>
+              <div class="db-uid-body">
+                <span class="db-uid-title">Spacing system</span>
+                <p>Defined rules between sections, cards, and elements inside components to make the dashboard easier to scan visually.</p>
+              </div>
             </div>
-            <div class="db-uid-item">
+            <div class="db-uid-item reveal">
               <div class="db-uid-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256" style="color:var(--app-purple-700)"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Z"/></svg>
+                <img src="assets/dashboard/palette-thin.svg" width="16" height="16" alt="">
               </div>
-              <span class="db-uid-title">Accessible primary color</span>
-              <p>New primary color meeting WCAG contrast requirements — the existing one failed for interactive elements throughout the panel.</p>
-              <span class="db-uid-note">WCAG AA compliant</span>
+              <div class="db-uid-body">
+                <span class="db-uid-title">Accessible primary color</span>
+                <p>New primary color meeting WCAG contrast requirements - the existing one failed for interactive elements throughout the panel.</p>
+              </div>
             </div>
-            <div class="db-uid-item">
+            <div class="db-uid-item reveal">
               <div class="db-uid-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256" style="color:var(--app-purple-700)"><path d="M208,32H48A16,16,0,0,0,32,48V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V48A16,16,0,0,0,208,32Zm0,176H48V48H208V208Z"/></svg>
+                <img src="assets/dashboard/frame-corners-thin.svg" width="16" height="16" alt="">
               </div>
-              <span class="db-uid-title">More whitespace</span>
-              <p>Increased space between modules and inside cards — improving data readability and making the dense financial content easier to parse quickly.</p>
+              <div class="db-uid-body">
+                <span class="db-uid-title">More whitespace</span>
+                <p>Increased space between modules and inside cards - improving data readability and making the dense financial content easier to parse quickly.</p>
+              </div>
             </div>
-            <div class="db-uid-item" style="grid-column: 1 / -1;">
+            <div class="db-uid-item reveal">
               <div class="db-uid-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256" style="color:var(--app-purple-700)"><path d="M128,80a48,48,0,1,0,48,48A48.05,48.05,0,0,0,128,80Zm0,80a32,32,0,1,1,32-32A32,32,0,0,1,128,160Z"/></svg>
+                <img src="assets/dashboard/stack-thin.svg" width="16" height="16" alt="">
               </div>
-              <span class="db-uid-title">Clearer CTA and status hierarchy</span>
-              <p>Defined styles for buttons, links, and status labels so users can distinguish information from actions faster — especially important in a context where users often receive alert-type data and need to understand what requires action vs. what is just informational.</p>
+              <div class="db-uid-body">
+                <span class="db-uid-title">Clearer CTA and status hierarchy</span>
+                <p>Defined styles for buttons, links, and status labels so users can distinguish information from actions faster - especially important in a context where users often receive alert-type data and need to understand what requires action vs. what is just informational.</p>
+              </div>
             </div>
           </div>
 
         </div>
       </section>
 
-      <!-- ── 13 EXPECTED IMPACT ── -->
-      <section class="db-sec" id="sec-impact">
-        <div class="db-sec-inner">
-          <h4 class="cs-section-hd reveal">Expected Impact</h4>
-          <p class="db-discovery-text reveal">The project was not implemented before the end of my collaboration with the company, so measured results are not available. The redesign was designed with specific success metrics in mind.</p>
-
-          <div class="db-impact-grid reveal">
-            <div class="db-impact-card">
-              <div class="db-impact-icon">📉</div>
-              <span class="db-impact-label">Fewer support requests</span>
-              <p>Limits, invoices, and reports visible on the dashboard — reducing the most common reasons for contacting support.</p>
-            </div>
-            <div class="db-impact-card">
-              <div class="db-impact-icon" style="color:rgba(250,244,255,0.5)">📈</div>
-              <span class="db-impact-label">Higher service usage</span>
-              <p>Goal-based action grouping makes features more discoverable and relevant to users' actual intent.</p>
-            </div>
-            <div class="db-impact-card">
-              <div class="db-impact-icon">⚡</div>
-              <span class="db-impact-label">Faster orientation</span>
-              <p>Company status, available services, and next steps available at a glance — without additional navigation.</p>
-            </div>
-            <div class="db-impact-card">
-              <div class="db-impact-icon" style="color:rgba(250,244,255,0.5)">🏠</div>
-              <span class="db-impact-label">Greater homepage value</span>
-              <p>The first screen after login becomes a meaningful starting point instead of a redundant navigation layer.</p>
-            </div>
-          </div>
-
-        </div>
-      </section>
 
       <!-- ── 14 REFLECTION ── -->
       <section class="db-sec" id="sec-reflection">
         <div class="db-sec-inner">
-          <h4 class="cs-section-hd reveal">Reflection</h4>
+          <h4 class="cs-section-hd reveal">Reflection &amp; Learnings</h4>
+          <div class="cs-refl-blocks">
+            <div class="cs-refl-block reveal">
+              <div class="cs-refl-heading">
+                <img src="assets/thumbs-up.svg" alt="" width="24" height="24">
+                <span>What worked well</span>
+              </div>
+              <div class="cs-refl-point">
+                <span class="cs-refl-point-label">Support insights helped define priorities early</span>
+                <p>Since usability testing and reliable homepage analytics were not available at this stage, customer support became the strongest available source of user insight. It helped identify recurring problems around package limits, reports, service discoverability, company status, and unclear next steps.</p>
+              </div>
+              <div class="cs-refl-point">
+                <span class="cs-refl-point-label">User questions became a decision-making framework</span>
+                <p>Structuring the dashboard around questions users had after logging in helped guide iteration decisions. For each element, I could ask: does this answer a real user need, or does it only add more information?</p>
+              </div>
+            </div>
 
-          <p class="db-refl-intro reveal">The greatest value of this project was not adding more data to the dashboard — it was deciding which data was worth showing and which should be removed. In enterprise systems, less is often more.</p>
-
-          <div class="db-learnings">
-            <div class="db-learning reveal">
-              <span class="db-learning-dash">—</span>
-              <p>Clarity is part of trust. In financial data products, how you present information is as important as what you show.</p>
-            </div>
-            <div class="db-learning reveal">
-              <span class="db-learning-dash">—</span>
-              <p>Every indicator must be explainable. If you can't describe what it means to the user, it's not ready to be shown.</p>
-            </div>
-            <div class="db-learning reveal">
-              <span class="db-learning-dash">—</span>
-              <p>Less data often means a better decision. Removing elements is a design act, not a compromise.</p>
-            </div>
-            <div class="db-learning reveal">
-              <span class="db-learning-dash">—</span>
-              <p>Service names are not enough if the user doesn't understand the goal behind them.</p>
-            </div>
-            <div class="db-learning reveal">
-              <span class="db-learning-dash">—</span>
-              <p>A good dashboard guides from understanding the situation to taking action. It's a narrative, not a catalog.</p>
+            <div class="cs-refl-block reveal">
+              <div class="cs-refl-heading">
+                <img src="assets/swap.svg" alt="" width="24" height="24">
+                <span>What I would improve</span>
+              </div>
+              <div class="cs-refl-point">
+                <span class="cs-refl-point-label">Validate the hierarchy with lightweight usability testing</span>
+                <p>If the project had moved further, I would validate the final dashboard structure with short task-based sessions - especially around finding package limits, understanding company status, and choosing the next action.</p>
+              </div>
+              <div class="cs-refl-point">
+                <span class="cs-refl-point-label">Define success criteria earlier</span>
+                <p>I would also define measurable success criteria earlier, such as fewer support questions, higher usage of key services, and faster access to company status information. This would help connect design decisions to business outcomes from the start.</p>
+              </div>
             </div>
           </div>
-
-          <div class="db-refl-blocks reveal">
-            <div class="db-refl-block">
-              <span class="db-refl-block-label">What worked well</span>
-              <p>The support insights approach gave me clear, evidence-based priorities from day one — instead of designing around assumptions about what users struggled with.</p>
-              <p>Structuring the dashboard as a sequence of answers to user questions proved to be a strong framework for every iteration decision: does this element answer a real question users have at login?</p>
-            </div>
-            <div class="db-refl-block">
-              <span class="db-refl-block-label">What I'd do differently</span>
-              <p>I would push for usability testing earlier — even lightweight, internal sessions would have validated hierarchy assumptions faster and reduced iterations driven by stakeholder feedback alone.</p>
-              <p>I would also invest more time defining measurable success criteria upfront, so the design rationale could be anchored to business metrics from the start.</p>
-            </div>
-          </div>
-
         </div>
       </section>
 
