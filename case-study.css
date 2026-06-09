@@ -509,9 +509,10 @@ p {
 }
 .cs-annotated-label {
   font-family: var(--font-body);
-  font-size: var(--type-label-s-size); font-weight: var(--type-label-s-weight);
-  letter-spacing: 0.06em; text-transform: uppercase;
-  color: var(--c-label-text); margin-bottom: 20px;
+  font-size: var(--type-label-m-size); font-weight: var(--type-label-m-weight);
+  line-height: var(--type-label-m-lh); letter-spacing: var(--type-label-m-ls);
+  text-transform: uppercase;
+  color: var(--app-purple-950-label); margin-bottom: 20px;
 }
 
 .cs-annotated {
@@ -1230,8 +1231,7 @@ p {
   grid-auto-rows: 1fr;
   row-gap: 0;
   column-gap: 0;
-}
-.cs-impact-grid > :nth-child(1) {
+}.cs-impact-grid > :nth-child(1) {
   margin-bottom: 80px;
 }
 .cs-impact-grid > :nth-child(2),
@@ -1342,6 +1342,22 @@ p {
   color: var(--app-purple-950);
 }
 .cs-refl-block p + p { margin-top: 16px; }
+.cs-refl-point {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.cs-refl-point + .cs-refl-point {
+  margin-top: 20px;
+}
+.cs-refl-point-label {
+  font-size: var(--type-label-s-size);
+  font-weight: var(--type-label-s-weight);
+  letter-spacing: var(--type-label-s-ls);
+  text-transform: uppercase;
+  color: var(--app-purple-950-label);
+  display: block;
+}
 
 /* ============================================================
    FOOTER

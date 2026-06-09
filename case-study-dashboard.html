@@ -1,0 +1,1869 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard Redesign - Case Study · Julia Mitka</title>
+  <meta name="description" content="Transforming a product catalog homepage into an actionable business dashboard - UX/UI case study by Julia Mitka.">
+
+  <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=satoshi@900,700,500,400,300&f[]=clash-display@400,500,600,700&display=swap">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="case-study.css">
+
+  <style>
+
+    /* ─────────────────────────────────────────────
+       IMAGE PLACEHOLDERS
+    ───────────────────────────────────────────── */
+    .ph {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      border-radius: 14px;
+      border: 1.5px dashed var(--app-purple-200);
+      background: var(--app-purple-50);
+      color: var(--app-purple-950-label);
+      font-family: var(--font-body);
+      font-size: var(--type-label-s-size);
+      font-weight: var(--type-label-s-weight);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .ph svg { opacity: 0.35; }
+    .ph--hero   { width: 100%; aspect-ratio: 16/9; }
+    .ph--wide   { width: 100%; aspect-ratio: 16/7; }
+    .ph--square { width: 100%; aspect-ratio: 4/3; }
+    .ph--tall   { width: 100%; aspect-ratio: 3/4; }
+    .ph--screen { width: 100%; aspect-ratio: 4/3; }
+    .ph--panel  { width: 100%; aspect-ratio: 16/5; }
+    .ph--before-after { width: 100%; aspect-ratio: 21/9; }
+
+    /* ─────────────────────────────────────────────
+       HERO - wider title, meta bar above
+    ───────────────────────────────────────────── */
+    .db-hero-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 48px;
+    }
+    .db-hero-tag {
+      font-family: var(--font-body);
+      font-size: var(--type-label-s-size);
+      font-weight: var(--type-label-s-weight);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--app-purple-950-label);
+    }
+
+    /* ─────────────────────────────────────────────
+       SECTION WRAPPER - label + content side by side
+    ───────────────────────────────────────────── */
+    .db-sec {
+      padding: 0;
+      width: 100%;
+    }
+    .db-sec-inner {
+      width: 700px;
+      margin: 0 auto;
+    }
+    /* Section label pinned left, content flows right */
+    .db-sec-row {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+    .db-sec-num {
+      font-family: var(--font-hdg);
+      font-size: var(--type-h5-size);
+      font-weight: 600;
+      letter-spacing: -0.015em;
+      color: var(--app-purple-700-label);
+      padding-top: 4px;
+    }
+    .db-sec-label-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .db-sec-heading {
+      font-family: var(--font-hdg);
+      font-size: var(--type-h4-size);
+      font-weight: 600;
+      letter-spacing: -0.015em;
+      color: var(--app-purple-950);
+      line-height: 1;
+      margin-bottom: 32px;
+    }
+
+    /* ─────────────────────────────────────────────
+       OVERVIEW - 2×2 bordered grid
+    ───────────────────────────────────────────── */
+    .db-ov-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border: 1px solid var(--app-purple-100);
+      border-radius: 14px;
+      overflow: hidden;
+    }
+    .db-ov-cell {
+      padding: 28px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .db-ov-cell:nth-child(1),
+    .db-ov-cell:nth-child(2) { border-bottom: 1px solid var(--app-purple-100); }
+    .db-ov-cell:nth-child(odd) { border-right: 1px solid var(--app-purple-100); }
+    .db-ov-cell-label {
+      font-family: var(--font-body);
+      font-size: var(--type-label-s-size);
+      font-weight: var(--type-label-s-weight);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--app-purple-700-label);
+    }
+    .db-ov-cell p {
+      font-size: var(--type-text-s-size);
+      line-height: 1.6;
+      color: var(--app-purple-950);
+    }
+
+    /* ─────────────────────────────────────────────
+       CHALLENGE - big intro text + annotated ph
+    ───────────────────────────────────────────── */
+    .db-challenge-intro {
+      font-family: var(--font-hdg);
+      font-size: 1.75rem;
+      font-weight: 600;
+      line-height: 1.15;
+      letter-spacing: -0.015em;
+      color: var(--app-purple-950);
+      margin-bottom: 32px;
+    }
+    .db-challenge-body {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-bottom: 48px;
+    }
+    .db-challenge-body p {
+      font-size: var(--type-text-m-size);
+      line-height: 1.65;
+      color: var(--app-purple-950);
+    }
+
+    /* Annotated placeholder with callout lines */
+    .db-annotated {
+      position: relative;
+      margin: 0 -40px;
+    }
+    .db-annotated-ph {
+      position: relative;
+    }
+    .db-ann-label {
+      font-family: var(--font-body);
+      font-size: var(--type-label-s-size);
+      font-weight: var(--type-label-s-weight);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--app-purple-950-label);
+      margin-bottom: 16px;
+      padding: 0 40px;
+    }
+    .db-ann-stage {
+      position: relative;
+      padding: 0 40px;
+    }
+    .db-callout {
+      position: absolute;
+      width: 200px;
+      background: var(--app-purple-50);
+      border: 1px solid var(--app-purple-100);
+      border-radius: 10px;
+      padding: 12px 14px;
+      box-shadow: 0 4px 12px rgba(68,51,84,0.10);
+      opacity: 0;
+      transition: opacity 0.5s var(--ease-out), transform 0.5s var(--ease-out);
+    }
+    .db-callout--l { transform: translateX(-12px); }
+    .db-callout--r { transform: translateX(12px); }
+    .db-ann-stage.is-visible .db-callout { opacity: 1; transform: translateX(0); }
+    .db-ann-stage.is-visible .db-callout:nth-child(2) { transition-delay: 0.1s; }
+    .db-ann-stage.is-visible .db-callout:nth-child(3) { transition-delay: 0.25s; }
+    .db-ann-stage.is-visible .db-callout:nth-child(4) { transition-delay: 0.4s; }
+    .db-callout-title {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--app-purple-700-label);
+      margin-bottom: 5px;
+    }
+    .db-callout-body {
+      font-size: 11px;
+      line-height: 1.5;
+      color: var(--app-purple-950);
+    }
+    /* callout positions for challenge before image */
+    .cs-callout--db-l1 { top: 104px; left: -104px; }
+    .cs-callout--db-l2 { top: 310px; left: -104px; }
+    .cs-callout--db-r1 { top: 473px; left: 543.2px; }
+
+    .cs-callout--db-l1,
+    .cs-callout--db-l2 { transform: translateX(-16px); }
+    .cs-callout--db-r1 { transform: translateX(16px); }
+
+    .cs-annotated--visible .cs-callout--db-l1 { transition-delay: 0.15s; }
+    .cs-annotated--visible .cs-callout--db-r1 { transition-delay: 0.3s; }
+    .cs-annotated--visible .cs-callout--db-l2 { transition-delay: 0.45s; }
+
+    /* iteration callout overrides */
+    .db-iter-section .cs-callout { width: 232px; }
+    .db-iter-section .cs-annotated { margin-bottom: 48px; }
+
+    /* callout positions for iterations */
+    .cs-callout--iter-v1-l1 { top: 116px; left: -104px; }
+    .cs-callout--iter-v1-l2 { top: 678px; left: -104px; }
+    .cs-callout--iter-v1-r1 { top: 160px; left: 575.2px; }
+
+    .cs-callout--iter-v1-l1,
+    .cs-callout--iter-v1-l2 { transform: translateX(-16px); }
+    .cs-callout--iter-v1-r1 { transform: translateX(16px); }
+
+    .cs-annotated--visible .cs-callout--iter-v1-l1 { transition-delay: 0.15s; }
+    .cs-annotated--visible .cs-callout--iter-v1-l2 { transition-delay: 0.3s; }
+    .cs-annotated--visible .cs-callout--iter-v1-r1 { transition-delay: 0.45s; }
+
+    .cs-callout--iter-v2-l1 { top: 40px; left: -104px; }
+    .cs-callout--iter-v2-l1 { transform: translateX(-16px); }
+    .cs-annotated--visible .cs-callout--iter-v2-l1 { transition-delay: 0.15s; }
+
+    .cs-callout--iter-final-l1 { top: 280px; left: -104px; }
+    .cs-callout--iter-final-l2 { top: 608px; left: -104px; }
+    .cs-callout--iter-final-r1 { top: 504px; left: 575.2px; }
+    .cs-callout--iter-final-l1,
+    .cs-callout--iter-final-l2 { transform: translateX(-16px); }
+    .cs-callout--iter-final-r1 { transform: translateX(16px); }
+    .cs-annotated--visible .cs-callout--iter-final-l1 { transition-delay: 0.15s; }
+    .cs-annotated--visible .cs-callout--iter-final-r1 { transition-delay: 0.3s; }
+    .cs-annotated--visible .cs-callout--iter-final-l2 { transition-delay: 0.45s; }
+
+    /* Design challenge chip */
+    .db-challenge-chip {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 40px;
+      padding: 24px;
+      background: var(--app-purple-950);
+      border-radius: 14px;
+    }
+    .db-challenge-chip-label {
+      font-family: var(--font-body);
+      font-size: var(--type-label-s-size);
+      font-weight: var(--type-label-s-weight);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(250, 244, 255, 0.5);
+    }
+    .db-challenge-chip p {
+      font-family: var(--font-hdg);
+      font-size: 1.125rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      line-height: 1.3;
+      color: #FAF4FF;
+    }
+
+    /* ─────────────────────────────────────────────
+       GOALS TABLE - 3 col
+    ───────────────────────────────────────────── */
+    .db-goals-table {
+      display: flex;
+      flex-direction: column;
+      border: 1px solid var(--app-gray-stroke);
+      border-radius: 14px;
+      padding: 8px;
+      gap: 0;
+    }
+    .db-goals-head {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+    .db-goals-head-cell {
+      padding: 16px 24px 16px 24px;
+      font-size: var(--type-label-s-size);
+      font-weight: var(--type-label-s-weight);
+      line-height: var(--type-label-s-lh);
+      letter-spacing: var(--type-label-s-ls);
+      text-transform: uppercase;
+      color: var(--app-purple-950-label);
+    }
+    .db-goals-body {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 16px;
+    }
+    .db-goals-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      border-radius: 10px;
+    }
+    .db-goals-row:nth-child(odd)  { background: var(--app-purple-50); }
+    .db-goals-row:nth-child(even) { background: var(--app-purple-100); }
+    .db-goals-cell {
+      padding: 16px 24px;
+      font-size: var(--type-text-s-size);
+      font-weight: var(--type-text-s-weight);
+      line-height: var(--type-text-s-lh);
+      letter-spacing: var(--type-text-s-ls);
+      color: var(--app-purple-950);
+    }
+
+    /* ─────────────────────────────────────────────
+       DISCOVERY - stats row + sticky board
+    ───────────────────────────────────────────── */
+    .db-discovery-text {
+      font-size: var(--type-text-m-size);
+      line-height: 1.65;
+      color: var(--app-purple-950);
+      margin-bottom: 48px;
+    }
+
+    /* Support quote cards - 5-card horizontal scroll or wrap */
+    .db-quotes {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-bottom: 80px;
+    }
+    .db-quote {
+      padding: 24px;
+      background: var(--app-purple-50);
+      border: 1px solid var(--app-purple-100);
+      border-radius: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .db-quote-num {
+      font-size: var(--type-label-m-size);
+      font-weight: var(--type-label-m-weight);
+      line-height: var(--type-label-m-lh);
+      letter-spacing: var(--type-label-m-ls);
+      color: var(--app-purple-700-label);
+      margin-bottom: 20px;
+    }
+    .db-quote-text {
+      font-size: var(--type-text-m-size);
+      font-weight: var(--type-text-m-weight);
+      line-height: var(--type-text-m-lh);
+      color: var(--app-purple-950);
+      font-style: italic;
+      flex: 1;
+      margin-bottom: 16px;
+    }
+    .db-quote-text .db-quote-mark {
+      color: var(--app-purple-700);
+    }
+    .db-quote-tag {
+      font-size: var(--type-label-s-size);
+      font-weight: var(--type-label-s-weight);
+      line-height: var(--type-label-s-lh);
+      letter-spacing: var(--type-label-s-ls);
+      text-transform: uppercase;
+      color: var(--app-purple-950-label);
+    }
+
+    /* Insight row - number + heading + body */
+    .db-insights {
+      display: flex;
+      flex-direction: column;
+    }
+    .db-insight {
+      display: grid;
+      grid-template-columns: 46px 1fr;
+      gap: 16px;
+      align-items: start;
+    }
+    .db-insight + .db-insight {
+      margin-top: 32px;
+      padding-top: 32px;
+      border-top: 1px solid var(--app-purple-700-border);
+    }
+    .db-insight-num {
+      font-family: var(--font-hdg);
+      font-size: var(--type-h3-size);
+      font-weight: 600;
+      letter-spacing: -0.015em;
+      color: var(--app-purple-700-label);
+      line-height: 1;
+    }
+    .db-insight-body h3 {
+      font-size: var(--type-label-m-size);
+      font-weight: var(--type-label-m-weight);
+      line-height: var(--type-label-m-lh);
+      letter-spacing: var(--type-label-m-ls);
+      text-transform: uppercase;
+      color: var(--app-purple-950-label);
+      margin-bottom: 20px;
+    }
+    .db-insight-body p {
+      font-size: var(--type-text-m-size);
+      font-weight: var(--type-text-m-weight);
+      line-height: var(--type-text-m-lh);
+      color: var(--app-purple-950);
+      margin-bottom: 20px;
+    }
+    .db-insight-imp {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      height: 32px;
+      padding: 0 12px;
+      background: var(--app-purple-50);
+      border: 1px solid var(--app-purple-100);
+      border-radius: 12px;
+      font-size: var(--type-label-s-size);
+      font-weight: var(--type-label-s-weight);
+      line-height: var(--type-label-s-lh);
+      letter-spacing: var(--type-label-s-ls);
+      text-transform: uppercase;
+      color: var(--app-purple-700-label);
+    }
+    .db-insight-imp img {
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+      filter: invert(21%) sepia(93%) saturate(5000%) hue-rotate(272deg) brightness(90%) contrast(110%);
+    }
+    .db-key-insight-label {
+      font-size: var(--type-label-m-size);
+      font-weight: var(--type-label-m-weight);
+      line-height: var(--type-label-m-lh);
+      letter-spacing: var(--type-label-m-ls);
+      text-transform: uppercase;
+      color: var(--app-purple-700-label);
+      margin-bottom: 20px;
+    }
+    .db-key-insight-text {
+      font-size: var(--type-text-m-size);
+      font-weight: var(--type-text-m-weight);
+      line-height: var(--type-text-m-lh);
+      color: var(--app-purple-950);
+    }
+
+    /* ─────────────────────────────────────────────
+       ARCHETYPES - horizontal comparison table
+    ───────────────────────────────────────────── */
+    .db-arch-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .db-arch-col-label {
+      font-size: var(--type-label-m-size);
+      font-weight: var(--type-label-m-weight);
+      line-height: var(--type-label-m-lh);
+      letter-spacing: var(--type-label-m-ls);
+      text-transform: uppercase;
+      color: var(--app-purple-950-label);
+      margin-bottom: 20px;
+    }
+    .db-arch-card {
+      background: var(--app-purple-50);
+      border: 1px solid var(--app-purple-100);
+      border-radius: 14px;
+      padding: 24px;
+    }
+    .db-arch-card-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .db-arch-avatar-wrap {
+      width: 80px;
+      height: 80px;
+      border-radius: 10px;
+      border: 1px solid var(--app-purple-100);
+      background: #ffffff;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+    .db-arch-avatar {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .db-arch-name {
+      font-size: var(--type-text-l-size);
+      font-weight: var(--type-text-l-weight);
+      line-height: var(--type-text-l-lh);
+      color: var(--app-purple-950);
+      margin-bottom: 0;
+    }
+    .db-arch-role {
+      font-size: var(--type-text-s-size);
+      font-weight: var(--type-text-s-weight);
+      line-height: var(--type-text-s-lh);
+      color: var(--app-purple-950-subtle);
+      margin-bottom: 11px;
+    }
+    .db-arch-meta {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: var(--type-text-s-size);
+      line-height: var(--type-text-s-lh);
+      margin-bottom: 24px;
+    }
+    .db-arch-meta-label { color: var(--app-purple-950-label); }
+    .db-arch-meta-val   { color: var(--app-purple-950-subtle); }
+    .db-arch-meta-dot   { color: var(--app-purple-950-label); }
+    .db-arch-bio {
+      font-size: var(--type-text-m-size);
+      font-weight: var(--type-text-m-weight);
+      line-height: var(--type-text-m-lh);
+      color: var(--app-purple-950);
+      font-style: italic;
+      margin-bottom: 48px;
+    }
+    .db-arch-section-label {
+      font-size: var(--type-label-s-size);
+      font-weight: var(--type-label-s-weight);
+      line-height: var(--type-label-s-lh);
+      letter-spacing: var(--type-label-s-ls);
+      text-transform: uppercase;
+      color: var(--app-purple-950-label);
+      margin-bottom: 8px;
+    }
+    .db-arch-needs {
+      list-style: disc;
+      padding-left: 20px;
+      margin-bottom: 48px;
+    }
+    .db-arch-needs li {
+      font-size: var(--type-text-m-size);
+      font-weight: var(--type-text-m-weight);
+      line-height: var(--type-text-m-lh);
+      color: var(--app-purple-950);
+    }
+    .db-arch-implication {
+      font-size: var(--type-text-m-size);
+      font-weight: var(--type-text-m-weight);
+      line-height: var(--type-text-m-lh);
+      color: var(--app-purple-950);
+    }
+
+    /* ─────────────────────────────────────────────
+       STRATEGY - dark-bg quote + answer cards
+    ───────────────────────────────────────────── */
+    .db-strategy-body {
+      font-size: var(--type-text-m-size);
+      font-weight: var(--type-text-m-weight);
+      line-height: var(--type-text-m-lh);
+      color: var(--app-purple-950);
+      margin-bottom: 80px;
+    }
+    .db-answers {
+      display: flex;
+      flex-direction: column;
+    }
+    .db-answer {
+      display: grid;
+      grid-template-columns: 1fr 40px 1fr;
+      column-gap: 32px;
+      align-items: center;
+      padding: 32px 0;
+      border-top: 1px solid var(--app-purple-100);
+    }
+    .db-answer:first-child { border-top: none; padding-top: 0; }
+    .db-answer:last-child { border-bottom: none; padding-bottom: 0; }
+    .db-answer-q {
+      font-size: var(--type-text-m-size);
+      font-weight: var(--type-text-m-weight);
+      line-height: var(--type-text-m-lh);
+      color: var(--app-purple-950-subtle);
+      font-style: italic;
+    }
+    .db-answer-q .db-quote-mark { color: var(--app-purple-700); }
+    .db-answer-arr {
+      justify-self: center;
+      display: block;
+      width: 40px;
+      height: 24px;
+    }
+    .db-answer-a strong {
+      display: block;
+      font-size: var(--type-label-s-size);
+      font-weight: var(--type-label-s-weight);
+      line-height: var(--type-label-s-lh);
+      letter-spacing: var(--type-label-s-ls);
+      text-transform: uppercase;
+      color: var(--app-purple-700-label);
+      margin-bottom: 8px;
+    }
+    .db-answer-a span {
+      font-size: var(--type-text-m-size);
+      font-weight: var(--type-text-m-weight);
+      line-height: var(--type-text-m-lh);
+      color: var(--app-purple-950);
+    }
+    .db-design-decision {
+      margin-top: 80px;
+    }
+    .db-design-decision-label {
+      font-size: var(--type-label-m-size);
+      font-weight: var(--type-label-m-weight);
+      line-height: var(--type-label-m-lh);
+      letter-spacing: var(--type-label-m-ls);
+      text-transform: uppercase;
+      color: var(--app-purple-700-label);
+      margin-bottom: 20px;
+    }
+    .db-design-decision-text {
+      font-size: var(--type-text-m-size);
+      font-weight: var(--type-text-m-weight);
+      line-height: var(--type-text-m-lh);
+      color: var(--app-purple-950);
+    }
+
+    /* ─────────────────────────────────────────────
+       IA - visual node map
+    ───────────────────────────────────────────── */
+    .db-ia-map { display: flex; flex-direction: column; }
+    .db-ia-labels {
+      display: grid;
+      grid-template-columns: 1fr 40px 1fr;
+      column-gap: 16px;
+      margin-bottom: 20px;
+    }
+    .db-ia-col-label {
+      font-size: var(--type-label-m-size);
+      font-weight: var(--type-label-m-weight);
+      line-height: var(--type-label-m-lh);
+      letter-spacing: var(--type-label-m-ls);
+      text-transform: uppercase;
+      color: var(--app-purple-950-label);
+    }
+    .db-ia-rows { display: flex; flex-direction: column; gap: 8px; }
+    .db-ia-row {
+      display: grid;
+      grid-template-columns: 1fr 40px 1fr;
+      column-gap: 16px;
+      align-items: center;
+    }
+    .db-ia-row img { width: 40px; height: 24px; justify-self: center; }
+    .db-ia-node {
+      padding: 16px;
+      border-radius: 14px;
+      background: var(--app-purple-50);
+      border: 1px solid var(--app-purple-100);
+      font-size: var(--type-text-m-size);
+      font-weight: var(--type-text-m-weight);
+      line-height: var(--type-text-m-lh);
+      display: flex;
+      align-items: center;
+    }
+    .db-ia-node--goal {
+      color: var(--app-purple-950-subtle);
+      font-style: italic;
+    }
+    .db-ia-node--cat {
+      background: var(--app-purple-100);
+      border-color: var(--app-purple-200);
+      color: var(--app-purple-950);
+      justify-content: center;
+      text-align: center;
+    }
+
+    /* ─────────────────────────────────────────────
+       ITERATIONS - 3-column horizontal
+    ───────────────────────────────────────────── */
+    .db-iter-section + .db-iter-section { margin-top: 80px; }
+    .db-iter-version {
+      font-size: var(--type-label-m-size);
+      font-weight: var(--type-label-m-weight);
+      line-height: var(--type-label-m-lh);
+      letter-spacing: var(--type-label-m-ls);
+      text-transform: uppercase;
+      color: var(--app-purple-700-label);
+      display: block;
+      margin-bottom: 8px;
+    }
+    .db-iter-title {
+      font-size: var(--type-label-s-size);
+      font-weight: var(--type-label-s-weight);
+      line-height: var(--type-label-s-lh);
+      letter-spacing: var(--type-label-s-ls);
+      text-transform: uppercase;
+      color: var(--app-purple-950-label);
+      display: block;
+      margin-bottom: 48px;
+    }
+    .db-iter-body {
+      font-size: var(--type-text-m-size);
+      font-weight: var(--type-text-m-weight);
+      line-height: var(--type-text-m-lh);
+      color: var(--app-purple-950);
+      margin-bottom: 48px;
+    }
+    .db-iter-img {
+      width: 100%;
+      border-radius: 14px;
+      display: block;
+      margin-bottom: 48px;
+    }
+    .db-iter-img { width: 100%; border-radius: 14px; display: block; }
+    .db-iter-img-ph {
+      width: 100%;
+      aspect-ratio: 16/9;
+      border-radius: 14px;
+      border: 1.5px dashed var(--app-purple-200);
+      background: var(--app-purple-50);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: var(--type-label-s-size);
+      color: var(--app-purple-950-label);
+      margin-bottom: 48px;
+    }
+    .db-iter-verdict {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 20px;
+      color: var(--app-purple-700);
+    }
+    .db-iter-verdict svg { width: 24px; height: 24px; flex-shrink: 0; }
+    .db-iter-verdict-label {
+      font-size: var(--type-label-s-size);
+      font-weight: var(--type-label-s-weight);
+      line-height: var(--type-label-s-lh);
+      letter-spacing: var(--type-label-s-ls);
+      text-transform: uppercase;
+      color: var(--app-purple-700-label);
+    }
+    .db-iter-verdict-text {
+      font-size: var(--type-text-m-size);
+      font-weight: var(--type-text-m-weight);
+      line-height: var(--type-text-m-lh);
+      color: var(--app-purple-950);
+    }
+    .db-iter-verdict + .db-iter-verdict { margin-top: 32px; }
+
+    /* ─────────────────────────────────────────────
+       REDUCTIONS - alternating left/right items
+    ───────────────────────────────────────────── */
+    .rc-list {
+      display: flex;
+      flex-direction: column;
+    }
+    .rc-item {
+      width: 480px;
+      padding: 40px 40px 40px 40px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      background: #ffffff;
+    }
+    .rc-item + .rc-item {
+      margin-top: -32px;
+    }
+    .rc-item--left {
+      margin-right: auto;
+    }
+    .rc-item--right {
+      margin-left: auto;
+      text-align: right;
+    }
+    .rc-num {
+      font-family: var(--font-hdg);
+      font-size: var(--type-h1-size);
+      font-weight: var(--type-h1-weight);
+      line-height: var(--type-h1-lh);
+      letter-spacing: var(--type-h1-ls);
+      color: var(--app-purple-100);
+      position: absolute;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      user-select: none;
+    }
+    .rc-item--right .rc-num {
+      left: auto;
+      right: 0;
+    }
+    .rc-title {
+      font-size: var(--type-label-m-size);
+      font-weight: var(--type-label-m-weight);
+      letter-spacing: var(--type-label-m-ls);
+      line-height: var(--type-label-m-lh);
+      text-transform: uppercase;
+      color: var(--app-purple-950-label);
+      margin-bottom: 20px;
+      position: relative;
+    }
+    .rc-removed {
+      font-size: var(--type-text-m-size);
+      line-height: var(--type-text-m-lh);
+      color: var(--app-purple-950-subtle);
+      font-style: italic;
+      margin-bottom: 20px;
+      position: relative;
+    }
+    .rc-why-label {
+      font-size: var(--type-label-s-size);
+      font-weight: var(--type-label-s-weight);
+      letter-spacing: var(--type-label-s-ls);
+      text-transform: uppercase;
+      color: var(--app-purple-700);
+      margin-bottom: 8px;
+      display: block;
+      position: relative;
+    }
+    .rc-why-text {
+      font-size: var(--type-text-m-size);
+      line-height: var(--type-text-m-lh);
+      color: var(--app-purple-950);
+      position: relative;
+    }
+
+    /* ─────────────────────────────────────────────
+       FINAL UI - 4 subsections
+    ───────────────────────────────────────────── */
+    .fui-list {
+      display: flex;
+      flex-direction: column;
+      padding-top: 48px;
+    }
+    .fui-item {
+      display: flex;
+      flex-direction: column;
+    }
+    .fui-item + .fui-item {
+      margin-top: 80px;
+    }
+    .fui-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+    .fui-num {
+      width: 24px;
+      height: 24px;
+      flex-shrink: 0;
+      background: var(--app-purple-50);
+      border: 1px solid var(--app-purple-100);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: var(--type-label-s-size);
+      font-weight: var(--type-label-s-weight);
+      letter-spacing: var(--type-label-s-ls);
+      text-transform: uppercase;
+      color: var(--app-purple-700);
+      line-height: 1;
+    }
+    .fui-header-text {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .fui-title {
+      font-size: var(--type-label-m-size);
+      font-weight: var(--type-label-m-weight);
+      letter-spacing: var(--type-label-m-ls);
+      line-height: var(--type-label-m-lh);
+      text-transform: uppercase;
+      color: var(--app-purple-950-label);
+    }
+    .fui-desc {
+      font-size: var(--type-text-m-size);
+      line-height: var(--type-text-m-lh);
+      color: var(--app-purple-950);
+    }
+    .fui-img {
+      width: 100%;
+      height: auto;
+      border-radius: 14px;
+      border: 1px solid var(--app-gray-100);
+      display: block;
+    }
+    .fui-why {
+      margin-top: 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .fui-why-label {
+      font-size: var(--type-label-s-size);
+      font-weight: var(--type-label-s-weight);
+      letter-spacing: var(--type-label-s-ls);
+      text-transform: uppercase;
+      color: var(--app-purple-700);
+      display: block;
+    }
+    .fui-why p {
+      font-size: var(--type-text-m-size);
+      line-height: var(--type-text-m-lh);
+      color: var(--app-purple-950);
+    }
+
+    /* ─────────────────────────────────────────────
+       UI DIRECTION - 2-col list
+    ───────────────────────────────────────────── */
+    .db-uid-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 80px;
+    }
+    .db-uid-item {
+      padding: 16px;
+      background: var(--app-purple-50);
+      border: 1px solid var(--app-purple-100);
+      border-radius: 14px;
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 16px;
+    }
+    .db-uid-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      background: var(--app-purple-100);
+      border: 1px solid var(--app-purple-200);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .db-uid-icon img {
+      width: 16px;
+      height: 16px;
+      filter: invert(18%) sepia(96%) saturate(4000%) hue-rotate(267deg) brightness(85%) contrast(110%);
+    }
+    .db-uid-body {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .db-uid-title {
+      font-size: var(--type-label-m-size);
+      font-weight: var(--type-label-m-weight);
+      letter-spacing: var(--type-label-m-ls);
+      line-height: var(--type-label-m-lh);
+      text-transform: uppercase;
+      color: var(--app-purple-950-label);
+    }
+    .db-uid-item p {
+      font-size: var(--type-text-m-size);
+      line-height: var(--type-text-m-lh);
+      color: var(--app-purple-950);
+    }
+    .db-uid-note {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--app-purple-950-label);
+    }
+
+    /* ─────────────────────────────────────────────
+       BEFORE / AFTER - split visual + text table
+    ───────────────────────────────────────────── */
+    .db-ba-visuals {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+    .db-ba-visual-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .db-ba-visual-label {
+      font-family: var(--font-body);
+      font-size: var(--type-label-s-size);
+      font-weight: var(--type-label-s-weight);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--app-purple-950-label);
+    }
+    .db-ba-table {
+      display: flex;
+      flex-direction: column;
+      border: 1px solid var(--app-purple-100);
+      border-radius: 14px;
+      overflow: hidden;
+    }
+    .db-ba-head {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      background: var(--app-purple-100);
+    }
+    .db-ba-head-cell {
+      padding: 10px 18px;
+      font-size: var(--type-label-s-size);
+      font-weight: var(--type-label-s-weight);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--app-purple-950-label);
+    }
+    .db-ba-head-cell + .db-ba-head-cell { border-left: 1px solid var(--app-purple-200); }
+    .db-ba-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-top: 1px solid var(--app-purple-100);
+    }
+    .db-ba-row:nth-child(even) { background: var(--app-purple-50); }
+    .db-ba-cell {
+      padding: 13px 18px;
+      font-size: var(--type-text-s-size);
+      line-height: 1.5;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .db-ba-cell + .db-ba-cell { border-left: 1px solid var(--app-purple-100); }
+    .db-ba-cell--b { color: var(--app-purple-950-label); }
+    .db-ba-cell--b::before { content: '✕'; color: #C07070; font-size: 10px; flex-shrink: 0; }
+    .db-ba-cell--a { color: var(--app-purple-950); }
+    .db-ba-cell--a::before { content: '✓'; color: #5A8C5E; font-size: 10px; flex-shrink: 0; }
+
+    /* ─────────────────────────────────────────────
+       IMPACT - metric cards
+    ───────────────────────────────────────────── */
+    .db-impact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .db-impact-card {
+      padding: 28px 24px;
+      border-radius: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .db-impact-card:nth-child(odd)  { background: var(--app-purple-50);  border: 1px solid var(--app-purple-100); }
+    .db-impact-card:nth-child(even) { background: var(--app-purple-950); border: 1px solid var(--app-purple-950); }
+    .db-impact-icon {
+      font-size: 1.5rem;
+      line-height: 1;
+    }
+    .db-impact-label {
+      font-family: var(--font-body);
+      font-size: var(--type-label-s-size);
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .db-impact-card:nth-child(odd)  .db-impact-label { color: var(--app-purple-700-label); }
+    .db-impact-card:nth-child(even) .db-impact-label { color: rgba(250,244,255,0.6); }
+    .db-impact-card p {
+      font-size: var(--type-text-s-size);
+      line-height: 1.55;
+    }
+    .db-impact-card:nth-child(odd)  p { color: var(--app-purple-950); }
+    .db-impact-card:nth-child(even) p { color: rgba(250,244,255,0.8); }
+
+    /* ─────────────────────────────────────────────
+       REFLECTION
+    ───────────────────────────────────────────── */
+    .db-refl-intro {
+      font-size: var(--type-text-m-size);
+      line-height: 1.65;
+      color: var(--app-purple-950);
+      margin-bottom: 40px;
+    }
+    .db-learnings {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin-bottom: 48px;
+    }
+    .db-learning {
+      display: flex;
+      gap: 16px;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--app-purple-700-border);
+      align-items: flex-start;
+    }
+    .db-learning:last-child { border-bottom: none; padding-bottom: 0; }
+    .db-learning-dash {
+      font-family: var(--font-hdg);
+      font-size: var(--type-h5-size);
+      line-height: 1;
+      color: var(--app-purple-200);
+      flex-shrink: 0;
+      padding-top: 2px;
+    }
+    .db-learning p {
+      font-size: var(--type-text-m-size);
+      line-height: 1.6;
+      color: var(--app-purple-950);
+    }
+    .db-refl-blocks {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .db-refl-block {
+      padding: 24px;
+      border-radius: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .db-refl-block:first-child {
+      background: var(--app-purple-50);
+      border: 1px solid var(--app-purple-100);
+    }
+    .db-refl-block:last-child {
+      background: var(--app-purple-950);
+    }
+    .db-refl-block-label {
+      font-size: var(--type-label-s-size);
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .db-refl-block:first-child .db-refl-block-label { color: var(--app-purple-700-label); }
+    .db-refl-block:last-child  .db-refl-block-label { color: rgba(250,244,255,0.5); }
+    .db-refl-block:first-child p { font-size: var(--type-text-s-size); line-height: 1.6; color: var(--app-purple-950); }
+    .db-refl-block:last-child  p { font-size: var(--type-text-s-size); line-height: 1.6; color: rgba(250,244,255,0.8); }
+
+    /* ─────────────────────────────────────────────
+       HELPERS
+    ───────────────────────────────────────────── */
+    .mt-8  { margin-top: 8px; }
+    .mt-16 { margin-top: 16px; }
+    .mt-32 { margin-top: 32px; }
+    .mt-48 { margin-top: 48px; }
+    .mt-64 { margin-top: 64px; }
+
+    /* Section separator spacing override (right-col gap handles most) */
+    .db-sec + .db-sec { margin-top: 0; }
+
+  </style>
+</head>
+<body>
+
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursor-follower"></div>
+
+  <div class="cs-layout">
+
+    <!-- ══════════════════════════════════════════
+         LEFT COLUMN - sticky
+    ══════════════════════════════════════════ -->
+    <aside class="cs-left-col">
+      <div class="cs-left-in">
+
+        <div class="cs-left-identity">
+          <div class="cs-avatar">
+            <img src="assets/julia.jpg" alt="Julia Mitka"
+              onerror="this.style.display='none';this.parentElement.classList.add('cs-avatar--empty')">
+          </div>
+          <div class="cs-left-ident">
+            <h5 class="cs-left-name">Julia Mitka</h5>
+            <span class="cs-left-role">UX/UI Designer</span>
+          </div>
+        </div>
+
+        <div class="cs-left-nav">
+          <a href="index.html" class="cs-left-link">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M216.49,111.51l-80-80a12,12,0,0,0-17,0l-80,80A12,12,0,0,0,36,120v96a4,4,0,0,0,4,4h64a4,4,0,0,0,4-4V156h40v60a4,4,0,0,0,4,4h64a4,4,0,0,0,4-4V120A12,12,0,0,0,216.49,111.51ZM212,212H156V152a4,4,0,0,0-4-4H104a4,4,0,0,0-4,4v60H44V120a4,4,0,0,1,1.17-2.83l80-80a4,4,0,0,1,5.66,0l80,80A4,4,0,0,1,212,120Z"/></svg>
+            Home
+          </a>
+        </div>
+
+        <div class="cs-left-contact">
+          <span class="cs-left-label">Contact me</span>
+          <div class="cs-left-links">
+            <a href="https://linkedin.com/in/julia-mitka" class="cs-left-link" target="_blank" rel="noopener noreferrer">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M216,28H40A12,12,0,0,0,28,40V216a12,12,0,0,0,12,12H216a12,12,0,0,0,12-12V40A12,12,0,0,0,216,28Zm4,188a4,4,0,0,1-4,4H40a4,4,0,0,1-4-4V40a4,4,0,0,1,4-4H216a4,4,0,0,1,4,4ZM92,112v64a4,4,0,0,1-8,0V112a4,4,0,0,1,8,0Zm88,28v36a4,4,0,0,1-8,0V140a24,24,0,0,0-48,0v36a4,4,0,0,1-8,0V112a4,4,0,0,1,8,0v6.87A32,32,0,0,1,180,140ZM96,84a8,8,0,1,1-8-8A8,8,0,0,1,96,84Z"/></svg>
+              Linkedin
+            </a>
+            <a href="mailto:julia.mitka@example.com" class="cs-left-link">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M224,52H32a4,4,0,0,0-4,4V192a12,12,0,0,0,12,12H216a12,12,0,0,0,12-12V56A4,4,0,0,0,224,52Zm-10.28,8L128,138.57,42.28,60ZM216,196H40a4,4,0,0,1-4-4V65.09L125.3,147a4,4,0,0,0,5.4,0L220,65.09V192A4,4,0,0,1,216,196Z"/></svg>
+              Mail
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </aside>
+
+    <!-- ══════════════════════════════════════════
+         RIGHT COLUMN - scrollable
+    ══════════════════════════════════════════ -->
+    <div class="cs-right-col">
+
+      <!-- ── HERO ── -->
+      <section class="cs-hero" id="sec-hero">
+        <div class="cs-hero-content">
+
+          <div class="cs-hero-nav reveal">
+            <a href="index.html" class="cs-hero-btn-back">Back</a>
+            <button class="cs-hero-btn-arrow" aria-label="Next project">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M218.83,130.83l-72,72a4,4,0,0,1-5.66-5.66L206.34,132H40a4,4,0,0,1,0-8H206.34L141.17,58.83a4,4,0,0,1,5.66-5.66l72,72A4,4,0,0,1,218.83,130.83Z"/></svg>
+            </button>
+          </div>
+
+          <h2 class="cs-hero-title reveal">Redesign of the customer panel home page</h2>
+
+          <p class="cs-hero-sub reveal">Transforming a passive service catalog into a dashboard supporting risk monitoring, data analysis, and operational decision-making.</p>
+
+          <div class="cs-hero-img-wrap reveal mt-48">
+            <img src="assets/dashboard/hero-img.png" alt="Customer panel home page redesign" class="cs-hero-img">
+          </div>
+
+          <div class="cs-chips reveal">
+            <div class="cs-chip">
+              <span class="cs-chip-label">Role</span>
+              <span class="cs-chip-val">UX/UI Designer</span>
+            </div>
+            <div class="cs-chip cs-chip--wide">
+              <span class="cs-chip-label">Scope</span>
+              <span class="cs-chip-val">Audit · Personas · IA · UI</span>
+            </div>
+            <div class="cs-chip">
+              <span class="cs-chip-label">Type</span>
+              <span class="cs-chip-val">Enterprise / B2B</span>
+            </div>
+            <div class="cs-chip">
+              <span class="cs-chip-label">Product</span>
+              <span class="cs-chip-val">Web application</span>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ── 01 OVERVIEW ── -->
+      <section class="db-sec" id="sec-overview">
+        <div class="db-sec-inner">
+          <h4 class="cs-section-hd reveal">Overview</h4>
+          <div class="cs-overview-list">
+            <div class="cs-ov-item reveal">
+              <span class="cs-ov-label">Product</span>
+              <p class="cs-ov-text">A web application for a business information bureau, used by entrepreneurs to verify contractors, monitor company health, and manage receivables.</p>
+            </div>
+            <div class="cs-ov-item reveal">
+              <span class="cs-ov-label">Project</span>
+              <p class="cs-ov-text">Redesign of the homepage - the first screen after login - from a static grid of service tiles into a decision-support dashboard.</p>
+            </div>
+          </div>
+          <img src="assets/dashboard/overview-img.png" alt="" class="cs-overview-img reveal">
+        </div>
+      </section>
+
+      <!-- ── 02 CHALLENGE ── -->
+      <section class="db-sec" id="sec-challenge">
+        <div class="db-sec-inner">
+          <h4 class="cs-section-hd reveal">Challenge</h4>
+
+          <div class="db-challenge-body reveal">
+            <p>The previous homepage functioned as a product catalog - a grid of tiles leading to services also available in the side menu. It duplicated navigation without adding informational value.</p>
+            <p>The problem was not only related to the UI. The homepage did not answer the questions users had when logging in: What is the current status of my company? How many services do I still have available? Have any new events appeared? What should I do next?</p>
+            <p>The biggest challenge was not the lack of data or functionality, but prioritization - what the user should see first in order to understand the situation and make a decision.</p>
+          </div>
+
+          <div class="cs-annotated reveal" style="margin-top: 80px;">
+            <p class="cs-annotated-label">Main page - Before</p>
+            <div class="cs-annotated-stage">
+              <div class="cs-annotated-img-wrap">
+                <img src="assets/dashboard/challenge-homepage-before.png" alt="Homepage before redesign">
+              </div>
+
+              <div class="cs-callout cs-callout--db-l1">
+                <p class="cs-callout-title">Duplicated entry points</p>
+                <p class="cs-callout-body">All tiles led to the same services already available in the side menu.</p>
+              </div>
+
+              <div class="cs-callout cs-callout--db-l2">
+                <p class="cs-callout-title">No clear next step</p>
+                <p class="cs-callout-body">No guidance on what action made sense given the user's current situation.</p>
+              </div>
+
+              <div class="cs-callout cs-callout--db-r1">
+                <p class="cs-callout-title">No information priority</p>
+                <p class="cs-callout-body">All tiles had equal visual weight - no way to identify what mattered most.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="reveal" style="margin-top: 80px;">
+            <span class="cs-kdi-label">Design challenge</span>
+            <p class="cs-ov-text" style="margin-top: 20px;">How can we transform the homepage from a service catalog into a dashboard that gives users a quick overview of their company's situation and guides them toward the right action?</p>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ── 03 GOALS ── -->
+      <section class="db-sec" id="sec-goals">
+        <div class="db-sec-inner">
+          <h4 class="cs-section-hd reveal">Goals &amp; UX Requirements</h4>
+          <p class="db-discovery-text reveal">The dashboard needed to address problems visible from both the users' and the business perspective: low homepage usability, recurring support questions, and underuse of services available in the panel.</p>
+
+          <div class="db-goals-table reveal" style="margin-top: 80px;">
+            <div class="db-goals-head">
+              <span class="db-goals-head-cell">Business problem</span>
+              <span class="db-goals-head-cell">Business goal</span>
+              <span class="db-goals-head-cell">UX requirement</span>
+            </div>
+            <div class="db-goals-body">
+              <div class="db-goals-row">
+                <div class="db-goals-cell">Users asked support about limits, invoices, and package scope</div>
+                <div class="db-goals-cell">Reduce repetitive support requests</div>
+                <div class="db-goals-cell">Show available services and key shortcuts directly on the dashboard</div>
+              </div>
+              <div class="db-goals-row">
+                <div class="db-goals-cell">Clients used only some of the platform's features</div>
+                <div class="db-goals-cell">Increase discoverability and service usage</div>
+                <div class="db-goals-cell">Group actions by user goals, not by product names</div>
+              </div>
+              <div class="db-goals-row">
+                <div class="db-goals-cell">The homepage did not provide operational value</div>
+                <div class="db-goals-cell">Increase usefulness of the first view after login</div>
+                <div class="db-goals-cell">Show company status, events, and recommended actions in a logical order</div>
+              </div>
+              <div class="db-goals-row">
+                <div class="db-goals-cell">Users didn't know what to do after seeing data or alerts</div>
+                <div class="db-goals-cell">Support the transition from information to action</div>
+                <div class="db-goals-cell">Add a guidance layer: "What can you do now?"</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── 04 DISCOVERY ── -->
+      <section class="db-sec" id="sec-discovery">
+        <div class="db-sec-inner">
+          <h4 class="cs-section-hd reveal">Discovery</h4>
+          <p class="db-discovery-text reveal">Without reliable homepage analytics available at this stage, customer support became the strongest source of user insight. Their recurring conversations with users revealed repeated friction around package limits, reports, service differences, alerts, and unclear next steps. These patterns directly shaped the dashboard structure.</p>
+
+          <!-- Support quotes -->
+          <div class="db-quotes reveal" style="margin-top: 80px;">
+            <div class="db-quote">
+              <div class="db-quote-num">01</div>
+              <p class="db-quote-text"><span class="db-quote-mark">" </span>Where can I check the status of my company?<span class="db-quote-mark"> "</span></p>
+              <span class="db-quote-tag">Company status visibility</span>
+            </div>
+            <div class="db-quote">
+              <div class="db-quote-num">02</div>
+              <p class="db-quote-text"><span class="db-quote-mark">" </span>How many checks do I still have in my package?<span class="db-quote-mark"> "</span></p>
+              <span class="db-quote-tag">Package limit question</span>
+            </div>
+            <div class="db-quote">
+              <div class="db-quote-num">03</div>
+              <p class="db-quote-text"><span class="db-quote-mark">" </span>I'm not sure which service I should choose.<span class="db-quote-mark"> "</span></p>
+              <span class="db-quote-tag">Service comprehension gap</span>
+            </div>
+            <div class="db-quote">
+              <div class="db-quote-num">04</div>
+              <p class="db-quote-text"><span class="db-quote-mark">" </span>What action should I take?<span class="db-quote-mark"> "</span></p>
+              <span class="db-quote-tag">Next step uncertainty</span>
+            </div>
+          </div>
+
+          <!-- Insights -->
+          <div class="db-insights mt-16">
+            <div class="db-insight reveal">
+              <div class="db-insight-num">01</div>
+              <div class="db-insight-body">
+                <h3>Users didn't know where to check company status</h3>
+                <p>There was no summary view - users had to open a full report to understand their company's basic situation.</p>
+                <span class="db-insight-imp"><img src="assets/dashboard/arrow-circle-right-thin.svg" alt="">Show key report data directly on the dashboard</span>
+              </div>
+            </div>
+            <div class="db-insight reveal">
+              <div class="db-insight-num">02</div>
+              <div class="db-insight-body">
+                <h3>Frequent questions about service limits and package scope</h3>
+                <p>Users regularly contacted support to check how many checks or monitoring services they still had available.</p>
+                <span class="db-insight-imp"><img src="assets/dashboard/arrow-circle-right-thin.svg" alt="">Place package information high in the hierarchy</span>
+              </div>
+            </div>
+            <div class="db-insight reveal">
+              <div class="db-insight-num">03</div>
+              <div class="db-insight-body">
+                <h3>Users didn't understand differences between services</h3>
+                <p>Service names didn't communicate when to use them - users couldn't map product names to their actual goals.</p>
+                <span class="db-insight-imp"><img src="assets/dashboard/arrow-circle-right-thin.svg" alt="">Group actions by goal, not by service name</span>
+              </div>
+            </div>
+            <div class="db-insight reveal">
+              <div class="db-insight-num">04</div>
+              <div class="db-insight-body">
+                <h3>Too many equally weighted tiles - ignored</h3>
+                <p>When everything looks the same, nothing stands out. Users learned to ignore the homepage entirely.</p>
+                <span class="db-insight-imp"><img src="assets/dashboard/arrow-circle-right-thin.svg" alt="">Reduce elements and strengthen hierarchy</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="db-key-insight reveal" style="margin-top: 80px;">
+            <p class="db-key-insight-label">Key insight</p>
+            <p class="db-key-insight-text">Users didn't need more features. They needed context and guidance.<br><br>The problem wasn't a lack of functionality - it was the lack of a clear structure explaining what users had available, what required attention, and what action made sense next.</p>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ── 05 USER ARCHETYPES ── -->
+      <section class="db-sec" id="sec-archetypes">
+        <div class="db-sec-inner">
+          <h4 class="cs-section-hd reveal">User Archetypes</h4>
+          <p class="db-discovery-text reveal">Based on personas and support insights I identified two primary behavioral patterns - not full demographic profiles, but usage modes that defined what the dashboard must prioritize.</p>
+
+          <div class="db-arch-grid reveal" style="margin-top: 80px;">
+
+            <!-- Card 1 -->
+            <div>
+              <p class="db-arch-col-label">Task-oriented business owner</p>
+              <div class="db-arch-card">
+                <div class="db-arch-card-header">
+                  <div class="db-arch-avatar-wrap"><img class="db-arch-avatar" src="assets/dashboard/user-avatar-1.png" alt="Marek Kowalski"></div>
+                  <div>
+                    <p class="db-arch-name">Marek Kowalski</p>
+                    <p class="db-arch-role">Entrepreneur</p>
+                    <div class="db-arch-meta">
+                      <span class="db-arch-meta-label">Age:</span>
+                      <span class="db-arch-meta-val">52</span>
+                      <span class="db-arch-meta-dot">·</span>
+                      <span class="db-arch-meta-label">Location:</span>
+                      <span class="db-arch-meta-val">Wieliczka</span>
+                    </div>
+                  </div>
+                </div>
+                <p class="db-arch-bio">Owner of a mid-sized construction company who wants to quickly check company or contractor status and move on to action.</p>
+                <p class="db-arch-section-label">Needs</p>
+                <ul class="db-arch-needs">
+                  <li>Access key actions quickly</li>
+                  <li>Understand services easily</li>
+                  <li>Know what to do next</li>
+                  <li>Stay in control without reading full reports</li>
+                </ul>
+                <p class="db-arch-section-label">Dashboard implication</p>
+                <p class="db-arch-implication">Easy to scan quickly, guides toward specific actions</p>
+              </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div>
+              <p class="db-arch-col-label">Operational finance user</p>
+              <div class="db-arch-card">
+                <div class="db-arch-card-header">
+                  <div class="db-arch-avatar-wrap"><img class="db-arch-avatar" src="assets/dashboard/user-avatar-2.png" alt="Aleksandra Kaminska"></div>
+                  <div>
+                    <p class="db-arch-name">Aleksandra Kamińska</p>
+                    <p class="db-arch-role">Finance Operations Manager</p>
+                    <div class="db-arch-meta">
+                      <span class="db-arch-meta-label">Age:</span>
+                      <span class="db-arch-meta-val">29</span>
+                      <span class="db-arch-meta-dot">·</span>
+                      <span class="db-arch-meta-label">Location:</span>
+                      <span class="db-arch-meta-val">Warsaw</span>
+                    </div>
+                  </div>
+                </div>
+                <p class="db-arch-bio">Employee of a large technology company who regularly monitors company condition, alerts, reports, and data changes.</p>
+                <p class="db-arch-section-label">Needs</p>
+                <ul class="db-arch-needs">
+                  <li>See company status quickly</li>
+                  <li>Track alerts and changes</li>
+                  <li>Access reports easily</li>
+                  <li>Stay confident nothing important is missed</li>
+                </ul>
+                <p class="db-arch-section-label">Dashboard implication</p>
+                <p class="db-arch-implication">Operational overview of the situation - not a list of services</p>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ── 06 DASHBOARD LOGIC ── -->
+      <section class="db-sec" id="sec-strategy">
+        <div class="db-sec-inner">
+          <h4 class="cs-section-hd reveal">Dashboard Logic</h4>
+
+          <p class="db-strategy-body reveal">The key shift was moving from "let's show users the available products" toward "let's answer the questions users have when they log in." Users had access to many services, but lacked context: when, why, and in what order to use them.</p>
+
+          <div class="db-answers reveal">
+            <div class="db-answer">
+              <p class="db-answer-q"><span class="db-quote-mark">" </span>How many services can I still use?<span class="db-quote-mark"> "</span></p>
+              <img class="db-answer-arr" src="assets/arrow-long.svg" alt="">
+              <div class="db-answer-a"><strong>Your package</strong><span>Available checks, monitoring services, quick access to invoices</span></div>
+            </div>
+            <div class="db-answer">
+              <p class="db-answer-q"><span class="db-quote-mark">" </span>Is my company in a good situation?<span class="db-quote-mark"> "</span></p>
+              <img class="db-answer-arr" src="assets/arrow-long.svg" alt="">
+              <div class="db-answer-a"><strong>Your company status</strong><span>Most important report data - shown without downloading a full report</span></div>
+            </div>
+            <div class="db-answer">
+              <p class="db-answer-q"><span class="db-quote-mark">" </span>What is happening around my company?<span class="db-quote-mark"> "</span></p>
+              <img class="db-answer-arr" src="assets/arrow-long.svg" alt="">
+              <div class="db-answer-a"><strong>Your statistics</strong><span>Reports, entities monitoring the company, company-related events</span></div>
+            </div>
+            <div class="db-answer">
+              <p class="db-answer-q"><span class="db-quote-mark">" </span>What can I do now?<span class="db-quote-mark"> "</span></p>
+              <img class="db-answer-arr" src="assets/arrow-long.svg" alt="">
+              <div class="db-answer-a"><strong>What can you do now?</strong><span>Recommended actions grouped by user goals</span></div>
+            </div>
+          </div>
+
+          <div class="db-design-decision reveal">
+            <p class="db-design-decision-label">Design decision</p>
+            <p class="db-design-decision-text">The dashboard was designed as a sequence of answers to user needs, not as an exposition of all available services.</p>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ── 08 ITERATIONS ── -->
+      <section class="db-sec" id="sec-iterations">
+        <div class="db-sec-inner">
+          <h4 class="cs-section-hd reveal">Iterations</h4>
+          <p class="db-discovery-text reveal">The dashboard went through several versions, reviewed with the PM and customer support team at each stage. Their feedback helped validate which information was useful, which elements created confusion, and where the interface was still too heavy. The biggest change was not about adding more elements - it was about removing data that didn't support user decisions.</p>
+
+          <!-- V1 -->
+          <div class="db-iter-section reveal" style="margin-top: 80px;">
+            <span class="db-iter-version">V1</span>
+            <span class="db-iter-title">Business-heavy dashboard</span>
+            <p class="db-iter-body">The first version was strongly based on business requirements. It included a dominant "Security level of your company" bar, an extensive statistics section, and a refreshed product catalog.</p>
+            <div class="cs-annotated reveal">
+              <div class="cs-annotated-stage">
+                <div class="cs-annotated-img-wrap">
+                  <img src="assets/dashboard/iterations-v1.png" alt="V1 screen">
+                </div>
+                <div class="cs-callout cs-callout--iter-v1-l1">
+                  <p class="cs-callout-body">Dominant "Security level" bar</p>
+                </div>
+                <div class="cs-callout cs-callout--iter-v1-l2">
+                  <p class="cs-callout-body">Refreshed product catalog</p>
+                </div>
+                <div class="cs-callout cs-callout--iter-v1-r1">
+                  <p class="cs-callout-body">Extensive statistics</p>
+                </div>
+              </div>
+            </div>
+            <div class="db-iter-verdict reveal">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M231,82.76A20,20,0,0,0,216,76H156V56a36,36,0,0,0-36-36,4,4,0,0,0-3.58,2.21L77.53,100H32a12,12,0,0,0-12,12v88a12,12,0,0,0,12,12H204a20,20,0,0,0,19.85-17.52l12-96A20,20,0,0,0,231,82.76ZM76,204H32a4,4,0,0,1-4-4V112a4,4,0,0,1,4-4H76ZM227.91,97.49l-12,96A12,12,0,0,1,204,204H84V104.94L122.42,28.1A28,28,0,0,1,148,56V80a4,4,0,0,0,4,4h64a12,12,0,0,1,11.91,13.49Z"></path></svg>
+              <span class="db-iter-verdict-label">What worked</span>
+            </div>
+            <p class="db-iter-verdict-text reveal">The UI was more structured than in the old version, and the dashboard started using more data available in the system.</p>
+            <div class="db-iter-verdict reveal" style="margin-top: 40px;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M235.85,157.52l-12-96A20,20,0,0,0,204,44H32A12,12,0,0,0,20,56v88a12,12,0,0,0,12,12H77.53l38.89,77.79A4,4,0,0,0,120,236a36,36,0,0,0,36-36V180h60a20,20,0,0,0,19.85-22.48ZM76,148H32a4,4,0,0,1-4-4V56a4,4,0,0,1,4-4H76Zm149,19.94a12,12,0,0,1-9,4.06H152a4,4,0,0,0-4,4v24a28,28,0,0,1-25.58,27.9L84,151.06V52H204a12,12,0,0,1,11.91,10.51l12,96A12,12,0,0,1,225,167.94Z"></path></svg>
+              <span class="db-iter-verdict-label">What didn't</span>
+            </div>
+            <p class="db-iter-verdict-text reveal">The view still tried to show too much at once and largely preserved the product exposure logic.</p>
+          </div>
+
+          <!-- V2 -->
+          <div class="db-iter-section reveal">
+            <span class="db-iter-version">V2</span>
+            <span class="db-iter-title">More actionable, still overloaded</span>
+            <p class="db-iter-body">In the second version, the "What can you do now?" section appeared, which started replacing the product catalog with recommended actions.</p>
+            <div class="cs-annotated reveal">
+              <div class="cs-annotated-stage">
+                <div class="cs-annotated-img-wrap">
+                  <img src="assets/dashboard/iterations-v2.png" alt="V2 screen">
+                </div>
+                <div class="cs-callout cs-callout--iter-v2-l1">
+                  <p class="cs-callout-body">Section "What can you do now?" instead of product catalog</p>
+                </div>
+              </div>
+            </div>
+            <div class="db-iter-verdict reveal">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M231,82.76A20,20,0,0,0,216,76H156V56a36,36,0,0,0-36-36,4,4,0,0,0-3.58,2.21L77.53,100H32a12,12,0,0,0-12,12v88a12,12,0,0,0,12,12H204a20,20,0,0,0,19.85-17.52l12-96A20,20,0,0,0,231,82.76ZM76,204H32a4,4,0,0,1-4-4V112a4,4,0,0,1,4-4H76ZM227.91,97.49l-12,96A12,12,0,0,1,204,204H84V104.94L122.42,28.1A28,28,0,0,1,148,56V80a4,4,0,0,0,4,4h64a12,12,0,0,1,11.91,13.49Z"></path></svg>
+              <span class="db-iter-verdict-label">What worked</span>
+            </div>
+            <p class="db-iter-verdict-text reveal">The dashboard started guiding the user more effectively from information to action.</p>
+            <div class="db-iter-verdict reveal" style="margin-top: 40px;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M235.85,157.52l-12-96A20,20,0,0,0,204,44H32A12,12,0,0,0,20,56v88a12,12,0,0,0,12,12H77.53l38.89,77.79A4,4,0,0,0,120,236a36,36,0,0,0,36-36V180h60a20,20,0,0,0,19.85-22.48ZM76,148H32a4,4,0,0,1-4-4V56a4,4,0,0,1,4-4H76Zm149,19.94a12,12,0,0,1-9,4.06H152a4,4,0,0,0-4,4v24a28,28,0,0,1-25.58,27.9L84,151.06V52H204a12,12,0,0,1,11.91,10.51l12,96A12,12,0,0,1,225,167.94Z"></path></svg>
+              <span class="db-iter-verdict-label">What didn't</span>
+            </div>
+            <p class="db-iter-verdict-text reveal">The overall view was still too information-heavy, and business-oriented elements competed with data that was important to the user.</p>
+          </div>
+
+          <!-- Final -->
+          <div class="db-iter-section reveal">
+            <span class="db-iter-version">Final</span>
+            <span class="db-iter-title">Focused dashboard</span>
+            <p class="db-iter-body">The final version was based on stronger prioritization: fewer competing elements, a simpler statistics section, and a clearer focus on company status and the user's next step.</p>
+            <div class="cs-annotated reveal">
+              <div class="cs-annotated-stage">
+                <div class="cs-annotated-img-wrap">
+                  <img src="assets/dashboard/iterations-final.png" alt="Final screen">
+                </div>
+                <div class="cs-callout cs-callout--iter-final-l1">
+                  <p class="cs-callout-body">Clearer focus on company status</p>
+                </div>
+                <div class="cs-callout cs-callout--iter-final-l2">
+                  <p class="cs-callout-body">Only key next steps kept</p>
+                </div>
+                <div class="cs-callout cs-callout--iter-final-r1">
+                  <p class="cs-callout-body">Simpler statistics</p>
+                </div>
+              </div>
+            </div>
+            <div class="db-iter-verdict reveal">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M218.26,84.89a100.16,100.16,0,1,1-22.44-30.37l25.35-25.35a4,4,0,1,1,5.66,5.66l-96,96a4,4,0,0,1-5.66-5.66l31-31a44,44,0,1,0,15.78,31.3,4,4,0,0,1,8-.46,52,52,0,1,1-18.1-36.51l28.34-28.33A92,92,0,0,0,63,193.05,92,92,0,0,0,211,88.33a4,4,0,1,1,7.22-3.44Z"></path></svg>
+              <span class="db-iter-verdict-label">Outcome</span>
+            </div>
+            <p class="db-iter-verdict-text reveal">The dashboard became easier to scan and more focused on users' real decisions.</p>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ── 09 REDUCING COMPLEXITY ── -->
+      <section class="db-sec" id="sec-reductions">
+        <div class="db-sec-inner">
+          <h4 class="cs-section-hd reveal">Reducing Complexity</h4>
+          <p class="db-discovery-text reveal">The most important change across iterations was not adding new components — it was consistently removing elements that increased cognitive load, duplicated information, or had no clear decision-making value.</p>
+
+          <div class="rc-list">
+            <div class="rc-item rc-item--left reveal">
+              <span class="rc-num">01</span>
+              <span class="rc-title">Security score</span>
+              <p class="rc-removed">Removed: "Security level of your company" bar</p>
+              <span class="rc-why-label">Why</span>
+              <p class="rc-why-text">Score calculation wasn't transparent and was partly based on purchasing extra services. Could reduce trust, create unnecessary stress, and increase support questions.</p>
+            </div>
+            <div class="rc-item rc-item--right reveal">
+              <span class="rc-num">02</span>
+              <span class="rc-title">Redundant statistics</span>
+              <p class="rc-removed">Removed: statistics that duplicated content or covered unlimited services</p>
+              <span class="rc-why-label">Why</span>
+              <p class="rc-why-text">They didn't help users decide what to do next. Kept only indicators with clear value: downloaded reports, entities monitoring the company, and company-related events.</p>
+            </div>
+            <div class="rc-item rc-item--left reveal">
+              <span class="rc-num">03</span>
+              <span class="rc-title">Product catalog logic</span>
+              <p class="rc-removed">Removed: product catalog as the main navigation method</p>
+              <span class="rc-why-label">Why</span>
+              <p class="rc-why-text">It duplicated the side menu and didn't explain when a specific function was worth using. Users needed contextual action paths, not another list of products.</p>
+            </div>
+            <div class="rc-item rc-item--right reveal">
+              <span class="rc-num">04</span>
+              <span class="rc-title">Too many action options</span>
+              <p class="rc-removed">Removed: less critical and external action options</p>
+              <span class="rc-why-label">Why</span>
+              <p class="rc-why-text">Too many options in "What can you do now?" section weakened hierarchy and could recreate the old problem - many possibilities, but no clear priority for the user.</p>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ── 10 FINAL SOLUTION ── -->
+      <section class="db-sec" id="sec-solution">
+        <div class="db-sec-inner">
+          <h4 class="cs-section-hd reveal">Final UI</h4>
+        </div>
+
+        <div class="db-sec-inner">
+          <div class="fui-list">
+
+            <div class="fui-item reveal">
+              <div class="fui-header">
+                <div class="fui-num">1</div>
+                <div class="fui-header-text">
+                  <span class="fui-title">Package visibility</span>
+                  <p class="fui-desc">Number of remaining checks and monitoring services shown immediately after login.</p>
+                </div>
+              </div>
+              <img src="assets/dashboard/final-ui-package.png" alt="Package visibility" class="fui-img">
+              <div class="fui-why">
+                <span class="fui-why-label">Why</span>
+                <p>Package limits were one of the most common reasons for contacting support. Showing them on the dashboard reduces uncertainty and enables faster action.</p>
+              </div>
+            </div>
+
+            <div class="fui-item reveal">
+              <div class="fui-header">
+                <div class="fui-num">2</div>
+                <div class="fui-header-text">
+                  <span class="fui-title">Company status snapshot</span>
+                  <p class="fui-desc">Key data from the company report - credibility, credit limit, situation in registers - without opening a full report.</p>
+                </div>
+              </div>
+              <img src="assets/dashboard/final-ui-key-data.png" alt="Company status snapshot" class="fui-img">
+              <div class="fui-why">
+                <span class="fui-why-label">Why</span>
+                <p>Complex data is presented through short messages, statuses, and colors - users get interpretation before detail.</p>
+              </div>
+            </div>
+
+            <div class="fui-item reveal">
+              <div class="fui-header">
+                <div class="fui-num">3</div>
+                <div class="fui-header-text">
+                  <span class="fui-title">Focused statistics</span>
+                  <p class="fui-desc">Only three statistics with clear decision-making value: downloaded reports, entities monitoring the company, and company-related events.</p>
+                </div>
+              </div>
+              <img src="assets/dashboard/final-ui-statistics.png" alt="Focused statistics" class="fui-img">
+              <div class="fui-why">
+                <span class="fui-why-label">Why</span>
+                <p>Removing statistics that duplicated data or referred to unlimited services strengthened the overall hierarchy without reducing useful information.</p>
+              </div>
+            </div>
+
+            <div class="fui-item reveal">
+              <div class="fui-header">
+                <div class="fui-num">4</div>
+                <div class="fui-header-text">
+                  <span class="fui-title">Guided actions</span>
+                  <p class="fui-desc">The product passage replaced by "What can you do now?" - recommended actions grouped by goal: taking care of your company, checking a contractor, or recovering receivables.</p>
+                </div>
+              </div>
+              <img src="assets/dashboard/final-ui-guided-actions.png" alt="Guided actions" class="fui-img">
+              <div class="fui-why">
+                <span class="fui-why-label">Why</span>
+                <p>Users didn't always know which service to use. Goal-based language - not service names - makes the path from intent to action clear.</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+
+      <!-- ── 12 UI DIRECTION ── -->
+      <section class="db-sec" id="sec-ui">
+        <div class="db-sec-inner">
+          <h4 class="cs-section-hd reveal">UI Direction</h4>
+          <p class="db-discovery-text reveal">The dashboard was also an opportunity to start organizing the UI layer of a legacy product. In a system built around complex financial data, consistent typography, spacing, and components reduce cognitive load and help users scan faster.</p>
+
+          <div class="db-uid-grid">
+            <div class="db-uid-item reveal">
+              <div class="db-uid-icon">
+                <img src="assets/dashboard/text-aa-thin.svg" width="16" height="16" alt="">
+              </div>
+              <div class="db-uid-body">
+                <span class="db-uid-title">Consistent typography</span>
+                <p>Unified text styles and usage rules for headings, body text, labels, and helper descriptions - replacing the mix of fonts used across the panel.</p>
+              </div>
+            </div>
+            <div class="db-uid-item reveal">
+              <div class="db-uid-icon">
+                <img src="assets/dashboard/arrows-in-line-vertical-thin.svg" width="16" height="16" alt="">
+              </div>
+              <div class="db-uid-body">
+                <span class="db-uid-title">Spacing system</span>
+                <p>Defined rules between sections, cards, and elements inside components to make the dashboard easier to scan visually.</p>
+              </div>
+            </div>
+            <div class="db-uid-item reveal">
+              <div class="db-uid-icon">
+                <img src="assets/dashboard/palette-thin.svg" width="16" height="16" alt="">
+              </div>
+              <div class="db-uid-body">
+                <span class="db-uid-title">Accessible primary color</span>
+                <p>New primary color meeting WCAG contrast requirements - the existing one failed for interactive elements throughout the panel.</p>
+              </div>
+            </div>
+            <div class="db-uid-item reveal">
+              <div class="db-uid-icon">
+                <img src="assets/dashboard/frame-corners-thin.svg" width="16" height="16" alt="">
+              </div>
+              <div class="db-uid-body">
+                <span class="db-uid-title">More whitespace</span>
+                <p>Increased space between modules and inside cards - improving data readability and making the dense financial content easier to parse quickly.</p>
+              </div>
+            </div>
+            <div class="db-uid-item reveal">
+              <div class="db-uid-icon">
+                <img src="assets/dashboard/stack-thin.svg" width="16" height="16" alt="">
+              </div>
+              <div class="db-uid-body">
+                <span class="db-uid-title">Clearer CTA and status hierarchy</span>
+                <p>Defined styles for buttons, links, and status labels so users can distinguish information from actions faster - especially important in a context where users often receive alert-type data and need to understand what requires action vs. what is just informational.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+
+      <!-- ── 14 REFLECTION ── -->
+      <section class="db-sec" id="sec-reflection">
+        <div class="db-sec-inner">
+          <h4 class="cs-section-hd reveal">Reflection &amp; Learnings</h4>
+          <div class="cs-refl-blocks">
+            <div class="cs-refl-block reveal">
+              <div class="cs-refl-heading">
+                <img src="assets/thumbs-up.svg" alt="" width="24" height="24">
+                <span>What worked well</span>
+              </div>
+              <div class="cs-refl-point">
+                <span class="cs-refl-point-label">Support insights helped define priorities early</span>
+                <p>Since usability testing and reliable homepage analytics were not available at this stage, customer support became the strongest available source of user insight. It helped identify recurring problems around package limits, reports, service discoverability, company status, and unclear next steps.</p>
+              </div>
+              <div class="cs-refl-point">
+                <span class="cs-refl-point-label">User questions became a decision-making framework</span>
+                <p>Structuring the dashboard around questions users had after logging in helped guide iteration decisions. For each element, I could ask: does this answer a real user need, or does it only add more information?</p>
+              </div>
+            </div>
+
+            <div class="cs-refl-block reveal">
+              <div class="cs-refl-heading">
+                <img src="assets/swap.svg" alt="" width="24" height="24">
+                <span>What I would improve</span>
+              </div>
+              <div class="cs-refl-point">
+                <span class="cs-refl-point-label">Validate the hierarchy with lightweight usability testing</span>
+                <p>If the project had moved further, I would validate the final dashboard structure with short task-based sessions - especially around finding package limits, understanding company status, and choosing the next action.</p>
+              </div>
+              <div class="cs-refl-point">
+                <span class="cs-refl-point-label">Define success criteria earlier</span>
+                <p>I would also define measurable success criteria earlier, such as fewer support questions, higher usage of key services, and faster access to company status information. This would help connect design decisions to business outcomes from the start.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FOOTER -->
+      <footer class="cs-footer">
+        <div class="cs-footer-inner">
+          <a href="index.html" class="cs-hero-btn-back">Back</a>
+          <button class="cs-hero-btn-arrow" aria-label="Next project">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256"><path d="M218.83,130.83l-72,72a4,4,0,0,1-5.66-5.66L206.34,132H40a4,4,0,0,1,0-8H206.34L141.17,58.83a4,4,0,0,1,5.66-5.66l72,72A4,4,0,0,1,218.83,130.83Z"/></svg>
+          </button>
+        </div>
+      </footer>
+
+    </div><!-- .cs-right-col -->
+  </div><!-- .cs-layout -->
+
+  <script src="case-study.js"></script>
+</body>
+</html>
