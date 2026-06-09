@@ -234,7 +234,44 @@ p {
   cursor: none;
 }
 .cs-left-link:hover { color: var(--c-text); transform: translateY(-2px); }
+.cs-left-link--static { pointer-events: none; }
+.cs-left-link--static:hover { color: var(--c-subtle-text); transform: none; }
 .cs-left-link svg { flex-shrink: 0; display: block; }
+.cs-left-link img { flex-shrink: 0; display: block; opacity: 0.75; }
+.cs-left-link:hover img { opacity: 1; }
+
+.cs-left-resume {
+  margin-top: auto;
+  padding-top: 32px;
+}
+.cs-left-resume-btn {
+  display: inline-flex;
+  align-items: center;
+  width: 100%;
+  justify-content: center;
+  font-family: var(--font-body);
+  font-size: var(--type-text-m-size);
+  font-weight: var(--type-text-m-weight);
+  line-height: var(--type-text-m-lh);
+  color: var(--c-text);
+  background: transparent;
+  border: 1px solid var(--c-border);
+  padding: 10px 24px;
+  border-radius: 100px;
+  transition: border-color .2s, transform .25s var(--ease-out);
+  cursor: none;
+  text-decoration: none;
+}
+.cs-left-resume-btn:hover {
+  border-color: var(--c-text);
+  transform: translateY(-2px);
+}
+@media (hover: hover) and (pointer: fine) {
+  .cs-left-resume-btn { cursor: none; }
+}
+@media (hover: none), (pointer: coarse) {
+  .cs-left-resume-btn { cursor: pointer; }
+}
 
 /* ── Right column (scrollable) ── */
 .cs-right-col {
