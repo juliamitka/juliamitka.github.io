@@ -505,8 +505,8 @@ h1, h2, h3, h4 {
 
 /* Color themes */
 .proj-cover { width: 100%; height: 100%; object-fit: cover; display: block; }
-.proj-cover--mobile { outline: 1px solid var(--mobile-blue-100); }
-.proj:has(.proj-visual--blue) { outline: 1px solid #f3e8ff; }
+.proj:has(.proj-cover--mobile) { outline: 1px solid var(--mobile-blue-100); }
+.proj:has(.proj-visual--blue):not(:has(.proj-cover--mobile)) { outline: 1px solid #f3e8ff; }
 .proj:has(.proj-visual--warm) { outline: 1px solid #f3e8ff; }
 
 /* Hover overlay: slides up from bottom */
