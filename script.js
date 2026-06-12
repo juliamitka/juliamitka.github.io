@@ -127,9 +127,9 @@ projItems.forEach(proj => {
   });
 });
 
-// Force reload when restored from bfcache so all JS re-initialises
+// When restored from bfcache, remove the leaving class so the page looks normal
 window.addEventListener('pageshow', e => {
-  if (e.persisted) window.location.reload();
+  if (e.persisted && splitEl) splitEl.classList.remove('is-leaving');
 });
 
 /* ──────────────────────────────────────────────
