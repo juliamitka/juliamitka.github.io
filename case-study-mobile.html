@@ -86,7 +86,7 @@
     .mb-impact-text {
       font-size: var(--type-text-m-size);
       line-height: var(--type-text-m-lh);
-      color: var(--app-purple-950);
+      color: var(--mobile-blue-950);
     }
 
     /* ─────────────────────────────────────────────
@@ -296,6 +296,46 @@
       line-height: var(--type-text-m-lh);
       color: var(--mobile-blue-950);
     }
+    .mb-guidance-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      margin-top: 48px;
+      background: var(--mobile-blue-100);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+    .mb-guidance-card {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      padding: 16px;
+      background: var(--mobile-blue-50);
+    }
+    .mb-guidance-num {
+      font-family: var(--font-hdg);
+      font-size: var(--type-h5-size);
+      font-weight: var(--type-h5-weight);
+      line-height: var(--type-h5-lh);
+      letter-spacing: var(--type-h5-ls);
+      color: var(--mobile-blue-500-label);
+    }
+    .mb-guidance-label {
+      font-family: var(--font-body);
+      font-size: var(--type-label-s-size);
+      font-weight: var(--type-label-s-weight);
+      letter-spacing: var(--type-label-s-ls);
+      text-transform: uppercase;
+      color: var(--mobile-blue-500-label);
+      margin-top: 20px;
+    }
+    .mb-guidance-card p {
+      margin-top: 8px;
+    }
+      font-size: var(--type-text-m-size);
+      line-height: var(--type-text-m-lh);
+      color: var(--mobile-blue-950);
+    }
 
     /* ─────────────────────────────────────────────
        ONBOARDING — 3 formats, ghost numbers
@@ -304,7 +344,6 @@
       display: flex;
       flex-direction: column;
       gap: 16px;
-      margin-bottom: 72px;
     }
     .mb-onb-intro p {
       font-size: var(--type-text-m-size);
@@ -399,24 +438,21 @@
     ───────────────────────────────────────────── */
     .mb-cm-stage {
       position: relative;
-      width: 390px;
-      margin: 0 auto;
+      width: 100%;
     }
     .mb-cm-stage img {
       width: 100%;
       display: block;
-      border-radius: 14px;
-      box-shadow: 0 4px 12px rgba(10, 23, 31, 0.10);
     }
     .mb-cm-pin {
       position: absolute;
       z-index: 1;
-      width: 26px;
-      height: 26px;
-      border-radius: 50%;
-      background: var(--mobile-blue-50);
+      width: 24px;
+      height: 24px;
+      border-radius: 8px;
+      background: var(--mobile-blue-100);
       border: 1px solid var(--mobile-blue-200);
-      color: var(--mobile-blue-700);
+      color: var(--mobile-blue-500-label);
       font-family: var(--font-body);
       font-size: 12px;
       font-weight: 500;
@@ -441,7 +477,7 @@
     .mb-cm-pin--3 { top: 4%; }
     .mb-cm-pin--4 { top: 84%; }
     .mb-cm-legend {
-      margin-top: 64px;
+      margin-top: 48px;
       display: flex;
       flex-direction: column;
       gap: 32px;
@@ -479,13 +515,39 @@
     /* ─────────────────────────────────────────────
        FINAL SOLUTION
     ───────────────────────────────────────────── */
-    .mb-final-intro p {
+    .mb-final-intro {
+      margin-top: 48px;
+    }
+    .mb-final-intro > p {
       font-size: var(--type-text-m-size);
       line-height: var(--type-text-m-lh);
       color: var(--mobile-blue-950);
     }
-    .mb-final-intro .mb-dash-list { margin: 16px 0; }
-    .mb-final-intro .mb-dash-list li { font-size: var(--type-text-m-size); }
+    .mb-final-intro > p:last-child { margin-top: 24px; margin-bottom: 80px; }
+    .mb-final-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 16px;
+    }
+    .mb-final-list li {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-size: var(--type-text-m-size);
+      line-height: var(--type-text-m-lh);
+      color: var(--mobile-blue-950);
+    }
+    .mb-final-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      flex-shrink: 0;
+      color: var(--mobile-blue-500);
+    }
     .mb-final-scroll .cs-final-screen {
       width: 240px;
       border-radius: 24px;
@@ -836,12 +898,27 @@
       <!-- 7. WHY GUIDANCE WAS NEEDED -->
       <section class="cs-section" id="sec-guidance">
         <div class="cs-section-inner">
-          <h4 class="cs-section-hd reveal">Why Guidance Was Needed</h4>
+          <h4 class="cs-section-hd reveal">Beyond Onboarding</h4>
           <div class="mb-guidance-text reveal">
-            <p>The project originally started as an onboarding initiative.</p>
-            <p>According to insights gathered by the customer support team, users frequently had questions about the main dashboard and struggled to understand some of the financial indicators presented on the screen.</p>
-            <p>The goal of onboarding was to provide first-time users with enough context to understand the dashboard without relying on external help or contacting support.</p>
-            <p>However, while analysing the existing experience, it became clear that part of the confusion originated from the interface itself. Rather than explaining a complex dashboard through onboarding alone, I decided to simplify the dashboard first and use onboarding to support the areas that still required additional context.</p>
+            <p>The project originally started as an onboarding initiative. Customer support reported that users frequently asked about dashboard metrics and struggled to interpret key financial indicators.</p>
+            <p>During the audit, it became clear that part of the confusion came from the interface itself. Instead of explaining a complex dashboard through onboarding alone, I simplified the dashboard first and used onboarding only where additional context was still needed.</p>
+          </div>
+          <div class="mb-guidance-cards reveal">
+            <div class="mb-guidance-card">
+              <span class="mb-guidance-num">01</span>
+              <span class="mb-guidance-label">Support signal</span>
+              <p>Users struggled to interpret dashboard metrics.</p>
+            </div>
+            <div class="mb-guidance-card">
+              <span class="mb-guidance-num">02</span>
+              <span class="mb-guidance-label">Initial brief</span>
+              <p>Create onboarding to explain the main screen.</p>
+            </div>
+            <div class="mb-guidance-card">
+              <span class="mb-guidance-num">03</span>
+              <span class="mb-guidance-label">Design decision</span>
+              <p>Simplify the dashboard before adding guidance.</p>
+            </div>
           </div>
         </div>
       </section>
@@ -856,7 +933,7 @@
           </div>
 
           <!-- Option 1: Fullscreen tutorial -->
-          <div class="mb-onb-option reveal">
+          <div class="mb-onb-option reveal" style="margin-top: 80px;">
             <div class="mb-onb-phone">
               <span class="mb-onb-num">01</span>
               <img src="assets/mobile/onboarding-before-full-view.png" alt="Fullscreen tutorial concept">
@@ -905,10 +982,6 @@
 
           <div class="mb-cm-stage reveal">
             <img src="assets/mobile/coach-mark-structure.png" alt="Coach mark anatomy — progress, navigation, exit, and completion elements">
-            <span class="mb-cm-pin mb-cm-pin--left  mb-cm-pin--1">1</span>
-            <span class="mb-cm-pin mb-cm-pin--left  mb-cm-pin--2">2</span>
-            <span class="mb-cm-pin mb-cm-pin--right mb-cm-pin--3">3</span>
-            <span class="mb-cm-pin mb-cm-pin--right mb-cm-pin--4">4</span>
           </div>
 
           <div class="mb-cm-legend">
@@ -950,9 +1023,15 @@
           <h4 class="cs-section-hd reveal">Final Solution</h4>
           <div class="mb-final-intro reveal">
             <p>The redesign combined two complementary approaches:</p>
-            <ul class="mb-dash-list">
-              <li>simplifying the dashboard structure,</li>
-              <li>providing contextual guidance only where additional explanation was still needed.</li>
+            <ul class="mb-final-list">
+              <li>
+                <svg class="mb-final-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M220,128a4,4,0,0,1-4,4H40a4,4,0,0,1,0-8H216A4,4,0,0,1,220,128Z"></path></svg>
+                simplifying the dashboard structure,
+              </li>
+              <li>
+                <svg class="mb-final-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M220,128a4,4,0,0,1-4,4H40a4,4,0,0,1,0-8H216A4,4,0,0,1,220,128Z"></path></svg>
+                providing contextual guidance only where additional explanation was still needed.
+              </li>
             </ul>
             <p>This reduced the need for interpretation while keeping onboarding lightweight and focused.</p>
           </div>
@@ -974,10 +1053,10 @@
           <h4 class="cs-section-hd reveal">Reflection &amp; Learnings</h4>
           <p class="mb-refl-intro reveal">This project reinforced how easily financial data becomes opaque when several meanings share a single visual container - and how small changes in hierarchy can significantly improve comprehension. In the next stage, I would like to validate whether users correctly interpret the new indicators during their first session.</p>
           <ul class="mb-refl-list">
-            <li class="reveal"><strong>Onboarding is not a substitute for a clear UI.</strong> The brief was to build onboarding, but the dashboard needed to be simplified first. Onboarding should support the interface - not compensate for unclear structure.</li>
-            <li class="reveal"><strong>Context matters when users learn a complex interface.</strong> I chose coach marks because they explain each element exactly where it appears, helping users connect the explanation with the real dashboard instead of learning from a detached tutorial.</li>
-            <li class="reveal"><strong>Reusing a familiar pattern removes learning friction.</strong> Extending an existing scoring model from related products meant users could transfer their existing mental model immediately, without new learning cost.</li>
-            <li class="reveal"><strong>Separation is often the simplest solution to ambiguity.</strong> When one component carries two meanings, splitting it into two usually costs less in screen space than it saves in comprehension.</li>
+            <li class="reveal">Onboarding is not a substitute for a clear UI. The brief was to build onboarding, but the dashboard needed to be simplified first. Onboarding should support the interface - not compensate for unclear structure.</li>
+            <li class="reveal">Context matters when users learn a complex interface. I chose coach marks because they explain each element exactly where it appears, helping users connect the explanation with the real dashboard instead of learning from a detached tutorial.</li>
+            <li class="reveal">Reusing a familiar pattern removes learning friction. Extending an existing scoring model from related products meant users could transfer their existing mental model immediately, without new learning cost.</li>
+            <li class="reveal">Separation is often the simplest solution to ambiguity. When one component carries two meanings, splitting it into two usually costs less in screen space than it saves in comprehension.</li>
           </ul>
         </div>
       </section>
