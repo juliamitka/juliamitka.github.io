@@ -127,9 +127,13 @@ projItems.forEach(proj => {
   });
 });
 
-// When restored from bfcache, remove the leaving class so the page looks normal
+// When restored from bfcache, re-trigger the page-in animation
 window.addEventListener('pageshow', e => {
-  if (e.persisted && splitEl) splitEl.classList.remove('is-leaving');
+  if (!e.persisted || !splitEl) return;
+  splitEl.classList.remove('is-leaving');
+  splitEl.style.animation = 'none';
+  splitEl.offsetHeight; // force reflow
+  splitEl.style.animation = '';
 });
 
 /* ──────────────────────────────────────────────
