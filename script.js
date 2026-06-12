@@ -127,6 +127,11 @@ projItems.forEach(proj => {
   });
 });
 
+// Force reload when restored from bfcache so all JS re-initialises
+window.addEventListener('pageshow', e => {
+  if (e.persisted) window.location.reload();
+});
+
 /* ──────────────────────────────────────────────
    SMOOTH ANCHOR SCROLL
 ────────────────────────────────────────────── */
