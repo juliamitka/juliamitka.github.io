@@ -349,6 +349,43 @@ h1, h2, h3, h4 {
   margin-bottom: 24px;
 }
 
+/* Name — efekt pisania */
+.js .name:not(.tw-ready) { visibility: hidden; }
+
+/* Rola i tagline ukryte od pierwszej klatki, dopóki nie wjadą po imieniu (bez mignięcia) */
+@media (prefers-reduced-motion: no-preference) {
+  .js .left-ident .role:not(.reveal--visible),
+  .js .left-ident .tagline:not(.reveal--visible) {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+}
+
+.name .tw-char { visibility: hidden; }
+.name .tw-char.is-typed { visibility: visible; }
+
+.name .tw-caret {
+  position: relative;
+  display: inline-block;
+  width: 0;
+}
+.name .tw-caret::after {
+  content: '';
+  position: absolute;
+  left: 0.04em;
+  bottom: -0.02em;
+  width: 0.06em;
+  height: 0.78em;
+  background: currentColor;
+  animation: tw-blink 1s steps(1) infinite;
+}
+.name .tw-caret.is-typing::after { animation: none; }
+.name .tw-caret.is-done { opacity: 0; transition: opacity 0.4s ease; }
+
+@keyframes tw-blink {
+  50% { opacity: 0; }
+}
+
 /* Role — Label L */
 .role {
   font-family: var(--font-body);
@@ -440,6 +477,8 @@ h1, h2, h3, h4 {
   transition: background .2s, border-color .2s, transform .25s var(--ease-out);
   cursor: none;
 }
+
+.btn-with-icon { gap: 8px; padding-block: 9px; } /* 9px + 1px border = ta sama wysokość co .btn-primary */
 
 .btn-ghost:hover {
   background: transparent;

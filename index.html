@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Julia Mitka — UX/UI Designer</title>
-  <meta name="description" content="Julia Mitka — UX/UI Designerka z Krakowa. Portfolio product designerki.">
+  <title>Julia Mitka — Product Designer</title>
+  <meta name="description" content="Julia Mitka — Product Designerka z Krakowa. Portfolio product designerki.">
 
   <!-- Satoshi (body) via Fontshare — osobny request, bo Fontshare ignoruje clash-display w połączonym -->
   <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=satoshi@900,700,500,400,300&display=swap">
@@ -16,6 +16,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="style.css">
+  <!-- Ukrywa imię przed startem efektu pisania (bez JS tekst zostaje widoczny) -->
+  <script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
 
@@ -49,16 +51,22 @@
             </div>
 
             <div class="left-ident">
-              <h1 class="name">Julia<br>Mitka.</h1>
-              <p class="role">UX/UI DESIGNER</p>
+              <h1 class="name" id="name" aria-label="Julia Mitka.">Julia<br>Mitka.</h1>
+              <p class="role">PRODUCT DESIGNER</p>
               <p class="tagline">I create digital experiences that<br>combine aesthetics with functionality and<br>connect user goals with business objectives.</p>
             </div>
 
           </div>
 
           <div class="cta-row">
-            <a href="mailto:julia.mitka98@gmail.com" class="btn-primary">Let's work together</a>
-            <a href="assets/cv-julia-mitka.pdf?v=20260803" class="btn-ghost" target="_blank" rel="noopener noreferrer">My resume</a>
+            <a href="assets/cv-julia-mitka.pdf?v=20261004" class="btn-primary" target="_blank" rel="noopener noreferrer">My resume</a>
+            <a href="https://dribbble.com/julia-mitka98" class="btn-ghost btn-with-icon" target="_blank" rel="noopener noreferrer">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M128,26A102,102,0,1,0,230,128,102.12,102.12,0,0,0,128,26Zm89.81,96.3c-3.26-.19-6.54-.3-9.8-.3a166.44,166.440,0,0,0-45.25,6.29A164.28,164.28,0,0,0,148.33,96c-.14-.25-.3-.49-.44-.74a166.34,166.34,0,0,0,40.79-33.71A89.79,89.79,0,0,1,217.81,122.3ZM179.29,54.09a154.52,154.52,0,0,1-37.9,31.11A167,167,0,0,0,98.88,42.84a89.87,89.87,0,0,1,80.41,11.25ZM85.71,48.58a155,155,0,0,1,45,42.27A153.71,153.71,0,0,1,64,106a156.8,156.8,0,0,1-22.84-1.69A90.37,90.37,0,0,1,85.71,48.58ZM38,128a90.17,90.17,0,0,1,.79-11.92A167.23,167.23,0,0,0,64,118a165.69,165.69,0,0,0,73.29-17c.22.37.46.73.67,1.1A152.2,152.2,0,0,1,151.34,132a164.57,164.57,0,0,0-26.09,12.11A167,167,0,0,0,69.57,196.4,89.84,89.84,0,0,1,38,128Zm41.19,75.58a155.24,155.24,0,0,1,52.05-49.12,152.9,152.9,0,0,1,23.38-10.93,154.31,154.31,0,0,1,4.3,36.16,154.78,154.78,0,0,1-3.81,34.13,89.88,89.88,0,0,1-75.92-10.24Zm89.24,4.81a166.76,166.76,0,0,0,2.49-28.7,166.67,166.67,0,0,0-4.86-39.87A154.6,154.6,0,0,1,208,134c3.25,0,6.52.11,9.77.32A90.16,90.16,0,0,1,168.43,208.39Z"/></svg>
+              Dribbble
+            </a>
+            <a href="https://www.behance.net/juliamitka" class="btn-icon" target="_blank" rel="noopener noreferrer" aria-label="Behance">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M112.15,122.36A36,36,0,0,0,90,58H32a6,6,0,0,0-6,6V192a6,6,0,0,0,6,6H94a40,40,0,0,0,18.15-75.64ZM38,70H90a24,24,0,0,1,0,48H38ZM94,186H38V130H94a28,28,0,0,1,0,56ZM162,80a6,6,0,0,1,6-6h64a6,6,0,0,1,0,12H168A6,6,0,0,1,162,80Zm38,26a46,46,0,1,0,36.8,73.61,6,6,0,0,0-9.6-7.21A34,34,0,0,1,166.53,158H240a6,6,0,0,0,6-6A46.06,46.06,0,0,0,200,106Zm-33.47,40a34,34,0,0,1,66.94,0Z"/></svg>
+            </a>
             <a href="https://www.linkedin.com/in/julia-mitka" class="btn-icon" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true">
                 <path d="M216,26H40A14,14,0,0,0,26,40V216a14,14,0,0,0,14,14H216a14,14,0,0,0,14-14V40A14,14,0,0,0,216,26Zm2,190a2,2,0,0,1-2,2H40a2,2,0,0,1-2-2V40a2,2,0,0,1,2-2H216a2,2,0,0,1,2,2ZM94,112v64a6,6,0,0,1-12,0V112a6,6,0,0,1,12,0Zm88,28v36a6,6,0,0,1-12,0V140a22,22,0,0,0-44,0v36a6,6,0,0,1-12,0V112a6,6,0,0,1,12,0v2.11A34,34,0,0,1,182,140ZM98,84A10,10,0,1,1,88,74,10,10,0,0,1,98,84Z"/>
@@ -126,10 +134,10 @@
         <section class="about" id="about">
           <span class="sec-label">About me</span>
           <div class="about-body">
-            <p>As a UX/UI Designer, I work on complex B2B products that require a balance between an aesthetic interface, a clear structure, and well-thought-out logic. In my design work, I focus on making even complicated processes simpler and easier for users to understand.</p>
-            <p>What I value most in design is bringing order to chaos: analyzing problems, structuring information, exploring different scenarios, and looking for solutions that are simple, useful, and well-grounded in the business context. I care about creating designs that are not only visually appealing, but above all clear and comfortable to use.</p>
-            <p>I hold a degree in Finance and Accounting from the Krakow University of Economics. I started my career in IT as a System Analyst at Comarch, and later continued developing it at Kaczmarski Group. It was there that I moved into UX/UI and helped shape a new design role within the organization.</p>
-            <p>Outside of work, I'm usually somewhere between planning my next trip, meeting friends, and enjoying a quiet evening at home. I like cooking, baking sourdough bread, and creating things in my own way - most recently, I've been developing a small project with personalized tote bags that I design and make myself.</p>
+            <p>As a Product Designer, I work on complex B2B products where good design means finding the right balance between visual quality, clear structure, and solid logic. I enjoy taking complicated processes and turning them into something simpler and more intuitive.</p>
+            <p>I've always liked bringing order to chaos. I enjoy digging into problems, organising information, exploring different options, and finding solutions that make sense both for users and the business. My background in system analysis probably has something to do with that.</p>
+            <p>I studied Finance and Accounting at the Krakow University of Economics and started my career in IT as a System Analyst. I later moved into UX/UI at Kaczmarski Group, where I helped build the UX/UI role within the organisation.</p>
+            <p>Outside of work, I'm usually somewhere between planning my next trip, meeting friends, and enjoying a quiet evening at home. I love cooking, baking sourdough bread, and making things with my own hands. Lately, I've been exploring a few creative projects of my own, including designing and making personalized tote bags. I've also started creating wedding websites, with the goal of eventually turning this passion into a small business.</p>
           </div>
         </section>
 
@@ -141,19 +149,20 @@
           <div class="skills-block">
             <span class="sec-label">Design Skills</span>
             <div class="skills-tags">
-              <span class="pill">UX/UI Design</span>
               <span class="pill">Product Design</span>
+              <span class="pill">UX/UI Design</span>
+              <span class="pill">AI Prototyping</span>
+              <span class="pill">AI-assisted Design</span>
+              <span class="pill">Design Systems</span>
               <span class="pill">Design Thinking</span>
+              <span class="pill">UX Audits</span>
               <span class="pill">UX Research</span>
               <span class="pill">User Flows</span>
               <span class="pill">Wireframing</span>
-              <span class="pill">Hi-Fi Mockups</span>
-              <span class="pill">Prototyping</span>
               <span class="pill">Information Architecture</span>
-              <span class="pill">Design Systems</span>
-              <span class="pill">Accessibility</span>
-              <span class="pill">System Analysis</span>
-              <span class="pill">Requirements Gathering</span>
+              <span class="pill">Customer Journey</span>
+              <span class="pill">Accessibility (WCAG)</span>
+              <span class="pill">Business &amp; System Analysis</span>
             </div>
           </div>
 
@@ -162,12 +171,13 @@
             <div class="skills-tags">
               <span class="pill">Figma</span>
               <span class="pill">FigJam</span>
-              <span class="pill">Illustrator</span>
+              <span class="pill">Claude Code/Design</span>
+              <span class="pill">Lovable</span>
+              <span class="pill">Figma Make</span>
               <span class="pill">Miro</span>
               <span class="pill">Notion</span>
               <span class="pill">Jira</span>
               <span class="pill">Confluence</span>
-              <span class="pill">Claude Code</span>
             </div>
           </div>
 

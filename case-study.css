@@ -159,6 +159,9 @@ p {
 }
 
 .cs-avatar {
+  display: block;
+  transition: transform .25s var(--ease-out);
+  cursor: none;
   width: 64px;
   height: 64px;
   border-radius: 14px;
@@ -167,6 +170,7 @@ p {
   flex-shrink: 0;
   overflow: hidden;
 }
+.cs-avatar:hover { transform: translateY(-2px); }
 .cs-avatar img {
   width: 100%; height: 100%;
   object-fit: cover;
@@ -198,11 +202,12 @@ p {
 
 .cs-left-role {
   font-family: var(--font-body);
-  font-size: var(--type-label-s-size);
+  font-size: 0.8125rem; /* 13px */
   font-weight: var(--type-label-s-weight);
   line-height: var(--type-label-s-lh);
-  letter-spacing: 0.08em;
+  letter-spacing: var(--type-label-s-ls);
   text-transform: uppercase;
+  white-space: nowrap;
   color: var(--c-label-text);
 }
 
@@ -462,6 +467,7 @@ p {
   font-size: var(--type-text-m-size);
   font-weight: var(--type-text-m-weight);
   color: var(--app-purple-950);
+  white-space: nowrap;
 }
 
 /* ============================================================

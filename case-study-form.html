@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kaczmarski Group — Case Study · Julia Mitka</title>
-  <meta name="description" content="Redesign of the debtor registration process — UX/UI case study by Julia Mitka.">
+  <meta name="description" content="Redesign of the debtor registration process — product design case study by Julia Mitka.">
 
   <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=satoshi@900,700,500,400,300&display=swap">
   <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&display=swap">
@@ -29,13 +29,13 @@
 
         <!-- Identity -->
         <div class="cs-left-identity">
-          <div class="cs-avatar">
+          <a href="index.html" class="cs-avatar" aria-label="Home">
             <img src="assets/julia.jpg" alt="Julia Mitka"
               onerror="this.style.display='none';this.parentElement.classList.add('cs-avatar--empty')">
-          </div>
+          </a>
           <div class="cs-left-ident">
             <h5 class="cs-left-name">Julia Mitka</h5>
-            <span class="cs-left-role">UX/UI Designer</span>
+            <span class="cs-left-role">Product Designer</span>
           </div>
         </div>
 
@@ -51,23 +51,38 @@
         <div class="cs-left-contact">
           <span class="cs-left-label">Contact me</span>
           <div class="cs-left-links">
-            <a href="https://www.linkedin.com/in/julia-mitka" class="cs-left-link" target="_blank" rel="noopener noreferrer">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M216,28H40A12,12,0,0,0,28,40V216a12,12,0,0,0,12,12H216a12,12,0,0,0,12-12V40A12,12,0,0,0,216,28Zm4,188a4,4,0,0,1-4,4H40a4,4,0,0,1-4-4V40a4,4,0,0,1,4-4H216a4,4,0,0,1,4,4ZM92,112v64a4,4,0,0,1-8,0V112a4,4,0,0,1,8,0Zm88,28v36a4,4,0,0,1-8,0V140a24,24,0,0,0-48,0v36a4,4,0,0,1-8,0V112a4,4,0,0,1,8,0v6.87A32,32,0,0,1,180,140ZM96,84a8,8,0,1,1-8-8A8,8,0,0,1,96,84Z"/></svg>
-              Linkedin
-            </a>
             <a href="mailto:julia.mitka98@gmail.com" class="cs-left-link">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M224,52H32a4,4,0,0,0-4,4V192a12,12,0,0,0,12,12H216a12,12,0,0,0,12-12V56A4,4,0,0,0,224,52Zm-10.28,8L128,138.57,42.28,60ZM216,196H40a4,4,0,0,1-4-4V65.09L125.3,147a4,4,0,0,0,5.4,0L220,65.09V192A4,4,0,0,1,216,196Z"/></svg>
               Mail
             </a>
             <span class="cs-left-link cs-left-link--static">
-              <img src="assets/phone-thin.svg" width="20" height="20" alt="" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M220.78,162.13,173.56,141A12,12,0,0,0,162.18,142a3.37,3.37,0,0,0-.38.28L137,163.42a3.93,3.93,0,0,1-3.7.21c-16.24-7.84-33.05-24.52-40.89-40.57a3.9,3.9,0,0,1,.18-3.69l21.2-25.21c.1-.12.19-.25.28-.38a12,12,0,0,0,1-11.36L93.9,35.28a12,12,0,0,0-12.48-7.19A52.25,52.25,0,0,0,36,80c0,77.2,62.8,140,140,140a52.25,52.25,0,0,0,51.91-45.42A12,12,0,0,0,220.78,162.13ZM220,173.58A44.23,44.23,0,0,1,176,212C103.22,212,44,152.78,44,80A44.23,44.23,0,0,1,82.42,36a3.87,3.87,0,0,1,.48,0,4,4,0,0,1,3.67,2.49l21.11,47.14a4,4,0,0,1-.23,3.6l-21.19,25.2c-.1.13-.2.25-.29.39a12,12,0,0,0-.78,11.75c8.69,17.79,26.61,35.58,44.6,44.27a12,12,0,0,0,11.79-.87l.37-.28,24.83-21.12a3.93,3.93,0,0,1,3.57-.27l47.21,21.16A4,4,0,0,1,220,173.58Z"/></svg>
               530 740 141
             </span>
           </div>
         </div>
 
+        <!-- Social -->
+        <div class="cs-left-contact">
+          <span class="cs-left-label">Social</span>
+          <div class="cs-left-links">
+            <a href="https://www.linkedin.com/in/julia-mitka" class="cs-left-link" target="_blank" rel="noopener noreferrer">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M216,28H40A12,12,0,0,0,28,40V216a12,12,0,0,0,12,12H216a12,12,0,0,0,12-12V40A12,12,0,0,0,216,28Zm4,188a4,4,0,0,1-4,4H40a4,4,0,0,1-4-4V40a4,4,0,0,1,4-4H216a4,4,0,0,1,4,4ZM92,112v64a4,4,0,0,1-8,0V112a4,4,0,0,1,8,0Zm88,28v36a4,4,0,0,1-8,0V140a24,24,0,0,0-48,0v36a4,4,0,0,1-8,0V112a4,4,0,0,1,8,0v6.87A32,32,0,0,1,180,140ZM96,84a8,8,0,1,1-8-8A8,8,0,0,1,96,84Z"/></svg>
+              LinkedIn
+            </a>
+            <a href="https://dribbble.com/julia-mitka98" class="cs-left-link" target="_blank" rel="noopener noreferrer">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M128,28A100,100,0,1,0,228,128,100.11,100.11,0,0,0,128,28Zm91.92,96.43C216,124.15,212,124,208,124a164.4,164.4,0,0,0-46.55,6.74A163.48,163.48,0,0,0,146.61,97c-.49-.82-1-1.64-1.5-2.46A164,164,0,0,0,188.5,58.75,91.8,91.8,0,0,1,219.92,124.43ZM182.25,53.75a156.23,156.23,0,0,1-41.46,34.08,165,165,0,0,0-46.3-45.51,91.86,91.86,0,0,1,87.76,11.43ZM85.78,46.28a157,157,0,0,1,47.9,45.34A155.67,155.67,0,0,1,64,108a157.47,157.47,0,0,1-25.33-2A92.35,92.35,0,0,1,85.78,46.28ZM36,128a92.34,92.34,0,0,1,1.1-14.2A165.6,165.6,0,0,0,64,116a163.6,163.6,0,0,0,74.05-17.62c.55.9,1.11,1.79,1.64,2.7a155.15,155.15,0,0,1,14.14,32.11,162.7,162.7,0,0,0-27.59,12.61A164.94,164.94,0,0,0,70,199.36,91.84,91.84,0,0,1,36,128Zm40.44,76.16a157.08,157.08,0,0,1,53.8-51.43A153.87,153.87,0,0,1,156,140.91a156.32,156.32,0,0,1,4.9,38.78,157,157,0,0,1-4.11,35.69,91.94,91.94,0,0,1-80.37-11.22Zm89.3,7.74a165.24,165.24,0,0,0,3.18-32.21,164.26,164.26,0,0,0-5.28-41.26A156.44,156.44,0,0,1,208,132c4,0,7.94.15,11.88.45A92.17,92.17,0,0,1,165.74,211.9Z"/></svg>
+              Dribbble
+            </a>
+            <a href="https://www.behance.net/juliamitka" class="cs-left-link" target="_blank" rel="noopener noreferrer">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M108.16,122.74A34,34,0,0,0,90,60H32a4,4,0,0,0-4,4V192a4,4,0,0,0,4,4H94a38,38,0,0,0,14.16-73.26ZM36,68H90a26,26,0,0,1,0,52H36ZM94,188H36V128H94a30,30,0,0,1,0,60ZM164,80a4,4,0,0,1,4-4h64a4,4,0,0,1,0,8H168A4,4,0,0,1,164,80Zm36,28a44,44,0,1,0,35.2,70.41,4,4,0,0,0-6.4-4.81A36,36,0,0,1,164.22,156H240a4,4,0,0,0,4-4A44.05,44.05,0,0,0,200,108Zm-35.78,40a36,36,0,0,1,71.56,0Z"/></svg>
+              Behance
+            </a>
+          </div>
+        </div>
+
         <div class="cs-left-resume">
-          <a href="assets/cv-julia-mitka.pdf?v=20260803" class="cs-left-resume-btn" target="_blank" rel="noopener noreferrer">My resume</a>
+          <a href="assets/cv-julia-mitka.pdf?v=20261004" class="cs-left-resume-btn" target="_blank" rel="noopener noreferrer">My resume</a>
         </div>
 
       </div>
@@ -105,7 +120,7 @@
           <div class="cs-chips reveal">
             <div class="cs-chip">
               <span class="cs-chip-label">Role</span>
-              <span class="cs-chip-val">UX/UI Designer</span>
+              <span class="cs-chip-val">Product Designer</span>
             </div>
             <div class="cs-chip cs-chip--wide">
               <span class="cs-chip-label">Scope</span>

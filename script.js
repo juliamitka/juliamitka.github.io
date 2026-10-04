@@ -5,6 +5,67 @@
 'use strict';
 
 /* ──────────────────────────────────────────────
+   NAME — TYPEWRITER
+────────────────────────────────────────────── */
+(function typewriter() {
+  const name = document.getElementById('name');
+  if (!name) return;
+
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduceMotion) { name.classList.add('tw-ready'); return; }
+
+  // Rola i tagline wjeżdżają (jak pozostałe teksty) po dopisaniu imienia
+  const afterEls = document.querySelectorAll('.left-ident .role, .left-ident .tagline');
+  afterEls.forEach((el, n) => {
+    el.classList.add('reveal');
+    el.style.transitionDelay = `${n * 120}ms`;
+  });
+  const revealAfter = () => afterEls.forEach(el => el.classList.add('reveal--visible'));
+
+  // Rozbij tekst na pojedyncze znaki (zachowując <br>), żeby layout był stały od początku
+  const chars = [];
+  [...name.childNodes].forEach(node => {
+    if (node.nodeType !== Node.TEXT_NODE) return;
+    const frag = document.createDocumentFragment();
+    [...node.textContent].forEach(ch => {
+      const span = document.createElement('span');
+      span.className = 'tw-char';
+      span.setAttribute('aria-hidden', 'true');
+      span.textContent = ch;
+      frag.appendChild(span);
+      chars.push(span);
+    });
+    node.replaceWith(frag);
+  });
+
+  const caret = document.createElement('span');
+  caret.className = 'tw-caret';
+  caret.setAttribute('aria-hidden', 'true');
+  name.insertBefore(caret, name.firstChild);
+  name.classList.add('tw-ready');
+
+  let i = 0;
+  function typeNext() {
+    if (i >= chars.length) {
+      caret.classList.remove('is-typing');
+      setTimeout(revealAfter, 150);
+      setTimeout(() => caret.classList.add('is-done'), 2400);
+      return;
+    }
+    const ch = chars[i++];
+    ch.classList.add('is-typed');
+    ch.after(caret);
+    caret.classList.add('is-typing');
+    // Dłuższa pauza na końcu pierwszej linii, lekko losowe tempo
+    const lineBreak = ch.nextSibling === caret && caret.nextSibling && caret.nextSibling.nodeName === 'BR';
+    const delay = lineBreak ? 320 : 90 + Math.random() * 70;
+    setTimeout(typeNext, delay);
+  }
+
+  setTimeout(typeNext, 600);
+})();
+
+/* ──────────────────────────────────────────────
    CUSTOM CURSOR
 ────────────────────────────────────────────── */
 const cursor   = document.getElementById('cursor');
