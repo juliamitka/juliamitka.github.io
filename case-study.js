@@ -100,3 +100,29 @@ document.querySelectorAll('.cs-sticky').forEach(note => {
     note.style.boxShadow = '';
   });
 });
+
+/* Hero video: plays once and stays on its last frame (native behaviour).
+   Reduced motion, blocked autoplay or a video that can't play shows the still image instead. */
+document.querySelectorAll('.cs-hero-media').forEach((wrap) => {
+  const video = wrap.querySelector('.cs-hero-video');
+  if (!video) return;
+  const fallback = () => wrap.classList.add('is-fallback');
+  const playing = () => wrap.classList.add('is-playing');
+
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    video.pause();
+    fallback();
+    return;
+  }
+
+  video.addEventListener('error', fallback, { once: true });
+  const source = video.querySelector('source');
+  if (source) source.addEventListener('error', fallback, { once: true });
+
+  if (!video.paused && video.readyState >= 3) playing();
+  else video.addEventListener('playing', playing, { once: true });
+
+  const attempt = video.play();
+  // Only a blocked autoplay means it won't play; an interrupted play() is harmless
+  if (attempt && attempt.catch) attempt.catch((err) => { if (err && err.name === 'NotAllowedError') fallback(); });
+});

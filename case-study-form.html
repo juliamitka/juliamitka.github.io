@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kaczmarski Group — Case Study · Julia Mitka</title>
+  <title>Form Redesign - Case Study · Julia Mitka</title>
   <meta name="description" content="Redesign of the debtor registration process — product design case study by Julia Mitka.">
 
   <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=satoshi@900,700,500,400,300&display=swap">
@@ -111,9 +111,12 @@
           <!-- Description -->
           <p class="cs-hero-sub reveal">Simplifying a complex multi-step form for a business information exchange platform<br>to reduce drop-offs and modernize the user experience.</p>
 
-          <!-- Hero image -->
-          <div class="cs-hero-img-wrap reveal">
-            <img src="assets/hero-image.png" alt="Debtor registration process — redesign" class="cs-hero-img">
+          <!-- Hero video: plays once, then hands over to the still final design -->
+          <div class="cs-hero-img-wrap cs-hero-media reveal">
+            <img src="assets/hero-image.png" alt="Debtor registration process — redesign" class="cs-hero-img cs-hero-still">
+            <video class="cs-hero-video" autoplay muted playsinline preload="auto" aria-hidden="true">
+              <source src="assets/hero-video.mp4" type="video/mp4">
+            </video>
           </div>
 
           <!-- Info boxes -->
@@ -146,7 +149,7 @@
           <div class="cs-overview-list">
             <div class="cs-ov-item reveal">
               <span class="cs-ov-label">Product</span>
-              <p class="cs-ov-text">A web application for a business information bureau, used by entrepreneurs to verify and monitor business partners and manage receivables.</p>
+              <p class="cs-ov-text">A web application for a business information exchange platform, used by companies to verify and monitor business partners and manage receivables.</p>
             </div>
             <div class="cs-ov-item reveal">
               <span class="cs-ov-label">Project</span>
@@ -158,6 +161,109 @@
       </section>
 
       <!-- 3. PROBLEM -->
+      <section class="cs-section" id="sec-problem">
+        <div class="cs-section-inner">
+          <h4 class="cs-section-hd reveal">Problem</h4>
+          <div class="cs-problem-intro reveal">
+            <p>The debtor registration process was one of the most problematic flows in the entire customer panel.</p>
+            <p>The form had been developed incrementally over the years - without a consistent workflow logic and without the involvement of a UX Designer. As a result, from the very first step, the user was confronted with the full complexity of the process, a large number of fields, and an inconsistent data structure.</p>
+            <p>Feedback from the customer support center primarily pointed to: the overwhelming length of the form, difficulty in finding errors and lack of system support while entering data.</p>
+            <p>An additional challenge came from legal constraints - most fields were legally required and could not be completely removed from the process.</p>
+          </div>
+
+          <!-- Before annotated -->
+          <div class="cs-annotated reveal">
+            <p class="cs-annotated-label">MAIN PAGE - BEFORE</p>
+            <div class="cs-annotated-stage">
+            <div class="cs-annotated-img-wrap">
+              <img src="assets/before-main.png" alt="Main page before redesign">
+            </div>
+
+            <div class="cs-callout cs-callout--tl">
+              <p class="cs-callout-title">LOW INFORMATION SCENT</p>
+              <p class="cs-callout-body">Lack of examples made debtor categories harder to distinguish.</p>
+            </div>
+
+            <div class="cs-callout cs-callout--tr">
+              <p class="cs-callout-title">LIMITED DECISION SUPPORT</p>
+              <p class="cs-callout-body">The screen explained the rules, but not the value of using the service.</p>
+            </div>
+
+            <div class="cs-callout cs-callout--bl">
+              <p class="cs-callout-title">TEXT-HEAVY DECISION POINT</p>
+              <p class="cs-callout-body">Key eligibility rules were buried in dense, documentation-style content.</p>
+            </div>
+
+            <div class="cs-callout cs-callout--br">
+              <p class="cs-callout-title">WEAK ACTION HIERARCHY</p>
+              <p class="cs-callout-body">The CTA felt disconnected from the choice.</p>
+            </div>
+            </div>
+          </div>
+
+          <!-- Before annotated - Step 1 -->
+          <div class="cs-annotated cs-annotated--spaced reveal">
+            <p class="cs-annotated-label">STEP 1 - BEFORE</p>
+            <div class="cs-annotated-stage">
+              <div class="cs-annotated-img-wrap">
+                <img src="assets/before-step1.png" alt="Step 1 before redesign">
+              </div>
+
+              <div class="cs-callout cs-callout--s1-l1">
+                <p class="cs-callout-title">FALSE REQUIRED STATE</p>
+                <p class="cs-callout-body">A non-mandatory field is marked as required, forcing users to opt out manually.</p>
+              </div>
+
+              <div class="cs-callout cs-callout--s1-l2">
+                <p class="cs-callout-title">WEAK FIELD PRIORITIZATION</p>
+                <p class="cs-callout-body">Required and optional fields had similar visual weight, making it harder to focus on the key data.</p>
+              </div>
+
+              <div class="cs-callout cs-callout--s1-r1">
+                <p class="cs-callout-title">TOO MANY FIELDS AT ONCE</p>
+                <p class="cs-callout-body">The first step exposed too much information upfront, making the form feel overwhelming from the start.</p>
+              </div>
+
+              <div class="cs-callout cs-callout--s1-r2">
+                <p class="cs-callout-title">CONFUSING VALIDATION LOGIC</p>
+                <p class="cs-callout-body">Numbered markers and footnotes made address requirements harder to understand than necessary.</p>
+              </div>
+
+              <div class="cs-callout cs-callout--s1-r3">
+                <p class="cs-callout-title">UNHELPFUL HELPER ICONS</p>
+                <p class="cs-callout-body">Tooltip icons appeared next to most fields, but often repeated the label instead of adding useful guidance.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Before annotated - Adding debt details -->
+          <div class="cs-annotated cs-annotated--spaced reveal">
+            <p class="cs-annotated-label">ADDING DEBT DETAILS - BEFORE</p>
+            <div class="cs-annotated-stage">
+              <div class="cs-annotated-img-wrap">
+                <img src="assets/before-adding-debt.png" alt="Adding debt details before redesign">
+              </div>
+
+              <div class="cs-callout cs-callout--ad-l1">
+                <p class="cs-callout-title">DISCONNECTED SUB-TASK</p>
+                <p class="cs-callout-body">The main form was hidden during the action, making the task feel separate from the overall process.</p>
+              </div>
+
+              <div class="cs-callout cs-callout--ad-r1">
+                <p class="cs-callout-title">CONTEXT SWITCHING</p>
+                <p class="cs-callout-body">Adding debt details opened as a separate page, interrupting the main debtor creation flow.</p>
+              </div>
+
+              <div class="cs-callout cs-callout--ad-r2">
+                <p class="cs-callout-title">UNCLEAR COMPLETION ACTION</p>
+                <p class="cs-callout-body">The generic "OK" button did not clearly explain what would happen after submission.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
       <!-- 4. GOALS -->
       <section class="cs-section" id="sec-goals">
         <div class="cs-section-inner">
@@ -217,8 +323,8 @@
                   <img src="assets/icon-modernize.svg" alt="" class="cs-goal-icon-img">
                 </div>
                 <div class="cs-goal-text">
-                  <div class="cs-goal-title">Modernize UX</div>
-                  <p>Bring the customer panel up to current UX standards.</p>
+                  <div class="cs-goal-title">Build reusable UI patterns</div>
+                  <p>Create form patterns - stepper, validation, and modals - that other processes in the panel can reuse.</p>
                 </div>
               </div>
               <div class="cs-goal-card">
@@ -324,110 +430,6 @@
         </div>
       </section>
 
-      <!-- PROBLEM -->
-      <section class="cs-section" id="sec-problem">
-        <div class="cs-section-inner">
-          <h4 class="cs-section-hd reveal">Problem</h4>
-          <div class="cs-problem-intro reveal">
-            <p>The debtor registration process was one of the most problematic flows in the entire customer panel.</p>
-            <p>The form had been developed incrementally over the years - without a consistent workflow logic and without the involvement of a UX Designer. As a result, from the very first step, the user was confronted with the full complexity of the process, a large number of fields, and an inconsistent data structure.</p>
-            <p>Feedback from the customer support center primarily pointed to: the overwhelming length of the form, difficulty in finding errors and lack of system support while entering data.</p>
-            <p>An additional challenge came from legal constraints - most fields were legally required and could not be completely removed from the process.</p>
-          </div>
-
-          <!-- Before annotated -->
-          <div class="cs-annotated reveal">
-            <p class="cs-annotated-label">MAIN PAGE - BEFORE</p>
-            <div class="cs-annotated-stage">
-            <div class="cs-annotated-img-wrap">
-              <img src="assets/before-main.png" alt="Main page before redesign">
-            </div>
-
-            <div class="cs-callout cs-callout--tl">
-              <p class="cs-callout-title">LOW INFORMATION SCENT</p>
-              <p class="cs-callout-body">Lack of examples made debtor categories harder to distinguish.</p>
-            </div>
-
-            <div class="cs-callout cs-callout--tr">
-              <p class="cs-callout-title">LIMITED DECISION SUPPORT</p>
-              <p class="cs-callout-body">The screen explained the rules, but not the value of using the service.</p>
-            </div>
-
-            <div class="cs-callout cs-callout--bl">
-              <p class="cs-callout-title">TEXT-HEAVY DECISION POINT</p>
-              <p class="cs-callout-body">Key eligibility rules were buried in dense, documentation-style content.</p>
-            </div>
-
-            <div class="cs-callout cs-callout--br">
-              <p class="cs-callout-title">WEAK ACTION HIERARCHY</p>
-              <p class="cs-callout-body">The CTA feels disconnected from the choice.</p>
-            </div>
-            </div>
-          </div>
-
-          <!-- Before annotated - Step 1 -->
-          <div class="cs-annotated cs-annotated--spaced reveal">
-            <p class="cs-annotated-label">STEP 1 - BEFORE</p>
-            <div class="cs-annotated-stage">
-              <div class="cs-annotated-img-wrap">
-                <img src="assets/before-step1.png" alt="Step 1 before redesign">
-              </div>
-
-              <div class="cs-callout cs-callout--s1-l1">
-                <p class="cs-callout-title">FALSE REQUIRED STATE</p>
-                <p class="cs-callout-body">A non-mandatory field is marked as required, forcing users to opt out manually.</p>
-              </div>
-
-              <div class="cs-callout cs-callout--s1-l2">
-                <p class="cs-callout-title">WEAK FIELD PRIORITIZATION</p>
-                <p class="cs-callout-body">Required and optional fields had similar visual weight, making it harder to focus on the key data.</p>
-              </div>
-
-              <div class="cs-callout cs-callout--s1-r1">
-                <p class="cs-callout-title">TOO MANY FIELDS AT ONCE</p>
-                <p class="cs-callout-body">The first step exposed too much information upfront, making the form feel overwhelming from the start.</p>
-              </div>
-
-              <div class="cs-callout cs-callout--s1-r2">
-                <p class="cs-callout-title">CONFUSING VALIDATION LOGIC</p>
-                <p class="cs-callout-body">Numbered markers and footnotes made address requirements harder to understand than necessary.</p>
-              </div>
-
-              <div class="cs-callout cs-callout--s1-r3">
-                <p class="cs-callout-title">UNHELPFUL HELPER ICONS</p>
-                <p class="cs-callout-body">Tooltip icons appeared next to most fields, but often repeated the label instead of adding useful guidance.</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Before annotated - Adding debt details -->
-          <div class="cs-annotated cs-annotated--spaced reveal">
-            <p class="cs-annotated-label">ADDING DEBT DETAILS - BEFORE</p>
-            <div class="cs-annotated-stage">
-              <div class="cs-annotated-img-wrap">
-                <img src="assets/before-adding-debt.png" alt="Adding debt details before redesign">
-              </div>
-
-              <div class="cs-callout cs-callout--ad-l1">
-                <p class="cs-callout-title">DISCONNECTED SUB-TASK</p>
-                <p class="cs-callout-body">The main form was hidden during the action, making the task feel separate from the overall process.</p>
-              </div>
-
-              <div class="cs-callout cs-callout--ad-r1">
-                <p class="cs-callout-title">CONTEXT SWITCHING</p>
-                <p class="cs-callout-body">Adding debt details opened as a separate page, interrupting the main debtor creation flow.</p>
-              </div>
-
-              <div class="cs-callout cs-callout--ad-r2">
-                <p class="cs-callout-title">UNCLEAR COMPLETION ACTION</p>
-                <p class="cs-callout-body">The generic "OK" button did not clearly explain what would happen after submission.</p>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </section>
-
       <!-- 7. DESIGN STRATEGY -->
       <section class="cs-section" id="sec-strategy">
         <div class="cs-section-inner">
@@ -436,7 +438,7 @@
             <div class="cs-strategy-text">
               <span class="cs-strategy-label">Decision 1</span>
               <h3>Guided workflow</h3>
-              <p>The process was rebuilt around clear steps and a stepper that guided the user through the form and limited the ability to move forward without completing the required data.</p>
+              <p>The process was rebuilt around clear steps and a stepper that guided the user through the form and limited the ability to move forward without completing the required data. Errors appear directly below the field, and when moving to the next step, the page scrolls to the first error.</p>
               <div class="cs-strategy-effects reveal">
                 <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256"><path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"/></svg>Better orientation within the process</span>
                 <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256"><path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"/></svg>Less frustration from validation</span>
@@ -459,7 +461,7 @@
             <div class="cs-strategy-text">
               <span class="cs-strategy-label">Decision 2</span>
               <h3>Progressive disclosure</h3>
-              <p>Due to legal requirements, most fields could not be removed. Instead of reducing complexity at the data level, the redesign limited the exposure of less important information — less frequently used fields were hidden under expandable section.</p>
+              <p>Due to legal requirements, most fields could not be removed. Instead of reducing complexity at the data level, the redesign limited the exposure of less important information - less frequently used fields were hidden under expandable section.</p>
               <div class="cs-strategy-effects reveal">
                 <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256"><path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"/></svg>Shorter perceived form length</span>
                 <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256"><path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"/></svg>Lower cognitive overload</span>
@@ -544,7 +546,7 @@
             <div class="cs-strategy-text">
               <span class="cs-strategy-label">Decision 5</span>
               <h3>Contextual interactions</h3>
-              <p>Adding obligations and representatives was moved from separate subpages into modals to reduce context switching and keep the user within the main flow.</p>
+              <p>Adding debt details and representatives was moved from separate subpages into modals to reduce context switching and keep the user within the main flow.</p>
               <div class="cs-strategy-effects reveal">
                 <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256"><path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"/></svg>Better flow continuity</span>
                 <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256"><path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"/></svg>Faster task completion</span>
@@ -632,7 +634,7 @@
                 <div class="cs-kdi-num">2</div>
                 <div class="cs-kdi-item-body">
                   <span class="cs-kdi-item-title">System-assisted entry</span>
-                  <p>The NIP field was redesigned as a searchable input to support faster data entry and future autofill scenarios.</p>
+                  <p>The NIP field was redesigned as a searchable input that pulls company data from external databases and fills it in automatically.</p>
                 </div>
               </div>
               <div class="cs-kdi-item reveal">
@@ -724,38 +726,37 @@
       <!-- 10. IMPACT -->
       <section class="cs-section" id="sec-impact">
         <div class="cs-section-inner">
-          <h4 class="cs-section-hd reveal">Project Outcomes</h4>
+          <h4 class="cs-section-hd reveal">Expected Impact</h4>
           <div class="cs-impact-intro reveal">
-            <p>The project was prepared for phased implementation and handed over to the development team together with implementation estimates. Since the collaboration ended before launch, post-release metrics were not available.</p>
-            <p>Instead, the value of the redesign can be seen in how it addressed key friction points in a complex, regulation-driven workflow.</p>
+            <p>The project was handed over to the development team with a phased implementation plan and estimates. The redesign focused on removing key friction points in a complex, regulation-driven workflow:</p>
           </div>
           <div class="cs-impact-grid">
             <div class="cs-impact-card cs-impact-card--tl reveal">
               <span class="cs-impact-num">01</span>
               <div class="cs-impact-content">
-                <span class="cs-impact-label">Higher completion confidence</span>
-                <p>Reduced exposed complexity and step-by-step guidance made the process feel more manageable.</p>
+                <span class="cs-impact-label">Fewer drop-offs</span>
+                <p>Clear steps, a visible stepper, and less information exposed at once make the process feel manageable from the first step.</p>
               </div>
             </div>
             <div class="cs-impact-card cs-impact-card--center reveal">
               <span class="cs-impact-num">02</span>
               <div class="cs-impact-content">
-                <span class="cs-impact-label">Less manual effort</span>
-                <p>NIP search, autofill support, and simplified address input reduced manual data entry.</p>
+                <span class="cs-impact-label">Faster registration</span>
+                <p>NIP search with autofill, simplified address input, and in-context modals reduce manual entry and navigation.</p>
               </div>
             </div>
             <div class="cs-impact-card cs-impact-card--tl reveal">
               <span class="cs-impact-num">03</span>
               <div class="cs-impact-content">
-                <span class="cs-impact-label">Compliance without overload</span>
-                <p>Legal requirements stayed in the process, but were structured in a more user-friendly way.</p>
+                <span class="cs-impact-label">Clearer guidance</span>
+                <p>Legal requirements stay in the process, but only what's needed is shown at each step, and errors appear right below the field.</p>
               </div>
             </div>
             <div class="cs-impact-card cs-impact-card--center reveal">
               <span class="cs-impact-num">04</span>
               <div class="cs-impact-content">
                 <span class="cs-impact-label">Scalable UI patterns</span>
-                <p>Reusable patterns for forms, steppers, validation, modals, and progressive disclosure supported future redesigns.</p>
+                <p>Reusable patterns for forms, steppers, validation, modals, and progressive disclosure support future redesigns.</p>
               </div>
             </div>
           </div>
@@ -772,7 +773,14 @@
                 <img src="assets/thumbs-up.svg" alt="" width="24" height="24">
                 <span>What worked well</span>
               </div>
-              <p>The project showed how challenging it can be to redesign systems that have been developed for years without a consistent UX strategy. Simplifying the experience does not always mean removing complexity - in many cases, it is more important to manage the exposure of information properly and guide the user through the process.</p>
+              <div class="cs-refl-point">
+                <span class="cs-refl-point-label">Managing exposure instead of removing fields</span>
+                <p>Most fields were legally required, so simplifying the experience didn't mean removing complexity - it meant controlling how much of it users see at once, through clear steps, progressive disclosure, and contextual modals.</p>
+              </div>
+              <div class="cs-refl-point">
+                <span class="cs-refl-point-label">Close collaboration with the PM and developers</span>
+                <p>Iterating with the PM and developers from the start helped define what could be removed, hidden, or had to stay - keeping the redesign realistic for a system developed for years without a consistent UX strategy.</p>
+              </div>
             </div>
 
             <div class="cs-refl-block reveal">
@@ -780,8 +788,14 @@
                 <img src="assets/swap.svg" alt="" width="24" height="24">
                 <span>What I would improve</span>
               </div>
-              <p>In hindsight, I would place greater emphasis on earlier business and legal alignment. In regulated systems, even small changes can significantly affect project scope and the number of iterations.</p>
-              <p>I would also like to conduct usability testing - even in a simplified, internal form. This would make it possible to validate assumptions faster and better assess the impact of the redesign on real user behavior before implementation.</p>
+              <div class="cs-refl-point">
+                <span class="cs-refl-point-label">Involve business and legal stakeholders earlier</span>
+                <p>In regulated systems, even small changes can significantly affect project scope and the number of iterations. Earlier alignment beyond the PM would have reduced rework.</p>
+              </div>
+              <div class="cs-refl-point">
+                <span class="cs-refl-point-label">Validate with usability testing</span>
+                <p>Even simplified, internal testing would make it possible to validate assumptions faster and better assess the impact of the redesign on real user behavior before implementation.</p>
+              </div>
             </div>
           </div>
         </div>

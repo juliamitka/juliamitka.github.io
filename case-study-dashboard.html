@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dashboard Redesign - Case Study · Julia Mitka</title>
+  <title>Dashboard Design - Case Study · Julia Mitka</title>
   <meta name="description" content="Transforming a product catalog homepage into an actionable business dashboard - product design case study by Julia Mitka.">
 
   <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=satoshi@900,700,500,400,300&display=swap">
@@ -255,6 +255,23 @@
     .cs-annotated--visible .cs-callout--iter-final-l1 { transition-delay: 0.15s; }
     .cs-annotated--visible .cs-callout--iter-final-r1 { transition-delay: 0.3s; }
     .cs-annotated--visible .cs-callout--iter-final-l2 { transition-delay: 0.45s; }
+
+    /* callout positions for usability testing findings */
+    .cs-callout--ut-l1 { top: 96px;  left: -104px; }
+    .cs-callout--ut-l2 { top: 290px; left: -104px; }
+    .cs-callout--ut-r1 { top: 330px; left: 575.2px; }
+    .cs-callout--ut-l3 { top: 820px; left: -104px; }
+    .cs-callout--ut-l1,
+    .cs-callout--ut-l2,
+    .cs-callout--ut-l3 { transform: translateX(-16px); }
+    .cs-callout--ut-r0 { top: 96px; left: 575.2px; }
+    .cs-callout--ut-r0,
+    .cs-callout--ut-r1 { transform: translateX(16px); }
+    .cs-annotated--visible .cs-callout--ut-r0 { transition-delay: 0.2s; }
+    .cs-annotated--visible .cs-callout--ut-l1 { transition-delay: 0.15s; }
+    .cs-annotated--visible .cs-callout--ut-l2 { transition-delay: 0.3s; }
+    .cs-annotated--visible .cs-callout--ut-r1 { transition-delay: 0.45s; }
+    .cs-annotated--visible .cs-callout--ut-l3 { transition-delay: 0.6s; }
 
     /* Design challenge chip */
     .db-challenge-chip {
@@ -763,83 +780,134 @@
     }
     .db-iter-verdict + .db-iter-verdict { margin-top: 32px; }
 
-    /* ─────────────────────────────────────────────
-       REDUCTIONS - alternating left/right items
-    ───────────────────────────────────────────── */
-    .rc-list {
-      display: flex;
-      flex-direction: column;
-    }
-    .rc-item {
-      width: 480px;
-      padding: 40px 40px 40px 40px;
-      position: relative;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      background: #ffffff;
-    }
-    .rc-item + .rc-item {
-      margin-top: -32px;
-    }
-    .rc-item--left {
-      margin-right: auto;
-    }
-    .rc-item--right {
-      margin-left: auto;
-      text-align: right;
-    }
-    .rc-num {
-      font-family: var(--font-hdg);
-      font-size: var(--type-h1-size);
-      font-weight: var(--type-h1-weight);
-      line-height: var(--type-h1-lh);
-      letter-spacing: var(--type-h1-ls);
-      color: var(--app-purple-100);
-      position: absolute;
-      top: 0;
-      left: 0;
-      pointer-events: none;
-      user-select: none;
-    }
-    .rc-item--right .rc-num {
-      left: auto;
-      right: 0;
-    }
-    .rc-title {
+
+    /* Usability testing - between V2 and Final */
+    .db-ut-label {
+      display: block;
       font-size: var(--type-label-m-size);
       font-weight: var(--type-label-m-weight);
-      letter-spacing: var(--type-label-m-ls);
       line-height: var(--type-label-m-lh);
+      letter-spacing: var(--type-label-m-ls);
       text-transform: uppercase;
       color: var(--app-purple-950-label);
       margin-bottom: 20px;
-      position: relative;
     }
-    .rc-removed {
+    .db-ut-block + .db-ut-block { margin-top: 80px; }
+    .db-ut-block .db-iter-body { margin-bottom: 0; }
+    .db-ut-block .db-iter-body + .db-iter-body { margin-top: 20px; }
+    .db-ut-tasks { margin: 0; }
+    .db-ut-evidence { margin-top: 80px; }
+
+    /* UX research plan - card grid */
+    .db-ut-block .db-plan-intro { margin-bottom: 20px; }
+    .db-plan {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      padding: 8px;
+      background: #ffffff;
+      border: 1px solid var(--app-gray-100);
+      border-radius: 14px;
+    }
+    .db-plan-card {
+      padding: 24px;
+      background: #ffffff;
+      border: 1px solid var(--app-purple-100);
+      border-radius: 12px;
       font-size: var(--type-text-m-size);
-      line-height: var(--type-text-m-lh);
-      color: var(--app-purple-950-subtle);
-      font-style: italic;
-      margin-bottom: 20px;
-      position: relative;
-    }
-    .rc-why-label {
-      font-size: var(--type-label-s-size);
-      font-weight: var(--type-label-s-weight);
-      letter-spacing: var(--type-label-s-ls);
-      text-transform: uppercase;
-      color: var(--app-purple-700);
-      margin-bottom: 8px;
-      display: block;
-      position: relative;
-    }
-    .rc-why-text {
-      font-size: var(--type-text-m-size);
+      font-weight: var(--type-text-m-weight);
       line-height: var(--type-text-m-lh);
       color: var(--app-purple-950);
-      position: relative;
     }
+    .db-plan-card--wide { grid-column: 1 / -1; }
+    .db-plan-card p { color: var(--app-purple-950); }
+    .db-plan-card p + p,
+    .db-plan-card ul + p { margin-top: 12px; }
+    .db-plan-card strong { font-weight: 500; }
+    .db-plan-card ul,
+    .db-plan-card ol { padding-left: 20px; }
+    .db-plan-card ul { list-style: disc; }
+    .db-plan-card ol { list-style: decimal; }
+    .db-plan-card .db-plan-q + ul,
+    .db-plan-card .db-plan-q + ol,
+    .db-plan-card p + ul,
+    .db-plan-card p + ol { margin-top: 12px; }
+    .db-plan-card .db-plan-hd {
+      font-size: var(--type-label-m-size);
+      font-weight: var(--type-label-m-weight);
+      line-height: var(--type-label-m-lh);
+      letter-spacing: var(--type-label-m-ls);
+      text-transform: uppercase;
+      color: var(--app-purple-950);
+    }
+    .db-plan-num {
+      color: var(--app-purple-700-label);
+      margin-right: 8px;
+    }
+    .db-plan-card .db-plan-q {
+      margin-top: 4px;
+      margin-bottom: 20px;
+      font-size: var(--type-text-s-size);
+      line-height: var(--type-text-s-lh);
+      color: var(--app-purple-950-subtle);
+    }
+    .db-plan-card .db-plan-q + p { margin-top: 0; }
+    .db-plan-lead {
+      font-size: var(--type-text-l-size);
+      line-height: var(--type-text-l-lh);
+    }
+    .db-plan-card .db-plan-sub {
+      margin-top: 24px;
+      font-size: var(--type-label-s-size);
+      font-weight: var(--type-label-s-weight);
+      line-height: var(--type-label-s-lh);
+      letter-spacing: var(--type-label-s-ls);
+      text-transform: uppercase;
+      color: var(--app-purple-950-label);
+    }
+    .db-ut-evidence-img {
+      border: 1px solid var(--app-purple-100);
+      border-radius: 14px;
+      overflow: hidden;
+    }
+    .db-ut-evidence-img img { width: 100%; display: block; }
+    .db-ut-label + .cs-annotated { margin-top: 0; }
+    .db-ut-tasks { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 40px; }
+    .db-ut-task-body p { color: var(--app-purple-950); }
+    .db-ut-task-body p + p { margin-top: 12px; }
+    .db-ut-task-body .db-ut-task-title { font-weight: 500; margin-bottom: 8px; }
+    .db-ut-task {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      font-size: var(--type-text-m-size);
+      font-weight: var(--type-text-m-weight);
+      line-height: var(--type-text-m-lh);
+      color: var(--app-purple-950);
+    }
+    .db-ut-task-icon { display: flex; flex-shrink: 0; }
+    .db-ut-task-icon img {
+      width: 24px;
+      height: 24px;
+      filter: invert(18%) sepia(96%) saturate(4000%) hue-rotate(267deg) brightness(85%) contrast(110%);
+    }
+    #sec-usability .db-insight-body h3 { margin-bottom: 40px; }
+    #sec-usability .db-insight + .db-insight { margin-top: 40px; padding-top: 40px; }
+    .db-ut-response {
+      margin-top: 40px;
+      padding: 16px 20px;
+      background: var(--app-purple-50);
+      border: 1px solid var(--app-purple-100);
+      border-radius: 14px;
+    }
+    .db-ut-response .db-insight-imp {
+      height: auto;
+      padding: 0;
+      background: none;
+      border: none;
+      margin-bottom: 8px;
+    }
+    .db-insight-body .db-ut-response p { margin-bottom: 0; }
 
     /* ─────────────────────────────────────────────
        FINAL UI - 4 subsections
@@ -1252,12 +1320,15 @@
             </a>
           </div>
 
-          <h2 class="cs-hero-title reveal">Redesign of the customer panel home page</h2>
+          <h2 class="cs-hero-title reveal">Dashboard design for a B2B customer panel</h2>
 
-          <p class="cs-hero-sub reveal">Transforming a passive service catalog into a dashboard supporting risk monitoring, data analysis, and operational decision-making.</p>
+          <p class="cs-hero-sub reveal">Transforming a passive service catalog into a dashboard that helps users understand their company's situation and decide what to do next.</p>
 
-          <div class="cs-hero-img-wrap reveal mt-48">
-            <img src="assets/dashboard/hero-img.png" alt="Customer panel home page redesign" class="cs-hero-img">
+          <div class="cs-hero-img-wrap cs-hero-media reveal mt-48">
+            <img src="assets/dashboard/hero-img.png" alt="Customer panel home page redesign" class="cs-hero-img cs-hero-still">
+            <video class="cs-hero-video" autoplay muted playsinline preload="auto" aria-hidden="true">
+              <source src="assets/dashboard/hero-video.mp4" type="video/mp4">
+            </video>
           </div>
 
           <div class="cs-chips reveal">
@@ -1267,7 +1338,7 @@
             </div>
             <div class="cs-chip cs-chip--wide">
               <span class="cs-chip-label">Scope</span>
-              <span class="cs-chip-val">Audit · Personas · IA · UI</span>
+              <span class="cs-chip-val">IA · Usability testing · UI</span>
             </div>
             <div class="cs-chip">
               <span class="cs-chip-label">Type</span>
@@ -1289,11 +1360,15 @@
           <div class="cs-overview-list">
             <div class="cs-ov-item reveal">
               <span class="cs-ov-label">Product</span>
-              <p class="cs-ov-text">A web application for a business information bureau, used by entrepreneurs to verify contractors, monitor company health, and manage receivables.</p>
+              <p class="cs-ov-text">A web application for a business information exchange platform, used by companies to verify contractors, monitor company health, and manage receivables.</p>
             </div>
             <div class="cs-ov-item reveal">
               <span class="cs-ov-label">Project</span>
               <p class="cs-ov-text">Redesign of the homepage - the first screen after login - from a static grid of service tiles into a decision-support dashboard.</p>
+            </div>
+            <div class="cs-ov-item reveal">
+              <span class="cs-ov-label">Research</span>
+              <p class="cs-ov-text">Customer support insights shaped the initial structure, and the second iteration was validated through moderated usability testing with 6 users - business owners and finance professionals.</p>
             </div>
           </div>
           <img src="assets/dashboard/overview-img.png" alt="" class="cs-overview-img reveal">
@@ -1440,8 +1515,8 @@
             <div class="db-insight reveal">
               <div class="db-insight-num">04</div>
               <div class="db-insight-body">
-                <h3>Too many equally weighted tiles - ignored</h3>
-                <p>When everything looks the same, nothing stands out. Users learned to ignore the homepage entirely.</p>
+                <h3>Too many equally weighted tiles</h3>
+                <p>When everything looks the same, nothing stands out. Support conversations suggested users bypassed the homepage and went straight to the side menu.</p>
                 <span class="db-insight-imp"><img src="assets/dashboard/arrow-circle-right-thin.svg" alt="">Reduce elements and strengthen hierarchy</span>
               </div>
             </div>
@@ -1459,7 +1534,7 @@
       <section class="db-sec" id="sec-archetypes">
         <div class="db-sec-inner">
           <h4 class="cs-section-hd reveal">User Archetypes</h4>
-          <p class="db-discovery-text reveal">Based on personas and support insights I identified two primary behavioral patterns - not full demographic profiles, but usage modes that defined what the dashboard must prioritize.</p>
+          <p class="db-discovery-text reveal">Based on personas and support insights, I identified two primary behavioral patterns that defined what the dashboard must prioritize.</p>
 
           <div class="db-arch-grid reveal" style="margin-top: 80px;">
 
@@ -1551,7 +1626,7 @@
             <div class="db-answer reveal">
               <p class="db-answer-q"><span class="db-quote-mark">" </span>What is happening around my company?<span class="db-quote-mark"> "</span></p>
               <img class="db-answer-arr" src="assets/arrow-long.svg" alt="">
-              <div class="db-answer-a"><strong>Your statistics</strong><span>Reports, entities monitoring the company, company-related events</span></div>
+              <div class="db-answer-a"><strong>Your statistics</strong><span>Key indicators of activity around the company</span></div>
             </div>
             <div class="db-answer reveal">
               <p class="db-answer-q"><span class="db-quote-mark">" </span>What can I do now?<span class="db-quote-mark"> "</span></p>
@@ -1568,11 +1643,11 @@
         </div>
       </section>
 
-      <!-- ── 08 ITERATIONS ── -->
+      <!-- ── 08 EARLY ITERATIONS ── -->
       <section class="db-sec" id="sec-iterations">
         <div class="db-sec-inner">
-          <h4 class="cs-section-hd reveal">Iterations</h4>
-          <p class="db-discovery-text reveal">The dashboard went through several versions, reviewed with the PM and customer support team at each stage. Their feedback helped validate which information was useful, which elements created confusion, and where the interface was still too heavy. The biggest change was not about adding more elements - it was about removing data that didn't support user decisions.</p>
+          <h4 class="cs-section-hd reveal">Early Iterations</h4>
+          <p class="db-discovery-text reveal">The first versions were reviewed with the PM and customer support team, which helped show which information was useful and where the interface was still too heavy.</p>
 
           <!-- V1 -->
           <div class="db-iter-section reveal" style="margin-top: 80px;">
@@ -1595,50 +1670,257 @@
                 </div>
               </div>
             </div>
-            <div class="db-iter-verdict reveal">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M231,82.76A20,20,0,0,0,216,76H156V56a36,36,0,0,0-36-36,4,4,0,0,0-3.58,2.21L77.53,100H32a12,12,0,0,0-12,12v88a12,12,0,0,0,12,12H204a20,20,0,0,0,19.85-17.52l12-96A20,20,0,0,0,231,82.76ZM76,204H32a4,4,0,0,1-4-4V112a4,4,0,0,1,4-4H76ZM227.91,97.49l-12,96A12,12,0,0,1,204,204H84V104.94L122.42,28.1A28,28,0,0,1,148,56V80a4,4,0,0,0,4,4h64a12,12,0,0,1,11.91,13.49Z"></path></svg>
-              <span class="db-iter-verdict-label">What worked</span>
-            </div>
-            <p class="db-iter-verdict-text reveal">The UI was more structured than in the old version, and the dashboard started using more data available in the system.</p>
-            <div class="db-iter-verdict reveal" style="margin-top: 40px;">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M235.85,157.52l-12-96A20,20,0,0,0,204,44H32A12,12,0,0,0,20,56v88a12,12,0,0,0,12,12H77.53l38.89,77.79A4,4,0,0,0,120,236a36,36,0,0,0,36-36V180h60a20,20,0,0,0,19.85-22.48ZM76,148H32a4,4,0,0,1-4-4V56a4,4,0,0,1,4-4H76Zm149,19.94a12,12,0,0,1-9,4.06H152a4,4,0,0,0-4,4v24a28,28,0,0,1-25.58,27.9L84,151.06V52H204a12,12,0,0,1,11.91,10.51l12,96A12,12,0,0,1,225,167.94Z"></path></svg>
-              <span class="db-iter-verdict-label">What didn't</span>
-            </div>
-            <p class="db-iter-verdict-text reveal">The view still tried to show too much at once and largely preserved the product exposure logic.</p>
           </div>
 
           <!-- V2 -->
           <div class="db-iter-section reveal">
             <span class="db-iter-version">V2</span>
-            <span class="db-iter-title">More actionable, still overloaded</span>
-            <p class="db-iter-body">In the second version, the "What can you do now?" section appeared, which started replacing the product catalog with recommended actions.</p>
+            <span class="db-iter-title">More actionable</span>
+            <p class="db-iter-body">V1 still presented services as a product catalog - users could see what was available, but not which action made sense in their situation. In V2, I kept the upper part of the dashboard unchanged and focused on this section: the catalog was replaced with "What can you do now?" - recommended actions grouped by user goals.</p>
             <div class="cs-annotated reveal">
               <div class="cs-annotated-stage">
                 <div class="cs-annotated-img-wrap">
                   <img src="assets/dashboard/iterations-v2.png" alt="V2 screen">
                 </div>
                 <div class="cs-callout cs-callout--iter-v2-l1">
-                  <p class="cs-callout-body">Section "What can you do now?" instead of product catalog</p>
+                  <p class="cs-callout-body">Recommended actions grouped by goal</p>
                 </div>
               </div>
             </div>
-            <div class="db-iter-verdict reveal">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M231,82.76A20,20,0,0,0,216,76H156V56a36,36,0,0,0-36-36,4,4,0,0,0-3.58,2.21L77.53,100H32a12,12,0,0,0-12,12v88a12,12,0,0,0,12,12H204a20,20,0,0,0,19.85-17.52l12-96A20,20,0,0,0,231,82.76ZM76,204H32a4,4,0,0,1-4-4V112a4,4,0,0,1,4-4H76ZM227.91,97.49l-12,96A12,12,0,0,1,204,204H84V104.94L122.42,28.1A28,28,0,0,1,148,56V80a4,4,0,0,0,4,4h64a12,12,0,0,1,11.91,13.49Z"></path></svg>
-              <span class="db-iter-verdict-label">What worked</span>
-            </div>
-            <p class="db-iter-verdict-text reveal">The dashboard started guiding the user more effectively from information to action.</p>
-            <div class="db-iter-verdict reveal" style="margin-top: 40px;">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M235.85,157.52l-12-96A20,20,0,0,0,204,44H32A12,12,0,0,0,20,56v88a12,12,0,0,0,12,12H77.53l38.89,77.79A4,4,0,0,0,120,236a36,36,0,0,0,36-36V180h60a20,20,0,0,0,19.85-22.48ZM76,148H32a4,4,0,0,1-4-4V56a4,4,0,0,1,4-4H76Zm149,19.94a12,12,0,0,1-9,4.06H152a4,4,0,0,0-4,4v24a28,28,0,0,1-25.58,27.9L84,151.06V52H204a12,12,0,0,1,11.91,10.51l12,96A12,12,0,0,1,225,167.94Z"></path></svg>
-              <span class="db-iter-verdict-label">What didn't</span>
-            </div>
-            <p class="db-iter-verdict-text reveal">The overall view was still too information-heavy, and business-oriented elements competed with data that was important to the user.</p>
           </div>
 
-          <!-- Final -->
+        </div>
+      </section>
+
+      <!-- ── USABILITY TESTING ── -->
+      <section class="db-sec" id="sec-usability">
+        <div class="db-sec-inner">
+          <h4 class="cs-section-hd reveal">Usability Testing</h4>
+          <div class="db-iter-section">
+
+            <div class="db-ut-block reveal">
+              <p class="db-iter-body">The goal-based navigation addressed some of the original problems, but the dashboard still contained a lot of information, so I tested V2 with users before refining it further.</p>
+            </div>
+
+            <!-- UX research plan -->
+            <div class="db-ut-block reveal">
+              <span class="db-ut-label">UX research plan</span>
+              <p class="db-iter-body db-plan-intro">I structured the study using Iga Mościchowska's UX research planning canvas.</p>
+              <div class="db-plan">
+                <div class="db-plan-card">
+                  <p class="db-plan-hd"><span class="db-plan-num">01</span>Project</p>
+                  <p class="db-plan-q">What product, and at what stage?</p>
+                  <p><strong>Product:</strong> customer panel homepage.</p>
+                  <p><strong>Timing:</strong> after the second iteration (V2), before the final version.</p>
+                  <p>The panel combines company status, statistics, package limits, and action shortcuts. The test focuses on information priorities and service findability.</p>
+                </div>
+                <div class="db-plan-card">
+                  <p class="db-plan-hd"><span class="db-plan-num">02</span>Risks</p>
+                  <p class="db-plan-q">What could disrupt the test or its interpretation?</p>
+                  <ul>
+                    <li>Incomplete prototype interactions may block some paths.</li>
+                    <li>Placeholder data may make statistics harder to interpret.</li>
+                    <li>Different experience levels and the risk of leading follow-up questions.</li>
+                    <li>30-minute session limit.</li>
+                  </ul>
+                </div>
+                <div class="db-plan-card db-plan-card--wide">
+                  <p class="db-plan-hd"><span class="db-plan-num">03</span>Research goal</p>
+                  <p class="db-plan-q">What questions are we looking to answer?</p>
+                  <p class="db-plan-lead">Does the V2 dashboard help users quickly assess their company's situation, understand key data, and find the right action?</p>
+                  <p class="db-plan-sub">Specific goals</p>
+                  <ol>
+                    <li><strong>Priorities</strong> - Does the user notice company status and potential alerts?</li>
+                    <li><strong>Statistics</strong> - Do they understand the metrics and see their practical value?</li>
+                    <li><strong>Navigation</strong> - Do they intuitively start verifying a contractor?</li>
+                    <li><strong>Receivables</strong> - Do they recognize the right path for handling an overdue payment?</li>
+                  </ol>
+                </div>
+                <div class="db-plan-card">
+                  <p class="db-plan-hd"><span class="db-plan-num">04</span>Participants</p>
+                  <p class="db-plan-q">Who is the test for?</p>
+                  <p><strong>6 people</strong></p>
+                  <ul>
+                    <li>3 SME owners</li>
+                    <li>3 finance / operations professionals</li>
+                  </ul>
+                  <p>Matching the two user archetypes.</p>
+                </div>
+                <div class="db-plan-card">
+                  <p class="db-plan-hd"><span class="db-plan-num">05</span>Recruitment</p>
+                  <p class="db-plan-q">How will we select participants?</p>
+                  <p>Panel users or people performing similar tasks.</p>
+                </div>
+                <div class="db-plan-card">
+                  <p class="db-plan-hd"><span class="db-plan-num">06</span>Research method</p>
+                  <p class="db-plan-q">How will we test the hypotheses?</p>
+                  <p>Moderated task-based testing with a think-aloud approach</p>
+                  <p>Opening and closing questions around the tasks.</p>
+                  <p>Approximately 30 minutes per session</p>
+                </div>
+                <div class="db-plan-card">
+                  <p class="db-plan-hd"><span class="db-plan-num">07</span>Tools</p>
+                  <p class="db-plan-q">What will we need?</p>
+                  <ul>
+                    <li>Interactive V2 prototype</li>
+                    <li>Teams / Meet + screen sharing</li>
+                    <li>Excel: script and notes</li>
+                  </ul>
+                </div>
+                <div class="db-plan-card db-plan-card--wide">
+                  <p class="db-plan-hd"><span class="db-plan-num">08</span>Hypotheses to verify</p>
+                  <p class="db-plan-q">Assumptions before the study</p>
+                  <ul>
+                    <li><strong>H1</strong> Multiple sections make it hard to notice information that requires action.</li>
+                    <li><strong>H2</strong> Some statistics are unclear or don't support decisions.</li>
+                    <li><strong>H3</strong> Grouping services by goal is intuitive, but there are too many cards.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- Key tasks -->
+            <div class="db-ut-block reveal">
+              <span class="db-ut-label">Key tasks</span>
+              <ul class="db-ut-tasks">
+                <li class="db-ut-task">
+                  <span class="db-ut-task-icon"><img src="assets/dashboard/target-thin.svg" alt=""></span>
+                  <div class="db-ut-task-body">
+                    <p class="db-ut-task-title">Task 1 - Assessing company status</p>
+                    <p>You've just logged into the platform at the start of your workday. Before moving on to your other tasks, you want to get a quick overview of your company's current situation and make sure nothing important needs your attention.</p>
+                    <p>Use the information available on this page to assess how your company is doing and determine whether there is anything you should follow up on.</p>
+                  </div>
+                </li>
+                <li class="db-ut-task">
+                  <span class="db-ut-task-icon"><img src="assets/dashboard/target-thin.svg" alt=""></span>
+                  <div class="db-ut-task-body">
+                    <p class="db-ut-task-title">Task 2 - Checking a potential business partner</p>
+                    <p>Your company is considering working with a new contractor who has offered attractive terms for a long-term partnership. You've never worked with this business before, and you'd like to know more about its financial reliability before making a decision.</p>
+                    <p>Starting from this page, find a way to check the company before agreeing to the partnership.</p>
+                  </div>
+                </li>
+                <li class="db-ut-task">
+                  <span class="db-ut-task-icon"><img src="assets/dashboard/target-thin.svg" alt=""></span>
+                  <div class="db-ut-task-body">
+                    <p class="db-ut-task-title">Task 3 - Handling an overdue payment</p>
+                    <p>One of your regular customers hasn't paid an invoice for PLN 8,000, even though the payment deadline passed two weeks ago. You've checked your records and confirmed that the payment hasn't arrived.</p>
+                    <p>You'd like to address the outstanding payment. Use the platform to start the action you consider most appropriate for this situation.</p>
+                  </div>
+                </li>
+              </ul>
+              <figure class="db-ut-evidence">
+                <div class="db-ut-evidence-img">
+                  <img src="assets/dashboard/usability-testing-table.png" alt="Excerpt from usability testing session notes: tasks, participant answers, and observer notes">
+                </div>
+              </figure>
+            </div>
+
+            <!-- Key findings -->
+            <div class="db-ut-block">
+              <span class="db-ut-label reveal">Key findings</span>
+              <div class="cs-annotated reveal">
+                <div class="cs-annotated-stage">
+                  <div class="cs-annotated-img-wrap">
+                    <img src="assets/dashboard/usability-testing.png" alt="V2 prototype annotated with usability testing findings">
+                  </div>
+                  <div class="cs-callout cs-callout--ut-l1">
+                    <p class="cs-callout-title">Information overload</p>
+                    <p class="cs-callout-body">Multiple sections competed for attention.</p>
+                  </div>
+                  <div class="cs-callout cs-callout--ut-l2">
+                    <p class="cs-callout-title">Package visibility</p>
+                    <p class="cs-callout-body">Named among the most useful information on the dashboard.</p>
+                  </div>
+                  <div class="cs-callout cs-callout--ut-r0">
+                    <p class="cs-callout-title">Security score</p>
+                    <p class="cs-callout-body">An unexplained 50% score caused stress and frustration.</p>
+                  </div>
+                  <div class="cs-callout cs-callout--ut-r1">
+                    <p class="cs-callout-title">Too many statistics</p>
+                    <p class="cs-callout-body">Only reports, monitoring entities, and events felt actionable.</p>
+                  </div>
+                  <div class="cs-callout cs-callout--ut-l3">
+                    <p class="cs-callout-title">Too many actions</p>
+                    <p class="cs-callout-body">Goal-based columns worked, but long cards and labels slowed scanning.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="db-insights">
+                <div class="db-insight reveal">
+                  <div class="db-insight-num">01</div>
+                  <div class="db-insight-body">
+                    <h3>Information overload made prioritization difficult</h3>
+                    <p>Participants were generally able to locate relevant information, but 3 of 6 hesitated before identifying what deserved their attention. Multiple sections competed for attention, making it harder to distinguish important company-related updates from secondary information.</p>
+                    <div class="db-ut-response">
+                      <span class="db-insight-imp"><img src="assets/dashboard/arrow-circle-right-thin.svg" alt="">Design response</span>
+                      <p>Strengthened the visual hierarchy, giving company status greater prominence and reducing competing elements.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="db-insight reveal">
+                  <div class="db-insight-num">02</div>
+                  <div class="db-insight-body">
+                    <h3>Not all statistics provided meaningful value</h3>
+                    <p>While participants appreciated having an overview of their company's activity, 3 of 6 struggled to interpret some statistics, and one couldn't explain what they meant without help. Downloaded reports, entities monitoring the company, and company-related events were perceived as the most actionable.</p>
+                    <div class="db-ut-response">
+                      <span class="db-insight-imp"><img src="assets/dashboard/arrow-circle-right-thin.svg" alt="">Design response</span>
+                      <p>Simplified the statistics section to focus on these three key indicators, removing redundant data and metrics with limited decision-making value.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="db-insight reveal">
+                  <div class="db-insight-num">03</div>
+                  <div class="db-insight-body">
+                    <h3>Goal-based navigation worked, but too many actions created friction</h3>
+                    <p>In Task 2, all 6 participants found the right category on their first attempt, confirming that grouping actions by goal rather than product name worked. However, the number of available options, lengthy descriptions, and additional labels made the section more difficult to scan - half of the participants compared several similar cards before choosing.</p>
+                    <div class="db-ut-response">
+                      <span class="db-insight-imp"><img src="assets/dashboard/arrow-circle-right-thin.svg" alt="">Design response</span>
+                      <p>Preserved the goal-based structure while simplifying action cards, removing less relevant and external services, and making the primary actions easier to identify.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="db-insight reveal">
+                  <div class="db-insight-num">04</div>
+                  <div class="db-insight-body">
+                    <h3>Package information was among the most valued</h3>
+                    <p>In the opening and closing questions, two participants spontaneously named package limits - alongside company status - as one of the first things they check after logging in and one of the most useful pieces of information on the dashboard.</p>
+                    <div class="db-ut-response">
+                      <span class="db-insight-imp"><img src="assets/dashboard/arrow-circle-right-thin.svg" alt="">Confirmed</span>
+                      <p>Kept package information high in the dashboard hierarchy, maintaining quick access without requiring additional navigation.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="db-insight reveal">
+                  <div class="db-insight-num">05</div>
+                  <div class="db-insight-body">
+                    <h3>The security score caused anxiety instead of guidance</h3>
+                    <p>The prototype showed a security level of 50%, and participants reacted to it with stress, worry, and frustration. It wasn't clear where the value came from or how it was calculated. Company data showed that most clients would score below 50%, so the effect in production would likely be even stronger. At the same time, the score was mainly raised by paid services offered outside the customer panel.</p>
+                    <div class="db-ut-response">
+                      <span class="db-insight-imp"><img src="assets/dashboard/arrow-circle-right-thin.svg" alt="">Design response</span>
+                      <p>Removed the security score from the dashboard. Company status is now communicated through report data with a clear meaning instead of an unexplained score.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="db-ut-block db-key-insight reveal">
+              <p class="db-key-insight-label">Key takeaway</p>
+              <p class="db-key-insight-text">All three hypotheses were confirmed. V2 was moving in the right direction. Users understood the goal-based structure but still struggled to prioritize, so the final iteration focused on hierarchy rather than new features.</p>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ── FINAL ITERATION ── -->
+      <section class="db-sec" id="sec-final-iteration">
+        <div class="db-sec-inner">
+          <h4 class="cs-section-hd reveal">Final Iteration</h4>
           <div class="db-iter-section reveal">
-            <span class="db-iter-version">Final</span>
+            <span class="db-iter-version">V3</span>
             <span class="db-iter-title">Focused dashboard</span>
-            <p class="db-iter-body">The final version was based on stronger prioritization: fewer competing elements, a simpler statistics section, and a clearer focus on company status and the user's next step.</p>
+            <p class="db-iter-body">Based on testing insights, the final version focused on stronger prioritization: fewer competing elements, no security score, a simpler statistics section, and a clearer focus on company status and the user's next step.</p>
             <div class="cs-annotated reveal">
               <div class="cs-annotated-stage">
                 <div class="cs-annotated-img-wrap">
@@ -1657,49 +1939,9 @@
             </div>
             <div class="db-iter-verdict reveal">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M218.26,84.89a100.16,100.16,0,1,1-22.44-30.37l25.35-25.35a4,4,0,1,1,5.66,5.66l-96,96a4,4,0,0,1-5.66-5.66l31-31a44,44,0,1,0,15.78,31.3,4,4,0,0,1,8-.46,52,52,0,1,1-18.1-36.51l28.34-28.33A92,92,0,0,0,63,193.05,92,92,0,0,0,211,88.33a4,4,0,1,1,7.22-3.44Z"></path></svg>
-              <span class="db-iter-verdict-label">Outcome</span>
+              <span class="db-iter-verdict-label">Expected outcome</span>
             </div>
-            <p class="db-iter-verdict-text reveal">The dashboard became easier to scan and more focused on users' real decisions.</p>
-          </div>
-
-        </div>
-      </section>
-
-      <!-- ── 09 REDUCING COMPLEXITY ── -->
-      <section class="db-sec" id="sec-reductions">
-        <div class="db-sec-inner">
-          <h4 class="cs-section-hd reveal">Reducing Complexity</h4>
-          <p class="db-discovery-text reveal">The most important change across iterations was not adding new components — it was consistently removing elements that increased cognitive load, duplicated information, or had no clear decision-making value.</p>
-
-          <div class="rc-list">
-            <div class="rc-item rc-item--left reveal">
-              <span class="rc-num">01</span>
-              <span class="rc-title">Security score</span>
-              <p class="rc-removed">Removed: "Security level of your company" bar</p>
-              <span class="rc-why-label">Why</span>
-              <p class="rc-why-text">Score calculation wasn't transparent and was partly based on purchasing extra services. Could reduce trust, create unnecessary stress, and increase support questions.</p>
-            </div>
-            <div class="rc-item rc-item--right reveal">
-              <span class="rc-num">02</span>
-              <span class="rc-title">Redundant statistics</span>
-              <p class="rc-removed">Removed: statistics that duplicated content or covered unlimited services</p>
-              <span class="rc-why-label">Why</span>
-              <p class="rc-why-text">They didn't help users decide what to do next. Kept only indicators with clear value: downloaded reports, entities monitoring the company, and company-related events.</p>
-            </div>
-            <div class="rc-item rc-item--left reveal">
-              <span class="rc-num">03</span>
-              <span class="rc-title">Product catalog logic</span>
-              <p class="rc-removed">Removed: product catalog as the main navigation method</p>
-              <span class="rc-why-label">Why</span>
-              <p class="rc-why-text">It duplicated the side menu and didn't explain when a specific function was worth using. Users needed contextual action paths, not another list of products.</p>
-            </div>
-            <div class="rc-item rc-item--right reveal">
-              <span class="rc-num">04</span>
-              <span class="rc-title">Too many action options</span>
-              <p class="rc-removed">Removed: less critical and external action options</p>
-              <span class="rc-why-label">Why</span>
-              <p class="rc-why-text">Too many options in "What can you do now?" section weakened hierarchy and could recreate the old problem - many possibilities, but no clear priority for the user.</p>
-            </div>
+            <p class="db-iter-verdict-text reveal">The final version aims to make the dashboard easier to scan and more focused on users' real decisions.</p>
           </div>
 
         </div>
@@ -1725,7 +1967,7 @@
               <img src="assets/dashboard/final-ui-package.png" alt="Package visibility" class="fui-img reveal">
               <div class="fui-why">
                 <span class="fui-why-label">Why</span>
-                <p>Package limits were one of the most common reasons for contacting support. Showing them on the dashboard reduces uncertainty and enables faster action.</p>
+                <p>Package limits were one of the most common reasons for contacting support. In testing, participants named them among the most useful information on the dashboard.</p>
               </div>
             </div>
 
@@ -1749,13 +1991,13 @@
                 <div class="fui-num">3</div>
                 <div class="fui-header-text">
                   <span class="fui-title">Focused statistics</span>
-                  <p class="fui-desc">Only three statistics with clear decision-making value: downloaded reports, entities monitoring the company, and company-related events.</p>
+                  <p class="fui-desc">Downloaded reports, entities monitoring the company, and company-related events.</p>
                 </div>
               </div>
               <img src="assets/dashboard/final-ui-statistics.png" alt="Focused statistics" class="fui-img reveal">
               <div class="fui-why">
                 <span class="fui-why-label">Why</span>
-                <p>Removing statistics that duplicated data or referred to unlimited services strengthened the overall hierarchy without reducing useful information.</p>
+                <p>Fewer, clearer indicators strengthen the overall hierarchy.</p>
               </div>
             </div>
 
@@ -1764,7 +2006,7 @@
                 <div class="fui-num">4</div>
                 <div class="fui-header-text">
                   <span class="fui-title">Guided actions</span>
-                  <p class="fui-desc">The product passage replaced by "What can you do now?" - recommended actions grouped by goal: taking care of your company, checking a contractor, or recovering receivables.</p>
+                  <p class="fui-desc">The product catalog was replaced by "What can you do now?" - recommended actions grouped by goal: taking care of your company, checking a contractor, or recovering receivables.</p>
                 </div>
               </div>
               <img src="assets/dashboard/final-ui-guided-actions.png" alt="Guided actions" class="fui-img reveal">
@@ -1848,8 +2090,12 @@
                 <span>What worked well</span>
               </div>
               <div class="cs-refl-point">
-                <span class="cs-refl-point-label">Support insights helped define priorities early</span>
-                <p>Since usability testing and reliable homepage analytics were not available at this stage, customer support became the strongest available source of user insight. It helped identify recurring problems around package limits, reports, service discoverability, company status, and unclear next steps.</p>
+                <span class="cs-refl-point-label">Support teams are an underrated research source</span>
+                <p>Recurring questions revealed real user problems faster than waiting for analytics would have.</p>
+              </div>
+              <div class="cs-refl-point">
+                <span class="cs-refl-point-label">Testing V2 before polishing it paid off</span>
+                <p>The final iteration could focus on what users actually struggled with - such as the security score and the number of actions - instead of assumptions.</p>
               </div>
               <div class="cs-refl-point">
                 <span class="cs-refl-point-label">User questions became a decision-making framework</span>
@@ -1863,8 +2109,8 @@
                 <span>What I would improve</span>
               </div>
               <div class="cs-refl-point">
-                <span class="cs-refl-point-label">Validate the hierarchy with lightweight usability testing</span>
-                <p>If the project had moved further, I would validate the final dashboard structure with short task-based sessions - especially around finding package limits, understanding company status, and choosing the next action.</p>
+                <span class="cs-refl-point-label">Test the final version as well</span>
+                <p>The usability sessions validated V2, but the changes made in the final iteration were not tested. I would repeat the same task-based sessions on the final version - assessing company status, checking a contractor, and handling an overdue payment - to confirm improvements in task efficiency and usability.</p>
               </div>
               <div class="cs-refl-point">
                 <span class="cs-refl-point-label">Define success criteria earlier</span>

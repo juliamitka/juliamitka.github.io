@@ -49,6 +49,8 @@
       display: flex;
       gap: 16px;
     }
+    .mb-hero-media { margin-top: 48px; }
+    .mb-hero-media .mb-hero-phones { margin-top: 0; }
     .mb-hero-phones img {
       flex: 1 1 0;
       min-width: 0;
@@ -688,11 +690,16 @@
           <!-- Description -->
           <p class="cs-hero-sub reveal">Dashboard redesign and onboarding design for a B2B mobile application - simplifying financial data interpretation and improving clarity of key indicators.</p>
 
-          <!-- Phone screens -->
-          <div class="mb-hero-phones reveal">
-            <img src="assets/mobile/hero-1.png" alt="Redesigned dashboard with credibility gauge">
-            <img src="assets/mobile/hero-2.png" alt="Onboarding welcome coach mark">
-            <img src="assets/mobile/hero-4.png" alt="Coach mark explaining report information">
+          <!-- Hero video: plays once; the phone screens are the fallback (reduced motion / no playback) -->
+          <div class="cs-hero-media mb-hero-media reveal">
+            <div class="mb-hero-phones cs-hero-still">
+              <img src="assets/mobile/hero-1.png" alt="Redesigned dashboard with credibility gauge">
+              <img src="assets/mobile/hero-2.png" alt="Onboarding welcome coach mark">
+              <img src="assets/mobile/hero-4.png" alt="Coach mark explaining report information">
+            </div>
+            <video class="cs-hero-video" autoplay muted playsinline preload="auto" aria-hidden="true">
+              <source src="assets/mobile/hero-video.mp4" type="video/mp4">
+            </video>
           </div>
 
           <!-- Info boxes -->
@@ -850,7 +857,7 @@
                 <ul class="mb-dash-list">
                   <li>separate card</li>
                   <li>progress bar</li>
-                  <li>clear 0—100 scale</li>
+                  <li>clear 0-100 scale</li>
                 </ul>
               </div>
             </div>
